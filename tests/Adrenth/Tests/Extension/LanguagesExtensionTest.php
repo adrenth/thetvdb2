@@ -2,7 +2,7 @@
 
 namespace Adrenth\Tests\Extension;
 
-use Adrenth\Thetvdb\Client;
+use Adrenth\Tests\ClientTest;
 use Adrenth\Thetvdb\Extension\LanguagesExtension;
 use Adrenth\Thetvdb\Model\Language;
 use Adrenth\Thetvdb\Model\LanguageData;
@@ -17,17 +17,18 @@ use Illuminate\Support\Collection;
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link     https://github.com/adrenth/thetvdb2
  */
-class LanguagesExtensionTest extends \PHPUnit_Framework_TestCase
+class LanguagesExtensionTest extends ClientTest
 {
     /** @type LanguagesExtension */
     protected $extension;
 
+    /**
+     * {@inheritdoc}
+     */
     public function setUp()
     {
-        $client = new Client();
-        $token = $client->authentication()->login(API_KEY, API_USERNAME, API_PASSWORD);
-        $client->setToken($token);
-        $this->extension = new LanguagesExtension($client);
+        parent::setUp();
+        $this->extension = new LanguagesExtension($this->client);
     }
 
     public function testAllLanguages()
@@ -55,4 +56,3 @@ class LanguagesExtensionTest extends \PHPUnit_Framework_TestCase
         self::assertInternalType('int', $language->getId());
     }
 }
-

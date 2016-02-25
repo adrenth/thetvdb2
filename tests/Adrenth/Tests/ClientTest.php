@@ -9,9 +9,6 @@ use Adrenth\Thetvdb\Extension\LanguagesExtension;
 use Adrenth\Thetvdb\Extension\SearchExtension;
 use Adrenth\Thetvdb\Extension\UpdatesExtension;
 use Adrenth\Thetvdb\Extension\UsersExtension;
-use Adrenth\Thetvdb\Model\Language;
-use Adrenth\Thetvdb\Model\LanguageData;
-use Illuminate\Support\Collection;
 
 /**
  * Class ClientTest
