@@ -1,6 +1,6 @@
 # adrenth/thetvdb
 
-This is an API client for the thetvdb.com website. It's using the XML feeds that are publicly available.
+This is an API client for the thetvdb.com website. It's using the RESTful API which you'll need to register for to use this package.
 
 ## API Key Registration
 
