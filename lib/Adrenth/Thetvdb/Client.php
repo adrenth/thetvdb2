@@ -43,10 +43,10 @@ class Client implements ClientInterface
     private $token;
 
     /** @type string */
-    private $language;
+    private $language = 'en';
 
     /** @type string */
-    private $version;
+    private $version = '1.2.0';
 
     /**
      * RestClient constructor.

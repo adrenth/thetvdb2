@@ -7,7 +7,7 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false"
+         stopOnFailure="true"
          syntaxCheck="false"
          bootstrap="./tests/Adrenth/Tests/TestInit.php"
         >
@@ -21,4 +21,9 @@
             <directory>./lib/Adrenth/</directory>
         </whitelist>
     </filter>
+    <php>
+        <const name="API_KEY" value="" />
+        <const name="API_USERNAME" value="" />
+        <const name="API_PASSWORD" value="" />
+    </php>
 </phpunit>
