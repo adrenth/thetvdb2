@@ -22,7 +22,7 @@ use GuzzleHttp\Psr7\Response;
  * @package  Adrenth\Thetvdb
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb
+ * @link     https://github.com/adrenth/thetvdb2
  */
 class Client implements ClientInterface
 {

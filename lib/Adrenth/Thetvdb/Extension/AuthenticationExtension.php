@@ -17,7 +17,7 @@ use Adrenth\Thetvdb\Exception\UnauthorizedException;
  * @package  Adrenth\Thetvdb\Extension
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb
+ * @link     https://github.com/adrenth/thetvdb2
  */
 class AuthenticationExtension extends ClientExtension
 {
@@ -31,7 +31,7 @@ class AuthenticationExtension extends ClientExtension
      * @param string $apiKey
      * @param string $username
      * @param string $password
-     * @return mixed
+     * @return string
      * @throws CouldNotLoginException
      * @throws UnauthorizedException
      */
