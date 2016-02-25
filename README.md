@@ -1,8 +1,5 @@
 # adrenth/thetvdb
 
-[![Build Status](https://travis-ci.org/adrenth/thetvdb.svg?branch=master)](https://travis-ci.org/adrenth/thetvdb2)
-[![Latest Stable Version](https://poser.pugx.org/adrenth/thetvdb/v/stable)](https://packagist.org/packages/adrenth/thetvdb2) [![Total Downloads](https://poser.pugx.org/adrenth/thetvdb/downloads)](https://packagist.org/packages/adrenth/thetvdb) [![Latest Unstable Version](https://poser.pugx.org/adrenth/thetvdb/v/unstable)](https://packagist.org/packages/adrenth/thetvdb2) [![License](https://poser.pugx.org/adrenth/thetvdb/license)](https://packagist.org/packages/adrenth/thetvdb2)
-
 This is an API client for the thetvdb.com website. It's using the XML feeds that are publicly available.
 
 ## API Key Registration
