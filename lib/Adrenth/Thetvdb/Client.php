@@ -28,13 +28,10 @@ class Client implements ClientInterface
 {
     /**
      * Base URI
-     * https://api.thetvdb.com
-     * https://api-dev.thetvdb.com
-     * https://api-beta.thetvdb.com
      *
      * @type string
      */
-    const API_BASE_URI = 'https://api-beta.thetvdb.com';
+    const API_BASE_URI = 'https://api.thetvdb.com';
 
     /** @type HttpClient */
     private $httpClient;
@@ -46,7 +43,7 @@ class Client implements ClientInterface
     private $language = 'en';
 
     /** @type string */
-    private $version = '1.2.0';
+    private $version = '2.1.0';
 
     /**
      * RestClient constructor.

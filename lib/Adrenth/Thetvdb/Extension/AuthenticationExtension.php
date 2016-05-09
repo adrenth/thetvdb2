@@ -25,17 +25,17 @@ class AuthenticationExtension extends ClientExtension
      * Returns a session token to be included in the rest of the requests.
      *
      * Example of usage:
-     * $token = $client->authentication()->login('apikey', 'username', 'password');
+     * $token = $client->authentication()->login('apikey', 'username', 'accountIdentifier');
      * $client->setToken($token);
      *
      * @param string $apiKey
      * @param string $username
-     * @param string $password
+     * @param string $accountIdentifier
      * @return string
      * @throws CouldNotLoginException
      * @throws UnauthorizedException
      */
-    public function login($apiKey, $username, $password)
+    public function login($apiKey, $username, $accountIdentifier)
     {
         $this->client->setToken(null);
 
@@ -43,9 +43,9 @@ class AuthenticationExtension extends ClientExtension
             'body' => json_encode([
                 'apikey' => $apiKey,
                 'username' => $username,
-                'userpass' => $password,
+                'userkey' => $accountIdentifier,
             ]),
-            'http_errors' => false
+            'http_errors' => true
         ]);
 
         if ($response->getStatusCode() === 200) {
