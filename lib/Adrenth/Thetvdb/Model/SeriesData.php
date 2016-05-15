@@ -7,7 +7,7 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Illuminate\Support\Collection;
 
 /**
- * Class EpisodeData
+ * Class SeriesData
  *
  * @category Thetvdb
  * @package  Adrenth\Thetvdb\Model
@@ -17,7 +17,7 @@ use Illuminate\Support\Collection;
  *
  * @method Collection getData()
  */
-class EpisodeData extends ValueObject
+class SeriesData extends ValueObject
 {
     /**
      * {@inheritdoc}
@@ -30,8 +30,8 @@ class EpisodeData extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $episode) {
-            $items[] = new Episode(['data' => $episode]);
+        foreach ($values['data'] as $serie) {
+            $items[] = new Series(['data' => $serie]);
         }
 
         parent::__construct([
