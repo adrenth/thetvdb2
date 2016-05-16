@@ -5,11 +5,11 @@ namespace Adrenth\Thetvdb;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Adrenth\Thetvdb\Exception\InvalidJsonInResponseException;
 use Adrenth\Thetvdb\Model\Episode;
-use Adrenth\Thetvdb\Model\EpisodeData;
 use Adrenth\Thetvdb\Model\FilterKeys;
 use Adrenth\Thetvdb\Model\Language;
 use Adrenth\Thetvdb\Model\LanguageData;
 use Adrenth\Thetvdb\Model\Series;
+use Adrenth\Thetvdb\Model\SeriesData;
 use Adrenth\Thetvdb\Model\SeriesActors;
 use Adrenth\Thetvdb\Model\SeriesEpisodes;
 use Adrenth\Thetvdb\Model\SeriesEpisodesQuery;
@@ -72,7 +72,7 @@ class ResponseHandler implements ResponseHandlerInterface
         self::METHOD_SERIES_IMAGES_QUERY => SeriesImageQueryResults::class,
         self::METHOD_LANGUAGES => LanguageData::class,
         self::METHOD_LANGUAGE => Language::class,
-        self::METHOD_SEARCH_SERIES => EpisodeData::class,
+        self::METHOD_SEARCH_SERIES => SeriesData::class,
         self::METHOD_UPDATES => UpdateData::class,
         self::METHOD_USER => UserData::class,
         self::METHOD_USER_FAVORITES => UserFavoritesData::class,

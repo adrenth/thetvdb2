@@ -24,6 +24,6 @@
     <php>
         <const name="API_KEY" value="" />
         <const name="API_USERNAME" value="" />
-        <const name="API_PASSWORD" value="" />
+        <const name="API_USER_KEY" value="" />
     </php>
 </phpunit>

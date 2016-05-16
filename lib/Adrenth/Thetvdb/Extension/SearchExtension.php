@@ -7,7 +7,7 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Adrenth\Thetvdb\Exception\InvalidJsonInResponseException;
 use Adrenth\Thetvdb\Exception\RequestFailedException;
 use Adrenth\Thetvdb\Exception\UnauthorizedException;
-use Adrenth\Thetvdb\Model\EpisodeData;
+use Adrenth\Thetvdb\Model\SeriesData;
 use Adrenth\Thetvdb\ResponseHandler;
 
 /**
@@ -29,7 +29,7 @@ class SearchExtension extends ClientExtension
      * Search for a series based on name.
      *
      * @param string $name
-     * @return EpisodeData
+     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -44,7 +44,7 @@ class SearchExtension extends ClientExtension
      * Search for a series based on IMDb ID.
      *
      * @param string $imdbId
-     * @return EpisodeData
+     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -59,7 +59,7 @@ class SearchExtension extends ClientExtension
      * Search for a series based on ZAP2IT ID.
      *
      * @param string $zap2itId
-     * @return EpisodeData
+     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -75,7 +75,7 @@ class SearchExtension extends ClientExtension
      *
      * @param string $parameter
      * @param string $value
-     * @return EpisodeData
+     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
