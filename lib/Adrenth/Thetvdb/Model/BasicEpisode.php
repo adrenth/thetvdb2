@@ -36,6 +36,7 @@ class BasicEpisode extends ValueObject
             'dvdSeason',
             'episodeName',
             'overview',
+            'firstAired'
         ];
     }
 }
