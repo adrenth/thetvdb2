@@ -30,8 +30,8 @@ class SeriesData extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $serie) {
-            $items[] = new Series(['data' => $serie]);
+        foreach ($values['data'] as $series) {
+            $items[] = new Series(['data' => $series]);
         }
 
         parent::__construct([
