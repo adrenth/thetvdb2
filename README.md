@@ -1,4 +1,4 @@
-# adrenth/thetvdb
+# adrenth/thetvdb2
 
 This is an API client for the thetvdb.com website. It's using the RESTful API which you'll need to register for to use this package.
 
@@ -24,6 +24,114 @@ Install this package using composer:
 
 ````
 $ composer require adrenth/thetvdb2
+````
+
+## Documentation
+
+The official API documentation can be found here: [https://api.thetvdb.com/swagger]().
+
+### Authentication
+
+````
+$client = new \Adrenth\Thetvdb\Client();
+$client->setLanguage('nl');
+
+// Obtain a token
+$token = $client->authentication()->login($apiKey, $username, $userKey);
+$client->setToken($token);
+
+// Or refresh token
+$client->refreshToken();
+````
+
+### Extensions
+
+The `Client` has a few extensions. A few usage examples are listed below:
+
+#### Authentication
+````
+$client->authentication()->login($apiKey, $username, $userKey);
+$client->authentication()->refreshToken();
+````
+
+#### Languages
+````
+$client->languages()->all();
+$client->languages()->get($languageId);
+````
+
+#### Episodes
+````
+$client->episodes()->get($episodeId);
+// ..
+````
+
+#### Series
+````
+$client->series()->get($seriesId);
+$client->series()->getActors($seriesId);
+$client->series()->getEpisodes($seriesId);
+$client->series()->getImages($seriesId);
+$client->series()->getLastModified($seriesId);
+// ..
+````
+
+#### Search
+````
+$client->search()->seriesByName('lost');
+$client->search()->seriesByImdbId('tt2243973');
+$client->search()->seriesByZap2itId('EP015679352');
+// ..
+````
+
+#### Updates
+
+Fetch a list of Series that have been recently updated:
+
+````
+$client->updates()->query($fromTime, $toTime);
+````
+
+#### Users
+
+````
+$client->users()->get();
+$client->users()->getFavorites();
+$client->users()->addFavorite($identifier);
+$client->users()->removeFavorite($identifier);
+$client->users()->getRatings();
+$client->users()->addRating($type, $itemId, $rating);
+$client->users()->updateRating($type, $itemId, $rating);
+$client->users()->removeRating($type, $itemId);
+
+//..
+````
+
+### Response data
+
+Every response object has a `getData()` method which may contain a collection of objects.
+
+For example:
+
+````
+// Get all available languages
+$languageData = $client->languages()->all(); // Returns a LanguagData instance
+$languages = $languageData->getData()->all();
+
+array:23 [▼
+  0 => Language {#26 ▼
+    -values: array:4 [▼
+      "id" => 27
+      "abbreviation" => "zh"
+      "name" => "中文"
+      "englishName" => "Chinese"
+    ]
+  }
+  1 => Language {#19 ▶}
+  2 => Language {#30 ▶}
+  3 => Language {#21 ▶}
+  // ..
+];  
 ````
 
 ## Contributing
