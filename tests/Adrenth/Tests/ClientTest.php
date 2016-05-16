@@ -30,7 +30,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->client->setVersion('1.2.0')
             ->setLanguage('en');
 
-        $token = $this->client->authentication()->login(API_KEY, API_USERNAME, API_PASSWORD);
+        $token = $this->client->authentication()->login(API_KEY, API_USERNAME, API_USER_KEY);
 
         self::assertInternalType('string', $token);
 
