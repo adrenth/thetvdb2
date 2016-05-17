@@ -115,7 +115,7 @@ For example:
 
 ````
 // Get all available languages
-$languageData = $client->languages()->all(); // Returns a LanguagData instance
+$languageData = $client->languages()->all(); // Returns a LanguageData instance
 $languages = $languageData->getData()->all();
 
 array:23 [▼
