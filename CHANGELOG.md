@@ -2,12 +2,16 @@
 
 # 1.0.0
 
-* Initial release
+* Initial release.
 
 # 1.0.1
 
-* Fixed searching for series resulted in a wrong response object. Fixed by X11 
+* Fixed searching for series resulted in a wrong response object. Fixed by X11.
 
 # 1.0.2
 
-* Add package documentation
+* Add package documentation.
+
+# 1.0.3
+
+* Added firstAired attribute in BasicEpisode.
