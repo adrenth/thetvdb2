@@ -27,24 +27,29 @@ class AuthenticationExtension extends ClientExtension
      * Example of usage:
      * $token = $client->authentication()->login('apikey', 'username', 'accountIdentifier');
      * $client->setToken($token);
+     * or
+     * $token = $client->authentication()->login('apikey');
+     * $client->setToken($token);
      *
      * @param string $apiKey
-     * @param string $username
-     * @param string $accountIdentifier
+     * @param string $username (optional)
+     * @param string $accountIdentifier (optional)
      * @return string
      * @throws CouldNotLoginException
      * @throws UnauthorizedException
      */
-    public function login($apiKey, $username, $accountIdentifier)
+    public function login($apiKey, $username = '', $accountIdentifier = '')
     {
         $this->client->setToken(null);
 
+        $arguments = ['apikey' => $apiKey];
+        if($username !== '' && $accountIdentifier !== '') {
+            $arguments['username'] = $username;
+            $arguments['userkey'] = $accountIdentifier;
+        }
+
         $response = $this->client->performApiCall('post', '/login', [
-            'body' => json_encode([
-                'apikey' => $apiKey,
-                'username' => $username,
-                'userkey' => $accountIdentifier,
-            ]),
+            'body' => json_encode($arguments),
             'http_errors' => true
         ]);
 
