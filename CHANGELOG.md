@@ -15,3 +15,7 @@
 # 1.0.3
 
 * Added firstAired attribute in BasicEpisode.
+
+# 1.0.4
+
+* API login: Make username and userkey optional

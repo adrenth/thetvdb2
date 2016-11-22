@@ -35,16 +35,24 @@ class AuthenticationExtension extends ClientExtension
      * @throws CouldNotLoginException
      * @throws UnauthorizedException
      */
-    public function login($apiKey, $username, $accountIdentifier)
+    public function login($apiKey, $username = null, $accountIdentifier = null)
     {
         $this->client->setToken(null);
 
+        $data = [
+            'apikey' => $apiKey
+        ];
+
+        if ($username !== null) {
+            $data['username'] = $username;
+        }
+
+        if ($accountIdentifier !== null) {
+            $data['userkey'] = $accountIdentifier;
+        }
+
         $response = $this->client->performApiCall('post', '/login', [
-            'body' => json_encode([
-                'apikey' => $apiKey,
-                'username' => $username,
-                'userkey' => $accountIdentifier,
-            ]),
+            'body' => json_encode($data),
             'http_errors' => true
         ]);
 
