@@ -32,8 +32,11 @@ class UpdatesExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function query(\DateTime $fromTime, \DateTime $toTime)
+    public function query(\DateTime $fromTime, \DateTime $toTime = null)
     {
+        if ($toTime === null) {
+            $toTime = new \DateTime();
+        }
         $options = [
             'query' => [
                 'fromTime' => $fromTime->getTimestamp(),
