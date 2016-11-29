@@ -32,14 +32,17 @@ class UpdatesExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function query(\DateTime $fromTime, \DateTime $toTime)
+    public function query(\DateTime $fromTime, \DateTime $toTime = null)
     {
         $options = [
             'query' => [
                 'fromTime' => $fromTime->getTimestamp(),
-                'toTime' => $toTime->getTimestamp(),
-            ]
+            ],
         ];
+
+        if ($toTime !== null) {
+            $options['query']['toTime'] = $toTime->getTimestamp();
+        }
 
         $json = $this->client->performApiCallWithJsonResponse('get', '/updated/query', $options);
         return ResponseHandler::create($json, ResponseHandler::METHOD_UPDATES)->handle();

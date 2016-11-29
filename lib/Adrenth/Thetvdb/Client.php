@@ -64,6 +64,7 @@ class Client implements ClientInterface
             [
                 'base_uri' => self::API_BASE_URI,
                 'verify' => false,
+                'http_errors' => false,
                 //'proxy' => 'tcp://localhost:8080',
                 'headers' => [
                     'Content-Type' => 'application/json',
