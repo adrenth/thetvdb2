@@ -34,6 +34,9 @@ class UpdatesExtension extends ClientExtension
      */
     public function query(\DateTime $fromTime, \DateTime $toTime = null)
     {
+        if ($toTime === null) {
+            $toTime = new \DateTime();
+        }
         $options = [
             'query' => [
                 'fromTime' => $fromTime->getTimestamp(),
