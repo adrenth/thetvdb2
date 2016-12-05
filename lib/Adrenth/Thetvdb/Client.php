@@ -236,6 +236,8 @@ class Client implements ClientInterface
             $headers['Accept'] = 'application/vnd.thetvdb.v' . $this->version;
         }
 
+        $options['http_errors'] = false;
+
         return array_merge_recursive(
             [
                 'headers' => $headers,
