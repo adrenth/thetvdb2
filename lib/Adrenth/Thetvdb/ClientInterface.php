@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb;
 
 use Adrenth\Thetvdb\Exception\RequestFailedException;
@@ -30,7 +32,7 @@ interface ClientInterface
      * @param string $token
      * @return $this
      */
-    public function setToken($token);
+    public function setToken(?string $token);
 
     /**
      * Set language for this Client
@@ -38,7 +40,7 @@ interface ClientInterface
      * @param string $language Language abbreviation. E.g. en, nl or de.
      * @return $this
      */
-    public function setLanguage($language);
+    public function setLanguage(string $language);
 
     /**
      * Set version for this Client
@@ -46,56 +48,56 @@ interface ClientInterface
      * @param string $version Version in format x.y.z
      * @return $this
      */
-    public function setVersion($version);
+    public function setVersion(string $version);
 
     /**
      * Get authentication extension
      *
      * @return AuthenticationExtension
      */
-    public function authentication();
+    public function authentication(): AuthenticationExtension;
 
     /**
      * Get language extension
      *
      * @return LanguagesExtension
      */
-    public function languages();
+    public function languages(): LanguagesExtension;
 
     /**
      * Get episodes extension
      *
      * @return EpisodesExtension
      */
-    public function episodes();
+    public function episodes(): EpisodesExtension;
 
     /**
      * Get series extension
      *
      * @return SeriesExtension
      */
-    public function series();
+    public function series(): SeriesExtension;
 
     /**
      * Get search extension
      *
      * @return SearchExtension
      */
-    public function search();
+    public function search(): SearchExtension;
 
     /**
      * Get updates extension
      *
      * @return UpdatesExtension
      */
-    public function updates();
+    public function updates(): UpdatesExtension;
 
     /**
      * Get users extension
      *
      * @return UsersExtension
      */
-    public function users();
+    public function users(): UsersExtension;
 
     /**
      * Request HTTP headers
@@ -105,7 +107,7 @@ interface ClientInterface
      * @param array $options HTTP Client options
      * @return array
      */
-    public function requestHeaders($method, $path, array $options = []);
+    public function requestHeaders(string $method, string $path, array $options = []): array;
 
     /**
      * Perform an API call
@@ -116,7 +118,7 @@ interface ClientInterface
      * @return Response
      * @throws UnauthorizedException
      */
-    public function performApiCall($method, $path, array $options = []);
+    public function performApiCall(string $method, string $path, array $options = []): Response;
 
     /**
      * Perform an API call with JSON response
@@ -128,5 +130,5 @@ interface ClientInterface
      * @throws RequestFailedException
      * @throws UnauthorizedException
      */
-    public function performApiCallWithJsonResponse($method, $path, array $options = []);
+    public function performApiCallWithJsonResponse(string $method, string $path, array $options = []): string;
 }

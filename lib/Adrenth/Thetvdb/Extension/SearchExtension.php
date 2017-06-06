@@ -35,7 +35,7 @@ class SearchExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function seriesByName($name)
+    public function seriesByName(string $name): SeriesData
     {
         return $this->search(static::PARAMETER_NAME, $name);
     }
@@ -50,7 +50,7 @@ class SearchExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function seriesByImdbId($imdbId)
+    public function seriesByImdbId(string $imdbId): SeriesData
     {
         return $this->search(static::PARAMETER_IMDB_ID, $imdbId);
     }
@@ -65,7 +65,7 @@ class SearchExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function seriesByZap2itId($zap2itId)
+    public function seriesByZap2itId(string $zap2itId): SeriesData
     {
         return $this->search(static::PARAMETER_ZAP2IT_ID, $zap2itId);
     }
@@ -81,7 +81,7 @@ class SearchExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    private function search($parameter, $value)
+    private function search(string $parameter, string $value): SeriesData
     {
         $options = [
             'query' => [

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Model;
 
 /**
@@ -21,7 +23,7 @@ class Links extends ValueObject
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return [
             'first',

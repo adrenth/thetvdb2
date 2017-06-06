@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Model;
 
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
@@ -52,7 +54,7 @@ class Series extends ValueObject
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return [
             'id',

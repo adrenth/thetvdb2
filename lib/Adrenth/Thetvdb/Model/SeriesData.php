@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Model;
 
@@ -30,7 +31,7 @@ class SeriesData extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $series) {
+        foreach ((array) $values['data'] as $series) {
             $items[] = new Series(['data' => $series]);
         }
 
@@ -42,7 +43,7 @@ class SeriesData extends ValueObject
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return [
             'data'

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Exception;
 
 /**
@@ -17,7 +19,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param string $index
      * @return static
      */
-    public static function expectedIndex($index)
+    public static function expectedIndex(string $index)
     {
         return new static(sprintf(
             'Expected index %s not found',
@@ -30,7 +32,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param string $class
      * @return static
      */
-    public static function undefinedAttribute($attribute, $class)
+    public static function undefinedAttribute(string $attribute, string $class)
     {
         return new static(sprintf(
             'Undefined attribute %s in class %s',
@@ -44,7 +46,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param string $class
      * @return static
      */
-    public static function noValueForAttribute($attribute, $class)
+    public static function noValueForAttribute(string $attribute, string $class)
     {
         return new static(sprintf(
             'No value for attribute %s found in class %s',
@@ -58,7 +60,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param array $availableMethods
      * @return static
      */
-    public static function invalidMethod($method, array $availableMethods)
+    public static function invalidMethod(string $method, array $availableMethods)
     {
         return new static(sprintf(
             'Invalid method %s, use one of these instead: %s',

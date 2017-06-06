@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb;
 
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
@@ -93,7 +95,7 @@ class ResponseHandler implements ResponseHandlerInterface
      * @param string $method Method
      * @throws InvalidArgumentException
      */
-    public function __construct($json, $method)
+    public function __construct(string $json, string $method)
     {
         $this->json = $json;
 
@@ -110,7 +112,7 @@ class ResponseHandler implements ResponseHandlerInterface
      * @return static
      * @throws InvalidArgumentException
      */
-    public static function create($json, $method)
+    public static function create(string $json, string $method)
     {
         return new static($json, $method);
     }
@@ -144,7 +146,7 @@ class ResponseHandler implements ResponseHandlerInterface
      * @param string $method
      * @return bool
      */
-    private function isValidMethod($method)
+    private function isValidMethod(string $method): bool
     {
         return array_key_exists($method, self::$mapping);
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Extension;
 
 use Adrenth\Thetvdb\ClientExtension;
@@ -9,6 +11,7 @@ use Adrenth\Thetvdb\Exception\RequestFailedException;
 use Adrenth\Thetvdb\Exception\UnauthorizedException;
 use Adrenth\Thetvdb\Model\UpdateData;
 use Adrenth\Thetvdb\ResponseHandler;
+use DateTime;
 
 /**
  * Class UpdatesExtension
@@ -24,15 +27,15 @@ use Adrenth\Thetvdb\ResponseHandler;
 class UpdatesExtension extends ClientExtension
 {
     /**
-     * @param \DateTime $fromTime
-     * @param \DateTime $toTime
+     * @param DateTime $fromTime
+     * @param DateTime $toTime
      * @return UpdateData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function query(\DateTime $fromTime, \DateTime $toTime = null)
+    public function query(DateTime $fromTime, DateTime $toTime = null): UpdateData
     {
         $options = [
             'query' => [

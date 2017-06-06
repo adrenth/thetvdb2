@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Model;
 
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
@@ -29,7 +31,7 @@ class UpdateData extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $update) {
+        foreach ((array) $values['data'] as $update) {
             $items[] = new Update($update);
         }
 
@@ -41,7 +43,7 @@ class UpdateData extends ValueObject
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return [
             'data'

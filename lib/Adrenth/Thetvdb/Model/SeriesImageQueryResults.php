@@ -29,7 +29,7 @@ class SeriesImageQueryResults extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $seriesImageQueryResult) {
+        foreach ((array) $values['data'] as $seriesImageQueryResult) {
             $items[] = new SeriesImageQueryResult($seriesImageQueryResult);
         }
 
@@ -41,7 +41,7 @@ class SeriesImageQueryResults extends ValueObject
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return [
             'data',

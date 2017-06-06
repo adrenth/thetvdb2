@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Exception;
 
 /**
@@ -17,7 +19,7 @@ class CouldNotAddOrUpdateUserRatingException extends \InvalidArgumentException
      * @param string $message
      * @return static
      */
-    public static function reason($message)
+    public static function reason(string $message)
     {
         return new static('Could not add rating: ' . $message);
     }
