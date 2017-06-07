@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Model;
 
+use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Illuminate\Support\Collection;
-use InvalidArgumentException;
 
 /**
  * Class SeriesActors
@@ -31,7 +31,7 @@ class SeriesActors extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $seriesActorsData) {
+        foreach ((array) $values['data'] as $seriesActorsData) {
             $items[] = new SeriesActorsData($seriesActorsData);
         }
 
