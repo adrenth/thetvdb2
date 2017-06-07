@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Exception;
 
 /**
@@ -25,7 +27,7 @@ class CouldNotLoginException extends \InvalidArgumentException
      * @param int $statusCode
      * @return static
      */
-    public static function failedWithStatusCode($statusCode)
+    public static function failedWithStatusCode(int $statusCode)
     {
         return new static(sprintf('Login failed: Got status code %d from API', $statusCode));
     }
@@ -42,7 +44,7 @@ class CouldNotLoginException extends \InvalidArgumentException
      * @param string $message
      * @return static
      */
-    public static function invalidContents($message)
+    public static function invalidContents(string $message)
     {
         return new static('Login failed: Could not read response contents: ' . $message);
     }

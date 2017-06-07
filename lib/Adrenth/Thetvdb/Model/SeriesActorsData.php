@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Model;
 
 /**
@@ -26,7 +28,7 @@ class SeriesActorsData extends ValueObject
     /**
      * @return array
      */
-    protected function getAttributes()
+    protected function getAttributes(): array
     {
         return [
             'id',

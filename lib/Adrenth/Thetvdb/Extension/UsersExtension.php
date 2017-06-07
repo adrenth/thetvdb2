@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Extension;
 
 use Adrenth\Thetvdb\ClientExtension;
@@ -50,7 +52,7 @@ class UsersExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function get()
+    public function get(): UserData
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/user');
         return ResponseHandler::create($json, ResponseHandler::METHOD_USER)->handle();
@@ -65,7 +67,7 @@ class UsersExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function getFavorites()
+    public function getFavorites(): UserFavoritesData
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/user/favorites');
         return ResponseHandler::create($json, ResponseHandler::METHOD_USER_FAVORITES)->handle();
@@ -78,7 +80,7 @@ class UsersExtension extends ClientExtension
      * @return bool
      * @throws UnauthorizedException
      */
-    public function removeFavorite($identifier)
+    public function removeFavorite(int $identifier): bool
     {
         $response = $this->client->performApiCall(
             'delete',
@@ -102,7 +104,7 @@ class UsersExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws CouldNotAddFavoriteException
      */
-    public function addFavorite($identifier)
+    public function addFavorite(int $identifier): UserFavoritesData
     {
         $identifier = (int) $identifier;
 
@@ -137,7 +139,7 @@ class UsersExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function getRatings($type = null)
+    public function getRatings(string $type = null): UserRatingsData
     {
         if ($type !== null && !in_array($type, self::$ratingTypes, true)) {
             throw new InvalidArgumentException(
@@ -174,7 +176,7 @@ class UsersExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function addRating($type, $itemId, $rating)
+    public function addRating(int $type, int $itemId, int $rating): UserRatingsDataNoLinks
     {
         if (!in_array($type, self::$ratingTypes, true)) {
             throw new InvalidArgumentException(
@@ -195,7 +197,6 @@ class UsersExtension extends ClientExtension
                     'http_errors' => true
                 ]
             );
-
         } catch (ClientException $e) {
             $message = $this->getApiErrorMessage($e->getResponse());
 
@@ -221,9 +222,9 @@ class UsersExtension extends ClientExtension
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      */
-    public function updateRating($type, $itemId, $rating)
+    public function updateRating(int $type, int $itemId, int $rating): UserRatingsDataNoLinks
     {
-        $this->addRating($type, $itemId, $rating);
+        return $this->addRating($type, $itemId, $rating);
     }
 
     /**
@@ -234,7 +235,7 @@ class UsersExtension extends ClientExtension
      * @return bool
      * @throws UnauthorizedException
      */
-    public function removeRating($type, $itemId)
+    public function removeRating(int $type, int $itemId): bool
     {
         $response = $this->client->performApiCall(
             'delete',
@@ -253,7 +254,7 @@ class UsersExtension extends ClientExtension
      * @param ResponseInterface $response
      * @return string
      */
-    private function getApiErrorMessage(ResponseInterface $response)
+    private function getApiErrorMessage(ResponseInterface $response): string
     {
         try {
             $body = $response->getBody()->getContents();

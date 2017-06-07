@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Extension;
 
 use Adrenth\Thetvdb\ClientExtension;
@@ -33,7 +35,7 @@ class LanguagesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function all()
+    public function all(): LanguageData
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/languages');
         return ResponseHandler::create($json, ResponseHandler::METHOD_LANGUAGES)->handle();
@@ -49,7 +51,7 @@ class LanguagesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function get($identifier)
+    public function get($identifier): Language
     {
         $json = $this->client->performApiCallWithJsonResponse('get', sprintf('/languages/%d', (int) $identifier));
         return ResponseHandler::create($json, ResponseHandler::METHOD_LANGUAGE)->handle();

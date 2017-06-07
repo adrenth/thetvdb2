@@ -26,6 +26,10 @@ Install this package using composer:
 $ composer require adrenth/thetvdb2
 ````
 
+## Requirements
+
+At least PHP 7.1
+
 ## Documentation
 
 The official API documentation can be found here: [https://api.thetvdb.com/swagger]().

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Model;
 
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
@@ -34,7 +36,7 @@ class SeriesEpisodes extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $basicEpisode) {
+        foreach ((array) $values['data'] as $basicEpisode) {
             $items[] = new BasicEpisode($basicEpisode);
         }
 
@@ -47,7 +49,7 @@ class SeriesEpisodes extends ValueObject
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return [
             'data',

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Extension;
 
 use Adrenth\Thetvdb\ClientExtension;
@@ -31,7 +33,7 @@ class EpisodesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function get($episodeId)
+    public function get($episodeId): Episode
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/episodes/' . (int) $episodeId);
         return ResponseHandler::create($json, ResponseHandler::METHOD_EPISODE)->handle();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Model;
 
 /**
@@ -21,7 +23,7 @@ class SeriesEpisodesSummary extends ValueObject
     /**
      * {@inheritdoc}
      */
-    protected function getAttributes()
+    protected function getAttributes(): array
     {
         return [
             'airedSeasons',

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Extension;
 
 use Adrenth\Thetvdb\ClientExtension;
@@ -35,7 +37,7 @@ class AuthenticationExtension extends ClientExtension
      * @throws CouldNotLoginException
      * @throws UnauthorizedException
      */
-    public function login($apiKey, $username = null, $accountIdentifier = null)
+    public function login(string $apiKey, string $username = null, string $accountIdentifier = null): string
     {
         $this->client->setToken(null);
 
@@ -70,7 +72,9 @@ class AuthenticationExtension extends ClientExtension
             }
 
             return $contents['token'];
-        } elseif ($response->getStatusCode() === 401) {
+        }
+
+        if ($response->getStatusCode() === 401) {
             throw CouldNotLoginException::unauthorized();
         }
 
@@ -85,7 +89,7 @@ class AuthenticationExtension extends ClientExtension
      * @throws RequestFailedException
      * @throws UnauthorizedException
      */
-    public function refreshToken()
+    public function refreshToken(): string
     {
         $data = $this->client->performApiCallWithJsonResponse('get', '/refresh_token');
         $data = (array) json_decode($data);

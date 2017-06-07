@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Exception;
 
 /**
@@ -18,7 +20,7 @@ class ResourceNotFoundException extends InvalidArgumentException
      * @param array $parameters
      * @return static
      */
-    public static function withPath($path, array $parameters = [])
+    public static function withPath(string $path, array $parameters = [])
     {
         $queryString = \GuzzleHttp\Psr7\build_query($parameters);
 

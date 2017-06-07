@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb;
 
 use Adrenth\Thetvdb\Exception\RequestFailedException;
@@ -58,7 +60,7 @@ class Client implements ClientInterface
      *
      * @return void
      */
-    protected function init()
+    protected function init(): void
     {
         $this->httpClient = new HttpClient(
             [
@@ -76,7 +78,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function setToken($token)
+    public function setToken(?string $token): Client
     {
         $this->token = $token;
         return $this;
@@ -86,7 +88,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function setLanguage($language)
+    public function setLanguage(string $language): Client
     {
         $this->language = $language;
         return $this;
@@ -95,7 +97,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function setVersion($version)
+    public function setVersion(string $version): Client
     {
         $this->version = $version;
         return $this;
@@ -104,7 +106,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function authentication()
+    public function authentication(): AuthenticationExtension
     {
         return new AuthenticationExtension($this);
     }
@@ -112,7 +114,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function languages()
+    public function languages(): LanguagesExtension
     {
         return new LanguagesExtension($this);
     }
@@ -120,7 +122,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function episodes()
+    public function episodes(): EpisodesExtension
     {
         return new EpisodesExtension($this);
     }
@@ -128,7 +130,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function series()
+    public function series(): SeriesExtension
     {
         return new SeriesExtension($this);
     }
@@ -136,7 +138,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function search()
+    public function search(): SearchExtension
     {
         return new SearchExtension($this);
     }
@@ -144,7 +146,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function updates()
+    public function updates(): UpdatesExtension
     {
         return new UpdatesExtension($this);
     }
@@ -152,7 +154,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function users()
+    public function users(): UsersExtension
     {
         return new UsersExtension($this);
     }
@@ -160,7 +162,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function requestHeaders($method, $path, array $options = [])
+    public function requestHeaders(string $method, string $path, array $options = []): array
     {
         $options = $this->getDefaultHttpClientOptions($options);
 
@@ -173,7 +175,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function performApiCallWithJsonResponse($method, $path, array $options = [])
+    public function performApiCallWithJsonResponse(string $method, string $path, array $options = []): string
     {
         $response = $this->performApiCall($method, $path, $options);
 
@@ -199,7 +201,7 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function performApiCall($method, $path, array $options = [])
+    public function performApiCall(string $method, string $path, array $options = []): Response
     {
         $options = $this->getDefaultHttpClientOptions($options);
 
@@ -208,7 +210,9 @@ class Client implements ClientInterface
 
         if ($response->getStatusCode() === 401) {
             throw UnauthorizedException::invalidToken();
-        } elseif ($response->getStatusCode() === 404) {
+        }
+
+        if ($response->getStatusCode() === 404) {
             $parameters = array_key_exists('query', $options) ? $options['query'] : [];
             throw ResourceNotFoundException::withPath($path, $parameters);
         }
@@ -220,7 +224,7 @@ class Client implements ClientInterface
      * @param array $options
      * @return array
      */
-    private function getDefaultHttpClientOptions(array $options = [])
+    private function getDefaultHttpClientOptions(array $options = []): array
     {
         $headers = [];
 

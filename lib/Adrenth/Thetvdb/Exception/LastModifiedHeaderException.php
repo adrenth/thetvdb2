@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Exception;
 
 /**
@@ -25,7 +27,7 @@ class LastModifiedHeaderException extends \InvalidArgumentException
      * @param string $format
      * @return static
      */
-    public static function invalidFormat($format)
+    public static function invalidFormat(string $format)
     {
         return new static(sprintf(
             'Last-Modified header contains invalid format: %s',

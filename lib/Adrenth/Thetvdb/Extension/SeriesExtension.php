@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Extension;
 
 use Adrenth\Thetvdb\ClientExtension;
@@ -19,6 +21,7 @@ use Adrenth\Thetvdb\Model\SeriesImageQueryResults;
 use Adrenth\Thetvdb\Model\SeriesImagesCounts;
 use Adrenth\Thetvdb\Model\SeriesImagesQueryParams;
 use Adrenth\Thetvdb\ResponseHandler;
+use DateTimeImmutable;
 
 /**
  * Class SeriesExtension
@@ -43,7 +46,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function get($seriesId)
+    public function get(int $seriesId): Series
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/series/' . (int) $seriesId);
         return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES)->handle();
@@ -59,7 +62,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getActors($seriesId)
+    public function getActors(int $seriesId): SeriesActors
     {
         $json = $this->client->performApiCallWithJsonResponse('get', sprintf('/series/%d/actors', (int) $seriesId));
         return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_ACTORS)->handle();
@@ -76,7 +79,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getEpisodes($seriesId, $page = null)
+    public function getEpisodes(int $seriesId, int $page = null): SeriesEpisodes
     {
         $options = [
             'query' => [
@@ -101,7 +104,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getEpisodesQueryParams($seriesId)
+    public function getEpisodesQueryParams(int $seriesId): SeriesEpisodesQueryParams
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
@@ -120,7 +123,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getEpisodesWithQuery($seriesId, array $query)
+    public function getEpisodesWithQuery(int $seriesId, array $query): SeriesEpisodesQuery
     {
         $options = ['query' => $query];
 
@@ -134,14 +137,14 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param $seriesId
+     * @param int $seriesId
      * @return SeriesEpisodesSummary
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getEpisodesSummary($seriesId)
+    public function getEpisodesSummary(int $seriesId): SeriesEpisodesSummary
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
@@ -159,7 +162,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getFilterParams($seriesId)
+    public function getFilterParams(int $seriesId): FilterKeys
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
@@ -170,7 +173,7 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param $seriesId
+     * @param int $seriesId
      * @param array $keys
      * @return Series
      * @throws RequestFailedException
@@ -178,7 +181,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getWithFilter($seriesId, array $keys)
+    public function getWithFilter(int $seriesId, array $keys): Series
     {
         $options = [
             'query' => [
@@ -203,7 +206,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getImages($seriesId)
+    public function getImages(int $seriesId): SeriesImagesCounts
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
@@ -221,7 +224,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getImagesQueryParams($seriesId)
+    public function getImagesQueryParams(int $seriesId): SeriesImagesQueryParams
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
@@ -238,7 +241,7 @@ class SeriesExtension extends ClientExtension
      *      'subKey' => 'graphical'
      * ]
      *
-     * @param $seriesId
+     * @param int $seriesId
      * @param array $query
      * @return SeriesImageQueryResults
      * @throws RequestFailedException
@@ -246,7 +249,7 @@ class SeriesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function getImagesWithQuery($seriesId, array $query)
+    public function getImagesWithQuery(int $seriesId, array $query): SeriesImageQueryResults
     {
         $options = [
             'query' => $query
@@ -263,16 +266,16 @@ class SeriesExtension extends ClientExtension
 
     /**
      * @param int $seriesId
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      * @throws LastModifiedHeaderException
      */
-    public function getLastModified($seriesId)
+    public function getLastModified(int $seriesId): DateTimeImmutable
     {
         $headers = $this->client->requestHeaders('head', sprintf('/series/%d', (int) $seriesId));
 
         if (array_key_exists('Last-Modified', $headers)
             && array_key_exists(0, $headers['Last-Modified'])) {
-            $lastModified = \DateTimeImmutable::createFromFormat(
+            $lastModified = DateTimeImmutable::createFromFormat(
                 'D, d M Y H:i:s e',
                 $headers['Last-Modified'][0]
             );

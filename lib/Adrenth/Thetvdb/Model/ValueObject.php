@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Model;
 
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
@@ -29,7 +31,8 @@ abstract class ValueObject
     /**
      * @param string $name
      * @param array $arguments
-     * @throws \InvalidArgumentException
+     * @return mixed
+     * @throws InvalidArgumentException
      */
     final public function __call($name, array $arguments = [])
     {
@@ -50,5 +53,5 @@ abstract class ValueObject
     /**
      * @return array
      */
-    abstract protected function getAttributes();
+    abstract protected function getAttributes(): array;
 }
