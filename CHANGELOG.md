@@ -1,5 +1,11 @@
 # Changelog
 
+# 2.0.0
+
+* Drop support for PHP 5.6 and PHP 5.5
+* Add PHP 7.1+ support
+* Minor bugfixes
+
 # 1.0.5
 * Make `$toTime` parameter optional in `UpdateExtension::query`.
 * HTTP errors will not result in an exception thrown by Guzzle HTTP Client.
