@@ -224,7 +224,7 @@ class UsersExtension extends ClientExtension
      */
     public function updateRating(int $type, int $itemId, int $rating): UserRatingsDataNoLinks
     {
-        $this->addRating($type, $itemId, $rating);
+        return $this->addRating($type, $itemId, $rating);
     }
 
     /**
