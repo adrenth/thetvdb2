@@ -31,7 +31,7 @@ class LanguageData extends ValueObject
 
         $items = [];
 
-        foreach ($values['data'] as $languageData) {
+        foreach ((array) $values['data'] as $languageData) {
             $items[] = new Language($languageData);
         }
 
