@@ -21,6 +21,8 @@ namespace Adrenth\Thetvdb\Model;
  * @method int getDvdSeason()
  * @method string getEpisodeName()
  * @method string getOverview()
+ * @method string getFirstAired()
+ * @method int getLastUpdated()
  */
 class BasicEpisode extends ValueObject
 {
@@ -38,7 +40,8 @@ class BasicEpisode extends ValueObject
             'dvdSeason',
             'episodeName',
             'overview',
-            'firstAired'
+            'firstAired',
+            'lastUpdated'
         ];
     }
 }
