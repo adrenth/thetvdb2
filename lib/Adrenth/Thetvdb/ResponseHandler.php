@@ -25,6 +25,7 @@ use Adrenth\Thetvdb\Model\UserData;
 use Adrenth\Thetvdb\Model\UserFavoritesData;
 use Adrenth\Thetvdb\Model\UserRatingsData;
 use Adrenth\Thetvdb\Model\UserRatingsDataNoLinks;
+use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
  * Class JsonResponseHandler
@@ -37,26 +38,26 @@ use Adrenth\Thetvdb\Model\UserRatingsDataNoLinks;
  */
 class ResponseHandler implements ResponseHandlerInterface
 {
-    const METHOD_SERIES = 'series';
-    const METHOD_EPISODE = 'episode';
-    const METHOD_SERIES_ACTORS = 'seriesActors';
-    const METHOD_SERIES_EPISODES = 'seriesEpisodes';
-    const METHOD_SERIES_EPISODES_QUERY = 'seriesEpisodesQuery';
-    const METHOD_SERIES_EPISODES_QUERY_PARAMS = 'seriesEpisodesQueryParams';
-    const METHOD_SERIES_EPISODES_SUMMARY = 'seriesEpisodesSummary';
-    const METHOD_SERIES_FILTER = 'seriesFilter';
-    const METHOD_SERIES_FILTER_PARAMS = 'seriesFilterParams';
-    const METHOD_SERIES_IMAGES = 'seriesImages';
-    const METHOD_SERIES_IMAGES_QUERY = 'seriesImagesQuery';
-    const METHOD_SERIES_IMAGES_QUERY_PARAMS = 'seriesImagesQueryParams';
-    const METHOD_LANGUAGES = 'languages';
-    const METHOD_LANGUAGE = 'language';
-    const METHOD_SEARCH_SERIES = 'searchSeries';
-    const METHOD_UPDATES = 'updates';
-    const METHOD_USER = 'user';
-    const METHOD_USER_FAVORITES = 'userFavorites';
-    const METHOD_USER_RATINGS = 'userRatings';
-    const METHOD_USER_RATINGS_ADD = 'userRatingsAdd';
+    public const METHOD_SERIES = 'series';
+    public const METHOD_EPISODE = 'episode';
+    public const METHOD_SERIES_ACTORS = 'seriesActors';
+    public const METHOD_SERIES_EPISODES = 'seriesEpisodes';
+    public const METHOD_SERIES_EPISODES_QUERY = 'seriesEpisodesQuery';
+    public const METHOD_SERIES_EPISODES_QUERY_PARAMS = 'seriesEpisodesQueryParams';
+    public const METHOD_SERIES_EPISODES_SUMMARY = 'seriesEpisodesSummary';
+    public const METHOD_SERIES_FILTER = 'seriesFilter';
+    public const METHOD_SERIES_FILTER_PARAMS = 'seriesFilterParams';
+    public const METHOD_SERIES_IMAGES = 'seriesImages';
+    public const METHOD_SERIES_IMAGES_QUERY = 'seriesImagesQuery';
+    public const METHOD_SERIES_IMAGES_QUERY_PARAMS = 'seriesImagesQueryParams';
+    public const METHOD_LANGUAGES = 'languages';
+    public const METHOD_LANGUAGE = 'language';
+    public const METHOD_SEARCH_SERIES = 'searchSeries';
+    public const METHOD_UPDATES = 'updates';
+    public const METHOD_USER = 'user';
+    public const METHOD_USER_FAVORITES = 'userFavorites';
+    public const METHOD_USER_RATINGS = 'userRatings';
+    public const METHOD_USER_RATINGS_ADD = 'userRatingsAdd';
 
     /** @type array */
     private static $mapping = [
@@ -121,7 +122,7 @@ class ResponseHandler implements ResponseHandlerInterface
      * {@inheritdoc}
      * @throws InvalidJsonInResponseException
      */
-    public function handle()
+    public function handle(): ValueObject
     {
         $data = $this->getData();
         $class = self::$mapping[$this->method];

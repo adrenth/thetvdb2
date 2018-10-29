@@ -1,5 +1,12 @@
 # Changelog
 
+# 2.1.0
+
+* Add siteRatingCount attribute in Series model
+* Add lastUpdated attribute in BasicEpisode model
+* Add slug to Series model
+* Code improvements
+
 # 2.0.0
 
 * Drop support for PHP 5.6 and PHP 5.5

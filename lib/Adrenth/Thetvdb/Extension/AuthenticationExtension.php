@@ -98,6 +98,6 @@ class AuthenticationExtension extends ClientExtension
             return $data['token'];
         }
 
-        throw new TokenNotFoundInResponseException();
+        throw new TokenNotFoundInResponseException('No token found in response.');
     }
 }

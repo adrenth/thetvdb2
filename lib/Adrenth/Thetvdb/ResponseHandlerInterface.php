@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb;
 
+use Adrenth\Thetvdb\Model\ValueObject;
+
 /**
  * Class ResponseHandlerInterface
  *
@@ -16,9 +18,9 @@ namespace Adrenth\Thetvdb;
 interface ResponseHandlerInterface
 {
     /**
-     * Handle the response which produces the Response object
+     * Handle the response which produces the Response value object.
      *
-     * @return Response
+     * @return ValueObject
      */
-    public function handle();
+    public function handle(): ValueObject;
 }
