@@ -36,6 +36,8 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
  * @method string getAdded()
  * @method int getAddedBy()
  * @method float getSiteRating()
+ * @method int getSiteRatingCount()
+ * @method string getSlug()
  */
 class Series extends ValueObject
 {
@@ -78,6 +80,8 @@ class Series extends ValueObject
             'added',
             'addedBy',
             'siteRating',
+            'siteRatingCount',
+            'slug'
         ];
     }
 }

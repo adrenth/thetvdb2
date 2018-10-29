@@ -32,9 +32,9 @@ use Psr\Http\Message\ResponseInterface;
  */
 class UsersExtension extends ClientExtension
 {
-    const RATING_TYPE_SERIES = 'series';
-    const RATING_TYPE_EPISODE = 'episode';
-    const RATING_TYPE_BANNER = 'banner';
+    private const RATING_TYPE_SERIES = 'series';
+    private const RATING_TYPE_EPISODE = 'episode';
+    private const RATING_TYPE_BANNER = 'banner';
 
     /** @type array */
     private static $ratingTypes = [

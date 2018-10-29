@@ -6,13 +6,7 @@ namespace Adrenth\Thetvdb;
 
 use Adrenth\Thetvdb\Exception\RequestFailedException;
 use Adrenth\Thetvdb\Exception\UnauthorizedException;
-use Adrenth\Thetvdb\Extension\AuthenticationExtension;
-use Adrenth\Thetvdb\Extension\EpisodesExtension;
-use Adrenth\Thetvdb\Extension\LanguagesExtension;
-use Adrenth\Thetvdb\Extension\SearchExtension;
-use Adrenth\Thetvdb\Extension\SeriesExtension;
-use Adrenth\Thetvdb\Extension\UpdatesExtension;
-use Adrenth\Thetvdb\Extension\UsersExtension;
+use Adrenth\Thetvdb\Extension;
 use GuzzleHttp\Psr7\Response;
 
 /**
@@ -53,51 +47,51 @@ interface ClientInterface
     /**
      * Get authentication extension
      *
-     * @return AuthenticationExtension
+     * @return Extension\AuthenticationExtension
      */
-    public function authentication(): AuthenticationExtension;
+    public function authentication(): Extension\AuthenticationExtension;
 
     /**
      * Get language extension
      *
-     * @return LanguagesExtension
+     * @return Extension\LanguagesExtension
      */
-    public function languages(): LanguagesExtension;
+    public function languages(): Extension\LanguagesExtension;
 
     /**
      * Get episodes extension
      *
-     * @return EpisodesExtension
+     * @return Extension\EpisodesExtension
      */
-    public function episodes(): EpisodesExtension;
+    public function episodes(): Extension\EpisodesExtension;
 
     /**
      * Get series extension
      *
-     * @return SeriesExtension
+     * @return Extension\SeriesExtension
      */
-    public function series(): SeriesExtension;
+    public function series(): Extension\SeriesExtension;
 
     /**
      * Get search extension
      *
-     * @return SearchExtension
+     * @return Extension\SearchExtension
      */
-    public function search(): SearchExtension;
+    public function search(): Extension\SearchExtension;
 
     /**
      * Get updates extension
      *
-     * @return UpdatesExtension
+     * @return Extension\UpdatesExtension
      */
-    public function updates(): UpdatesExtension;
+    public function updates(): Extension\UpdatesExtension;
 
     /**
      * Get users extension
      *
-     * @return UsersExtension
+     * @return Extension\UsersExtension
      */
-    public function users(): UsersExtension;
+    public function users(): Extension\UsersExtension;
 
     /**
      * Request HTTP headers

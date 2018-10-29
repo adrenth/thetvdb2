@@ -21,9 +21,9 @@ use Adrenth\Thetvdb\ResponseHandler;
  */
 class SearchExtension extends ClientExtension
 {
-    const PARAMETER_NAME = 'name';
-    const PARAMETER_IMDB_ID = 'imdbId';
-    const PARAMETER_ZAP2IT_ID = 'zap2itId';
+    private const PARAMETER_NAME = 'name';
+    private const PARAMETER_IMDB_ID = 'imdbId';
+    private const PARAMETER_ZAP2IT_ID = 'zap2itId';
 
     /**
      * Search for a series based on name.

@@ -4,18 +4,11 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb;
 
-use Adrenth\Thetvdb\Exception\RequestFailedException;
-use Adrenth\Thetvdb\Exception\ResourceNotFoundException;
-use Adrenth\Thetvdb\Exception\UnauthorizedException;
-use Adrenth\Thetvdb\Extension\AuthenticationExtension;
-use Adrenth\Thetvdb\Extension\EpisodesExtension;
-use Adrenth\Thetvdb\Extension\LanguagesExtension;
-use Adrenth\Thetvdb\Extension\SearchExtension;
-use Adrenth\Thetvdb\Extension\SeriesExtension;
-use Adrenth\Thetvdb\Extension\UpdatesExtension;
-use Adrenth\Thetvdb\Extension\UsersExtension;
+use Adrenth\Thetvdb\Exception;
+use Adrenth\Thetvdb\Extension;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Psr7\Response;
+use InvalidArgumentException;
 
 /**
  * Class Client
@@ -33,7 +26,7 @@ class Client implements ClientInterface
      *
      * @type string
      */
-    const API_BASE_URI = 'https://api.thetvdb.com';
+    public const API_BASE_URI = 'https://api.thetvdb.com';
 
     /** @type HttpClient */
     private $httpClient;
@@ -49,6 +42,7 @@ class Client implements ClientInterface
 
     /**
      * RestClient constructor.
+     * @throws InvalidArgumentException
      */
     public function __construct()
     {
@@ -59,6 +53,7 @@ class Client implements ClientInterface
      * Initialize Client
      *
      * @return void
+     * @throws InvalidArgumentException
      */
     protected function init(): void
     {
@@ -106,57 +101,57 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function authentication(): AuthenticationExtension
+    public function authentication(): Extension\AuthenticationExtension
     {
-        return new AuthenticationExtension($this);
+        return new Extension\AuthenticationExtension($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function languages(): LanguagesExtension
+    public function languages(): Extension\LanguagesExtension
     {
-        return new LanguagesExtension($this);
+        return new Extension\LanguagesExtension($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function episodes(): EpisodesExtension
+    public function episodes(): Extension\EpisodesExtension
     {
-        return new EpisodesExtension($this);
+        return new Extension\EpisodesExtension($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function series(): SeriesExtension
+    public function series(): Extension\SeriesExtension
     {
-        return new SeriesExtension($this);
+        return new Extension\SeriesExtension($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function search(): SearchExtension
+    public function search(): Extension\SearchExtension
     {
-        return new SearchExtension($this);
+        return new Extension\SearchExtension($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function updates(): UpdatesExtension
+    public function updates(): Extension\UpdatesExtension
     {
-        return new UpdatesExtension($this);
+        return new Extension\UpdatesExtension($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function users(): UsersExtension
+    public function users(): Extension\UsersExtension
     {
-        return new UsersExtension($this);
+        return new Extension\UsersExtension($this);
     }
 
     /**
@@ -189,7 +184,7 @@ class Client implements ClientInterface
             return $contents;
         }
 
-        throw new RequestFailedException(
+        throw new Exception\RequestFailedException(
             sprintf(
                 'Got status code %d from service at path %s',
                 $response->getStatusCode(),
@@ -209,12 +204,12 @@ class Client implements ClientInterface
         $response = $this->httpClient->{$method}($path, $options);
 
         if ($response->getStatusCode() === 401) {
-            throw UnauthorizedException::invalidToken();
+            throw Exception\UnauthorizedException::invalidToken();
         }
 
         if ($response->getStatusCode() === 404) {
             $parameters = array_key_exists('query', $options) ? $options['query'] : [];
-            throw ResourceNotFoundException::withPath($path, $parameters);
+            throw Exception\ResourceNotFoundException::withPath($path, $parameters);
         }
 
         return $response;
