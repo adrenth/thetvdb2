@@ -24,6 +24,22 @@ class SearchExtension extends ClientExtension
     private const PARAMETER_NAME = 'name';
     private const PARAMETER_IMDB_ID = 'imdbId';
     private const PARAMETER_ZAP2IT_ID = 'zap2itId';
+    private const PARAMETER_SLUG = 'slug';
+
+    /**
+     * Search for a series based on slug.
+     *
+     * @param string $slug
+     * @return SeriesData
+     * @throws RequestFailedException
+     * @throws UnauthorizedException
+     * @throws InvalidArgumentException
+     * @throws InvalidJsonInResponseException
+     */
+    public function seriesBySlug(string $slug): SeriesData
+    {
+        return $this->search(static::PARAMETER_SLUG, $slug);
+    }
 
     /**
      * Search for a series based on name.
