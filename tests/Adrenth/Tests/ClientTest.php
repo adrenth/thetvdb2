@@ -17,7 +17,7 @@ use Adrenth\Thetvdb\Extension\UsersExtension;
  */
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
-    /** @type Client */
+    /** @var Client */
     protected $client;
 
     /**
@@ -27,7 +27,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         // Set up an authenticated client
         $this->client = new Client();
-        $this->client->setVersion('1.2.0')
+        $this->client->setVersion('2.3.0')
             ->setLanguage('en');
 
         $token = $this->client->authentication()->login(API_KEY, API_USERNAME, API_USER_KEY);

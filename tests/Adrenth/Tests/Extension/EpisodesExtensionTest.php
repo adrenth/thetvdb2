@@ -17,7 +17,7 @@ use Adrenth\Thetvdb\Model\Episode;
  */
 class EpisodesExtensionTest extends ClientTest
 {
-    /** @type EpisodesExtension */
+    /** @var EpisodesExtension */
     protected $extension;
 
     /**
