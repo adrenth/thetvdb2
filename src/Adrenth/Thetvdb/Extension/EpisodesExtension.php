@@ -33,9 +33,13 @@ class EpisodesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function get($episodeId): Episode
+    public function get(int $episodeId): Episode
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', '/episodes/' . (int) $episodeId);
-        return ResponseHandler::create($json, ResponseHandler::METHOD_EPISODE)->handle();
+        $json = $this->client->performApiCallWithJsonResponse('get', '/episodes/' . $episodeId);
+
+        /** @var Episode $episode */
+        $episode = ResponseHandler::create($json, ResponseHandler::METHOD_EPISODE)->handle();
+
+        return $episode;
     }
 }

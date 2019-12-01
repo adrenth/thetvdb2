@@ -48,6 +48,10 @@ class UpdatesExtension extends ClientExtension
         }
 
         $json = $this->client->performApiCallWithJsonResponse('get', '/updated/query', $options);
-        return ResponseHandler::create($json, ResponseHandler::METHOD_UPDATES)->handle();
+
+        /** @var UpdateData $updateData */
+        $updateData = ResponseHandler::create($json, ResponseHandler::METHOD_UPDATES)->handle();
+
+        return $updateData;
     }
 }

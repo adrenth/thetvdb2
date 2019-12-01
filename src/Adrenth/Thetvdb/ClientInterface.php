@@ -24,25 +24,25 @@ interface ClientInterface
      * Set authentication token
      *
      * @param string $token
-     * @return $this
+     * @return void
      */
-    public function setToken(?string $token);
+    public function setToken(?string $token): void;
 
     /**
      * Set language for this Client
      *
      * @param string $language Language abbreviation. E.g. en, nl or de.
-     * @return $this
+     * @return void
      */
-    public function setLanguage(string $language);
+    public function setLanguage(string $language): void;
 
     /**
      * Set version for this Client
      *
      * @param string $version Version in format x.y.z
-     * @return $this
+     * @return void
      */
-    public function setVersion(string $version);
+    public function setVersion(string $version): void;
 
     /**
      * Get authentication extension

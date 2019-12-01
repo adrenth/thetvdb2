@@ -21,7 +21,7 @@ use Illuminate\Support\Collection;
 class SeriesEpisodesQueryParams extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -35,7 +35,7 @@ class SeriesEpisodesQueryParams extends ValueObject
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     protected function getAttributes(): array
     {

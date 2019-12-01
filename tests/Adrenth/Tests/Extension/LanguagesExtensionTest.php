@@ -19,7 +19,7 @@ use Illuminate\Support\Collection;
  */
 class LanguagesExtensionTest extends ClientTest
 {
-    /** @type LanguagesExtension */
+    /** @var LanguagesExtension */
     protected $extension;
 
     /**
@@ -41,7 +41,7 @@ class LanguagesExtensionTest extends ClientTest
 
         self::assertInstanceOf(Collection::class, $data);
 
-        /** @type Language $language */
+        /** @var Language $language */
         $language = $data->first();
 
         self::assertInstanceOf(Language::class, $language);

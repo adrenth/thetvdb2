@@ -20,7 +20,7 @@ namespace Adrenth\Thetvdb\Model;
 class User extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

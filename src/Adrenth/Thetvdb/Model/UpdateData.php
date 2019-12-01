@@ -21,7 +21,7 @@ use Illuminate\Support\Collection;
 class UpdateData extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -41,7 +41,7 @@ class UpdateData extends ValueObject
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

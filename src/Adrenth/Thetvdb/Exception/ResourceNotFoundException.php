@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Exception;
 
+use Throwable;
+
 /**
  * Class ResourceNotFoundException
  *
@@ -20,9 +22,13 @@ class ResourceNotFoundException extends InvalidArgumentException
      * @param array $parameters
      * @return static
      */
-    public static function withPath(string $path, array $parameters = [])
+    public static function withPath(string $path, array $parameters = []): ResourceNotFoundException
     {
-        $queryString = \GuzzleHttp\Psr7\build_query($parameters);
+        try {
+            $queryString = \GuzzleHttp\json_encode($parameters);
+        } catch (Throwable $e) {
+            $queryString = 'empty';
+        }
 
         return new static(sprintf(
             'Resource not found at path: %s [parameters: %s]',

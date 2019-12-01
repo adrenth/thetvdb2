@@ -20,7 +20,7 @@ namespace Adrenth\Thetvdb\Model;
 class UserRatings extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

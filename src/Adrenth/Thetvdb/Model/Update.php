@@ -19,7 +19,7 @@ namespace Adrenth\Thetvdb\Model;
 class Update extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

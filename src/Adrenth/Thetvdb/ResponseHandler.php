@@ -59,7 +59,9 @@ class ResponseHandler implements ResponseHandlerInterface
     public const METHOD_USER_RATINGS = 'userRatings';
     public const METHOD_USER_RATINGS_ADD = 'userRatingsAdd';
 
-    /** @type array */
+    /**
+     * @var array
+     */
     private static $mapping = [
         self::METHOD_SERIES => Series::class,
         self::METHOD_EPISODE => Episode::class,
@@ -83,10 +85,14 @@ class ResponseHandler implements ResponseHandlerInterface
         self::METHOD_USER_RATINGS_ADD => UserRatingsDataNoLinks::class,
     ];
 
-     /* @type string */
+    /**
+     * @var string
+     */
     protected $json;
 
-    /** @type string */
+    /**
+     * @var string
+     */
     protected $method;
 
     /**
@@ -113,13 +119,13 @@ class ResponseHandler implements ResponseHandlerInterface
      * @return static
      * @throws InvalidArgumentException
      */
-    public static function create(string $json, string $method)
+    public static function create(string $json, string $method): ResponseHandler
     {
         return new static($json, $method);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      * @throws InvalidJsonInResponseException
      */
     public function handle(): ValueObject
@@ -130,13 +136,14 @@ class ResponseHandler implements ResponseHandlerInterface
     }
 
     /**
-     * @return mixed
+     * @return array
+     * @throws InvalidJsonInResponseException
      */
-    public function getData()
+    public function getData(): array
     {
         $data = json_decode($this->json, true);
 
-        if ($data === null) {
+        if ($data === null || $data === false) {
             throw InvalidJsonInResponseException::couldNotDecodeJson();
         }
 

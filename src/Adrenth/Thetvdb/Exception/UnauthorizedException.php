@@ -19,7 +19,7 @@ class UnauthorizedException extends \Exception
     /**
      * @return static
      */
-    public static function invalidToken()
+    public static function invalidToken(): UnauthorizedException
     {
         return new static('Unauthorized; please provide valid token, username or password');
     }

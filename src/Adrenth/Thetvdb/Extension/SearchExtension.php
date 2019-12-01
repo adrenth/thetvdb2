@@ -107,6 +107,10 @@ class SearchExtension extends ClientExtension
         ];
 
         $json = $this->client->performApiCallWithJsonResponse('get', '/search/series', $options);
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SEARCH_SERIES)->handle();
+
+        /** @var SeriesData $seriesData */
+        $seriesData = ResponseHandler::create($json, ResponseHandler::METHOD_SEARCH_SERIES)->handle();
+
+        return $seriesData;
     }
 }

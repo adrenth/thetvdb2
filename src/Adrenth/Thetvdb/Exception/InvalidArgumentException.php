@@ -19,7 +19,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param string $index
      * @return static
      */
-    public static function expectedIndex(string $index)
+    public static function expectedIndex(string $index): InvalidArgumentException
     {
         return new static(sprintf(
             'Expected index %s not found',
@@ -32,7 +32,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param string $class
      * @return static
      */
-    public static function undefinedAttribute(string $attribute, string $class)
+    public static function undefinedAttribute(string $attribute, string $class): InvalidArgumentException
     {
         return new static(sprintf(
             'Undefined attribute %s in class %s',
@@ -46,7 +46,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param string $class
      * @return static
      */
-    public static function noValueForAttribute(string $attribute, string $class)
+    public static function noValueForAttribute(string $attribute, string $class): InvalidArgumentException
     {
         return new static(sprintf(
             'No value for attribute %s found in class %s',
@@ -60,7 +60,7 @@ class InvalidArgumentException extends \InvalidArgumentException
      * @param array $availableMethods
      * @return static
      */
-    public static function invalidMethod(string $method, array $availableMethods)
+    public static function invalidMethod(string $method, array $availableMethods): InvalidArgumentException
     {
         return new static(sprintf(
             'Invalid method %s, use one of these instead: %s',

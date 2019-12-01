@@ -21,7 +21,7 @@ namespace Adrenth\Thetvdb\Model;
 class SeriesEpisodesSummary extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     protected function getAttributes(): array
     {

@@ -38,7 +38,11 @@ class LanguagesExtension extends ClientExtension
     public function all(): LanguageData
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/languages');
-        return ResponseHandler::create($json, ResponseHandler::METHOD_LANGUAGES)->handle();
+
+        /** @var LanguageData $languageData */
+        $languageData = ResponseHandler::create($json, ResponseHandler::METHOD_LANGUAGES)->handle();
+
+        return $languageData;
     }
 
     /**
@@ -54,6 +58,10 @@ class LanguagesExtension extends ClientExtension
     public function get($identifier): Language
     {
         $json = $this->client->performApiCallWithJsonResponse('get', sprintf('/languages/%d', (int) $identifier));
-        return ResponseHandler::create($json, ResponseHandler::METHOD_LANGUAGE)->handle();
+
+        /** @var Language $language */
+        $language = ResponseHandler::create($json, ResponseHandler::METHOD_LANGUAGE)->handle();
+
+        return $language;
     }
 }

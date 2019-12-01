@@ -22,7 +22,7 @@ use Illuminate\Support\Collection;
 class UserRatingsData extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -47,7 +47,7 @@ class UserRatingsData extends ValueObject
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

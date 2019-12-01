@@ -17,7 +17,7 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
  */
 abstract class ValueObject
 {
-    /** @type array */
+    /** @var array */
     private $values;
 
     /**

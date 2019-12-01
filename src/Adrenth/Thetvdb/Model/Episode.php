@@ -49,7 +49,7 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 class Episode extends ValueObject
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -61,7 +61,7 @@ class Episode extends ValueObject
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     protected function getAttributes(): array
     {

@@ -24,21 +24,29 @@ class Client implements ClientInterface
     /**
      * Base URI
      *
-     * @type string
+     * @var string
      */
     public const API_BASE_URI = 'https://api.thetvdb.com';
 
-    /** @type HttpClient */
+    /**
+     * @var HttpClient
+     */
     private $httpClient;
 
-    /** @type string */
+    /**
+     * @var string
+     */
     private $token;
 
-    /** @type string */
+    /**
+     * @var string
+     */
     private $language = 'en';
 
-    /** @type string */
-    private $version = '2.1.0';
+    /**
+     * @var string
+     */
+    private $version = '3.0.0';
 
     /**
      * RestClient constructor.
@@ -62,7 +70,6 @@ class Client implements ClientInterface
                 'base_uri' => self::API_BASE_URI,
                 'verify' => false,
                 'http_errors' => false,
-                //'proxy' => 'tcp://localhost:8080',
                 'headers' => [
                     'Content-Type' => 'application/json',
                 ],
@@ -71,35 +78,32 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function setToken(?string $token): Client
+    public function setToken(?string $token): void
     {
         $this->token = $token;
-        return $this;
     }
 
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function setLanguage(string $language): Client
+    public function setLanguage(string $language): void
     {
         $this->language = $language;
-        return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function setVersion(string $version): Client
+    public function setVersion(string $version): void
     {
         $this->version = $version;
-        return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function authentication(): Extension\AuthenticationExtension
     {
@@ -107,7 +111,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function languages(): Extension\LanguagesExtension
     {
@@ -115,7 +119,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function episodes(): Extension\EpisodesExtension
     {
@@ -123,7 +127,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function series(): Extension\SeriesExtension
     {
@@ -131,7 +135,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function search(): Extension\SearchExtension
     {
@@ -139,7 +143,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function updates(): Extension\UpdatesExtension
     {
@@ -147,7 +151,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function users(): Extension\UsersExtension
     {
@@ -155,20 +159,20 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function requestHeaders(string $method, string $path, array $options = []): array
     {
         $options = $this->getDefaultHttpClientOptions($options);
 
-        /** @type Response $response */
+        /** @var Response $response */
         $response = $this->httpClient->{$method}($path, $options);
 
         return $response->getHeaders();
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function performApiCallWithJsonResponse(string $method, string $path, array $options = []): string
     {
@@ -194,13 +198,14 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     * @throws Exception\ResourceNotFoundException
      */
     public function performApiCall(string $method, string $path, array $options = []): Response
     {
         $options = $this->getDefaultHttpClientOptions($options);
 
-        /** @type Response $response */
+        /** @var Response $response */
         $response = $this->httpClient->{$method}($path, $options);
 
         if ($response->getStatusCode() === 401) {

@@ -18,6 +18,7 @@ use Adrenth\Thetvdb\Model\UserRatingsDataNoLinks;
 use Adrenth\Thetvdb\ResponseHandler;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
 /**
  * Class UsersExtension
@@ -36,7 +37,7 @@ class UsersExtension extends ClientExtension
     private const RATING_TYPE_EPISODE = 'episode';
     private const RATING_TYPE_BANNER = 'banner';
 
-    /** @type array */
+    /** @var array */
     private static $ratingTypes = [
         self::RATING_TYPE_SERIES,
         self::RATING_TYPE_EPISODE,
@@ -55,7 +56,11 @@ class UsersExtension extends ClientExtension
     public function get(): UserData
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/user');
-        return ResponseHandler::create($json, ResponseHandler::METHOD_USER)->handle();
+
+        /** @var UserData $userData */
+        $userData = ResponseHandler::create($json, ResponseHandler::METHOD_USER)->handle();
+
+        return $userData;
     }
 
     /**
@@ -70,7 +75,11 @@ class UsersExtension extends ClientExtension
     public function getFavorites(): UserFavoritesData
     {
         $json = $this->client->performApiCallWithJsonResponse('get', '/user/favorites');
-        return ResponseHandler::create($json, ResponseHandler::METHOD_USER_FAVORITES)->handle();
+
+        /** @var UserFavoritesData $userFavoritesData */
+        $userFavoritesData = ResponseHandler::create($json, ResponseHandler::METHOD_USER_FAVORITES)->handle();
+
+        return $userFavoritesData;
     }
 
     /**
@@ -106,8 +115,6 @@ class UsersExtension extends ClientExtension
      */
     public function addFavorite(int $identifier): UserFavoritesData
     {
-        $identifier = (int) $identifier;
-
         try {
             $json = $this->client->performApiCallWithJsonResponse(
                 'put',
@@ -126,7 +133,10 @@ class UsersExtension extends ClientExtension
             throw CouldNotAddFavoriteException::reason($e->getMessage());
         }
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_USER_FAVORITES)->handle();
+        /** @var UserFavoritesData $userFavoritesData */
+        $userFavoritesData = ResponseHandler::create($json, ResponseHandler::METHOD_USER_FAVORITES)->handle();
+
+        return $userFavoritesData;
     }
 
     /**
@@ -143,7 +153,7 @@ class UsersExtension extends ClientExtension
     {
         if ($type !== null && !in_array($type, self::$ratingTypes, true)) {
             throw new InvalidArgumentException(
-                'Invalid rating type, use one of these instead: ' . implode(self::$ratingTypes, ', ')
+                'Invalid rating type, use one of these instead: ' . implode(',', self::$ratingTypes)
             );
         }
 
@@ -161,7 +171,10 @@ class UsersExtension extends ClientExtension
             $json = $this->client->performApiCallWithJsonResponse('get', '/user/ratings');
         }
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_USER_RATINGS)->handle();
+        /** @var UserRatingsData $userRatingsData */
+        $userRatingsData = ResponseHandler::create($json, ResponseHandler::METHOD_USER_RATINGS)->handle();
+
+        return $userRatingsData;
     }
 
     /**
@@ -175,24 +188,20 @@ class UsersExtension extends ClientExtension
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
+     * @throws CouldNotAddOrUpdateUserRatingException
      */
     public function addRating(int $type, int $itemId, int $rating): UserRatingsDataNoLinks
     {
         if (!in_array($type, self::$ratingTypes, true)) {
             throw new InvalidArgumentException(
-                'Invalid rating type, use one of these instead: ' . implode(self::$ratingTypes, ', ')
+                'Invalid rating type, use one of these instead: ' . implode(',', self::$ratingTypes)
             );
         }
 
         try {
             $json = $this->client->performApiCallWithJsonResponse(
                 'put',
-                sprintf(
-                    'user/ratings/%s/%d/%d',
-                    $type,
-                    (int) $itemId,
-                    (int) $rating
-                ),
+                sprintf('user/ratings/%s/%d/%d', $type, $itemId, $rating),
                 [
                     'http_errors' => true
                 ]
@@ -207,7 +216,10 @@ class UsersExtension extends ClientExtension
             throw CouldNotAddOrUpdateUserRatingException::reason($e->getMessage());
         }
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_USER_RATINGS_ADD)->handle();
+        /** @var UserRatingsDataNoLinks $userRatingsDataNoLinks */
+        $userRatingsDataNoLinks = ResponseHandler::create($json, ResponseHandler::METHOD_USER_RATINGS_ADD)->handle();
+
+        return $userRatingsDataNoLinks;
     }
 
     /**
@@ -221,6 +233,7 @@ class UsersExtension extends ClientExtension
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
+     * @throws CouldNotAddOrUpdateUserRatingException
      */
     public function updateRating(int $type, int $itemId, int $rating): UserRatingsDataNoLinks
     {
@@ -258,7 +271,7 @@ class UsersExtension extends ClientExtension
     {
         try {
             $body = $response->getBody()->getContents();
-        } catch (\RuntimeException $re) {
+        } catch (Throwable $re) {
             return '';
         }
 

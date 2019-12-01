@@ -21,7 +21,7 @@ class CouldNotAddFavoriteException extends InvalidArgumentException
      * @param string $message
      * @return static
      */
-    public static function reason(string $message)
+    public static function reason(string $message): CouldNotAddFavoriteException
     {
         return new static('Could not add favorite: ' . $message);
     }

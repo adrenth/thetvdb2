@@ -48,8 +48,12 @@ class SeriesExtension extends ClientExtension
      */
     public function get(int $seriesId): Series
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', '/series/' . (int) $seriesId);
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES)->handle();
+        $json = $this->client->performApiCallWithJsonResponse('get', '/series/' . $seriesId);
+
+        /** @var Series $series */
+        $series = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES)->handle();
+
+        return $series;
     }
 
     /**
@@ -64,8 +68,12 @@ class SeriesExtension extends ClientExtension
      */
     public function getActors(int $seriesId): SeriesActors
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', sprintf('/series/%d/actors', (int) $seriesId));
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_ACTORS)->handle();
+        $json = $this->client->performApiCallWithJsonResponse('get', sprintf('/series/%d/actors', $seriesId));
+
+        /** @var SeriesActors $seriesActors */
+        $seriesActors = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_ACTORS)->handle();
+
+        return $seriesActors;
     }
 
     /**
@@ -89,11 +97,14 @@ class SeriesExtension extends ClientExtension
 
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/episodes', (int) $seriesId),
+            sprintf('/series/%d/episodes', $seriesId),
             $options
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES)->handle();
+        /** @var SeriesEpisodes $seriesEpisodes */
+        $seriesEpisodes = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES)->handle();
+
+        return $seriesEpisodes;
     }
 
     /**
@@ -108,10 +119,13 @@ class SeriesExtension extends ClientExtension
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/episodes/query/params', (int) $seriesId)
+            sprintf('/series/%d/episodes/query/params', $seriesId)
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES_QUERY_PARAMS)->handle();
+        /** @var SeriesEpisodesQueryParams $queryParams */
+        $queryParams = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES_QUERY_PARAMS)->handle();
+
+        return $queryParams;
     }
 
     /**
@@ -129,11 +143,14 @@ class SeriesExtension extends ClientExtension
 
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/episodes/query', (int) $seriesId),
+            sprintf('/series/%d/episodes/query', $seriesId),
             $options
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES_QUERY)->handle();
+        /** @var SeriesEpisodesQuery $seriesEpisodesQuery */
+        $seriesEpisodesQuery = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES_QUERY)->handle();
+
+        return $seriesEpisodesQuery;
     }
 
     /**
@@ -148,10 +165,13 @@ class SeriesExtension extends ClientExtension
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/episodes/summary', (int) $seriesId)
+            sprintf('/series/%d/episodes/summary', $seriesId)
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES_SUMMARY)->handle();
+        /** @var SeriesEpisodesSummary $summary */
+        $summary = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_EPISODES_SUMMARY)->handle();
+
+        return $summary;
     }
 
     /**
@@ -169,7 +189,10 @@ class SeriesExtension extends ClientExtension
             sprintf('/series/%d/filter/params', (int) $seriesId)
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_FILTER_PARAMS)->handle();
+        /** @var FilterKeys $filterKeys */
+        $filterKeys = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_FILTER_PARAMS)->handle();
+
+        return $filterKeys;
     }
 
     /**
@@ -191,11 +214,14 @@ class SeriesExtension extends ClientExtension
 
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/filter', (int) $seriesId),
+            sprintf('/series/%d/filter', $seriesId),
             $options
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_FILTER)->handle();
+        /** @var Series $series */
+        $series = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_FILTER)->handle();
+
+        return $series;
     }
 
     /**
@@ -210,10 +236,13 @@ class SeriesExtension extends ClientExtension
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/images', (int) $seriesId)
+            sprintf('/series/%d/images', $seriesId)
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_IMAGES)->handle();
+        /** @var SeriesImagesCounts $seriesImagesCounts */
+        $seriesImagesCounts = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_IMAGES)->handle();
+
+        return $seriesImagesCounts;
     }
 
     /**
@@ -228,10 +257,13 @@ class SeriesExtension extends ClientExtension
     {
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/images/query/params', (int) $seriesId)
+            sprintf('/series/%d/images/query/params', $seriesId)
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_IMAGES_QUERY_PARAMS)->handle();
+        /** @var SeriesImagesQueryParams $queryParams */
+        $queryParams = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_IMAGES_QUERY_PARAMS)->handle();
+
+        return $queryParams;
     }
 
     /**
@@ -257,11 +289,14 @@ class SeriesExtension extends ClientExtension
 
         $json = $this->client->performApiCallWithJsonResponse(
             'get',
-            sprintf('/series/%d/images/query', (int) $seriesId),
+            sprintf('/series/%d/images/query', $seriesId),
             $options
         );
 
-        return ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_IMAGES_QUERY)->handle();
+        /** @var SeriesImageQueryResults $queryResults */
+        $queryResults = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES_IMAGES_QUERY)->handle();
+
+        return $queryResults;
     }
 
     /**
@@ -271,7 +306,7 @@ class SeriesExtension extends ClientExtension
      */
     public function getLastModified(int $seriesId): DateTimeImmutable
     {
-        $headers = $this->client->requestHeaders('head', sprintf('/series/%d', (int) $seriesId));
+        $headers = $this->client->requestHeaders('head', sprintf('/series/%d', $seriesId));
 
         if (array_key_exists('Last-Modified', $headers)
             && array_key_exists(0, $headers['Last-Modified'])) {

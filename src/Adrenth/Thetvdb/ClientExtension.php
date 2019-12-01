@@ -16,12 +16,12 @@ namespace Adrenth\Thetvdb;
 abstract class ClientExtension implements ClientExtensionInterface
 {
     /**
-     * @type ClientInterface
+     * @var ClientInterface
      */
     protected $client;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     final public function __construct(ClientInterface $client)
     {

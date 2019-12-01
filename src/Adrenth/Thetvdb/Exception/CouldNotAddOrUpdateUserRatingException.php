@@ -19,7 +19,7 @@ class CouldNotAddOrUpdateUserRatingException extends \InvalidArgumentException
      * @param string $message
      * @return static
      */
-    public static function reason(string $message)
+    public static function reason(string $message): CouldNotAddOrUpdateUserRatingException
     {
         return new static('Could not add rating: ' . $message);
     }

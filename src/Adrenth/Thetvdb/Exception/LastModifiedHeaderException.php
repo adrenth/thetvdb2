@@ -18,7 +18,7 @@ class LastModifiedHeaderException extends \InvalidArgumentException
     /**
      * @return static
      */
-    public static function notFound()
+    public static function notFound(): LastModifiedHeaderException
     {
         return new static('Last-Modified header not found');
     }
@@ -27,7 +27,7 @@ class LastModifiedHeaderException extends \InvalidArgumentException
      * @param string $format
      * @return static
      */
-    public static function invalidFormat(string $format)
+    public static function invalidFormat(string $format): LastModifiedHeaderException
     {
         return new static(sprintf(
             'Last-Modified header contains invalid format: %s',

@@ -18,7 +18,7 @@ class InvalidJsonInResponseException extends \InvalidArgumentException
     /**
      * @return static
      */
-    public static function couldNotDecodeJson()
+    public static function couldNotDecodeJson(): InvalidJsonInResponseException
     {
         return new static('Could not decode JSON data');
     }
@@ -26,7 +26,7 @@ class InvalidJsonInResponseException extends \InvalidArgumentException
     /**
      * @return static
      */
-    public static function incorrectDataStructure()
+    public static function incorrectDataStructure(): InvalidJsonInResponseException
     {
         return new static('Incorrect data structure');
     }

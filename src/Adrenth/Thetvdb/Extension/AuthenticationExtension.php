@@ -65,7 +65,7 @@ class AuthenticationExtension extends ClientExtension
                 throw CouldNotLoginException::invalidContents($e->getMessage());
             }
 
-            $contents = (array) json_decode($contents);
+            $contents = (array) json_decode($contents, true);
 
             if (!array_key_exists('token', $contents)) {
                 throw CouldNotLoginException::noTokenInResponse();
@@ -92,7 +92,7 @@ class AuthenticationExtension extends ClientExtension
     public function refreshToken(): string
     {
         $data = $this->client->performApiCallWithJsonResponse('get', '/refresh_token');
-        $data = (array) json_decode($data);
+        $data = (array) json_decode($data, true);
 
         if (array_key_exists('token', $data)) {
             return $data['token'];
