@@ -22,9 +22,9 @@ Please follow these guidelines:
 
 Install this package using composer:
 
-````
+```
 $ composer require adrenth/thetvdb2
-````
+```
 
 ## Requirements
 
@@ -36,7 +36,7 @@ The official API documentation can be found here: [https://api.thetvdb.com/swagg
 
 ### Authentication
 
-````
+```
 $client = new \Adrenth\Thetvdb\Client();
 $client->setLanguage('nl');
 
@@ -46,59 +46,59 @@ $client->setToken($token);
 
 // Or refresh token
 $client->refreshToken();
-````
+```
 
 ### Extensions
 
 The `Client` has a few extensions. A few usage examples are listed below:
 
 #### Authentication
-````
+```
 $client->authentication()->login($apiKey, $username, $userKey);
 $client->authentication()->refreshToken();
-````
+```
 
 #### Languages
-````
+```
 $client->languages()->all();
 $client->languages()->get($languageId);
-````
+```
 
 #### Episodes
-````
+```
 $client->episodes()->get($episodeId);
 // ..
-````
+```
 
 #### Series
-````
+```
 $client->series()->get($seriesId);
 $client->series()->getActors($seriesId);
 $client->series()->getEpisodes($seriesId);
 $client->series()->getImages($seriesId);
 $client->series()->getLastModified($seriesId);
 // ..
-````
+```
 
 #### Search
-````
+```
 $client->search()->seriesByName('lost');
 $client->search()->seriesByImdbId('tt2243973');
 $client->search()->seriesByZap2itId('EP015679352');
 // ..
-````
+```
 
 #### Updates
 
 Fetch a list of Series that have been recently updated:
 
-````
+```
 $client->updates()->query($fromTime, $toTime);
-````
+```
 
 #### Users
 
-````
+```
 $client->users()->get();
 $client->users()->getFavorites();
 $client->users()->addFavorite($identifier);
@@ -109,7 +109,14 @@ $client->users()->updateRating($type, $itemId, $rating);
 $client->users()->removeRating($type, $itemId);
 
 //..
-````
+```
+
+#### Movies
+
+```
+$client->movies()->get(78398);
+$client->movies()->getUpdates();
+```
 
 ### Response data
 
@@ -117,7 +124,7 @@ Every response object has a `getData()` method which may contain a collection of
 
 For example:
 
-````
+```
 // Get all available languages
 $languageData = $client->languages()->all(); // Returns a LanguageData instance
 $languages = $languageData->getData()->all();
@@ -135,10 +142,10 @@ array:23 [▼
   2 => Language {#30 ▶}
   3 => Language {#21 ▶}
   // ..
-];  
-````
+];
+```
 
 ## Contributing
 
-This is version 2.0 of the TheTVDB.com API client. Feel free to join us and create a stable version which is compatible with the brand new TheTVDB.com RESTful API.
+Feel free to join us and create a stable version which is compatible with the brand new TheTVDB.com RESTful API.
 
