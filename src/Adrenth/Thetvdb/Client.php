@@ -161,6 +161,14 @@ class Client implements ClientInterface
     /**
      * {@inheritDoc}
      */
+    public function movies(): Extension\MoviesExtension
+    {
+        return new Extension\MoviesExtension($this);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function requestHeaders(string $method, string $path, array $options = []): array
     {
         $options = $this->getDefaultHttpClientOptions($options);
