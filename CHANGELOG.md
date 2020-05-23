@@ -1,5 +1,16 @@
 # Changelog
 
+# 4.0.0
+
+* Add /movies/{id} and /movieupdates?since=... endpoint
+* Extend version constraint for illuminate/support package
+
+# 3.0.0
+
+* Extend version constraint for illuminate/support package
+* Move sources from ./lib to ./src
+* Refactored classes
+
 # 2.1.0
 
 * Add siteRatingCount attribute in Series model
