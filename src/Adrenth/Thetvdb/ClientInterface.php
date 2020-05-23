@@ -94,6 +94,13 @@ interface ClientInterface
     public function users(): Extension\UsersExtension;
 
     /**
+     * Get movies extension
+     *
+     * @return Extension\MoviesExtension
+     */
+    public function movies(): Extension\MoviesExtension;
+
+    /**
      * Request HTTP headers
      *
      * @param string $method HTTP Method (post, get, put, etc.)

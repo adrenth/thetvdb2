@@ -6,26 +6,7 @@ namespace Adrenth\Thetvdb;
 
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Adrenth\Thetvdb\Exception\InvalidJsonInResponseException;
-use Adrenth\Thetvdb\Model\Episode;
-use Adrenth\Thetvdb\Model\FilterKeys;
-use Adrenth\Thetvdb\Model\Language;
-use Adrenth\Thetvdb\Model\LanguageData;
-use Adrenth\Thetvdb\Model\Series;
-use Adrenth\Thetvdb\Model\SeriesActors;
-use Adrenth\Thetvdb\Model\SeriesData;
-use Adrenth\Thetvdb\Model\SeriesEpisodes;
-use Adrenth\Thetvdb\Model\SeriesEpisodesQuery;
-use Adrenth\Thetvdb\Model\SeriesEpisodesQueryParams;
-use Adrenth\Thetvdb\Model\SeriesEpisodesSummary;
-use Adrenth\Thetvdb\Model\SeriesImageQueryResults;
-use Adrenth\Thetvdb\Model\SeriesImagesCounts;
-use Adrenth\Thetvdb\Model\SeriesImagesQueryParams;
-use Adrenth\Thetvdb\Model\UpdateData;
-use Adrenth\Thetvdb\Model\UserData;
-use Adrenth\Thetvdb\Model\UserFavoritesData;
-use Adrenth\Thetvdb\Model\UserRatingsData;
-use Adrenth\Thetvdb\Model\UserRatingsDataNoLinks;
-use Adrenth\Thetvdb\Model\ValueObject;
+use Adrenth\Thetvdb\Model;
 
 /**
  * Class JsonResponseHandler
@@ -58,31 +39,35 @@ class ResponseHandler implements ResponseHandlerInterface
     public const METHOD_USER_FAVORITES = 'userFavorites';
     public const METHOD_USER_RATINGS = 'userRatings';
     public const METHOD_USER_RATINGS_ADD = 'userRatingsAdd';
+    public const METHOD_MOVIE = 'movie';
+    public const METHOD_UPDATED_MOVIES = 'updatedMovies';
 
     /**
      * @var array
      */
     private static $mapping = [
-        self::METHOD_SERIES => Series::class,
-        self::METHOD_EPISODE => Episode::class,
-        self::METHOD_SERIES_ACTORS => SeriesActors::class,
-        self::METHOD_SERIES_EPISODES => SeriesEpisodes::class,
-        self::METHOD_SERIES_EPISODES_QUERY => SeriesEpisodesQuery::class,
-        self::METHOD_SERIES_EPISODES_QUERY_PARAMS => SeriesEpisodesQueryParams::class,
-        self::METHOD_SERIES_EPISODES_SUMMARY => SeriesEpisodesSummary::class,
-        self::METHOD_SERIES_FILTER => Series::class,
-        self::METHOD_SERIES_FILTER_PARAMS => FilterKeys::class,
-        self::METHOD_SERIES_IMAGES => SeriesImagesCounts::class,
-        self::METHOD_SERIES_IMAGES_QUERY_PARAMS => SeriesImagesQueryParams::class,
-        self::METHOD_SERIES_IMAGES_QUERY => SeriesImageQueryResults::class,
-        self::METHOD_LANGUAGES => LanguageData::class,
-        self::METHOD_LANGUAGE => Language::class,
-        self::METHOD_SEARCH_SERIES => SeriesData::class,
-        self::METHOD_UPDATES => UpdateData::class,
-        self::METHOD_USER => UserData::class,
-        self::METHOD_USER_FAVORITES => UserFavoritesData::class,
-        self::METHOD_USER_RATINGS => UserRatingsData::class,
-        self::METHOD_USER_RATINGS_ADD => UserRatingsDataNoLinks::class,
+        self::METHOD_SERIES => Model\Series::class,
+        self::METHOD_EPISODE => Model\Episode::class,
+        self::METHOD_SERIES_ACTORS => Model\SeriesActors::class,
+        self::METHOD_SERIES_EPISODES => Model\SeriesEpisodes::class,
+        self::METHOD_SERIES_EPISODES_QUERY => Model\SeriesEpisodesQuery::class,
+        self::METHOD_SERIES_EPISODES_QUERY_PARAMS => Model\SeriesEpisodesQueryParams::class,
+        self::METHOD_SERIES_EPISODES_SUMMARY => Model\SeriesEpisodesSummary::class,
+        self::METHOD_SERIES_FILTER => Model\Series::class,
+        self::METHOD_SERIES_FILTER_PARAMS => Model\FilterKeys::class,
+        self::METHOD_SERIES_IMAGES => Model\SeriesImagesCounts::class,
+        self::METHOD_SERIES_IMAGES_QUERY_PARAMS => Model\SeriesImagesQueryParams::class,
+        self::METHOD_SERIES_IMAGES_QUERY => Model\SeriesImageQueryResults::class,
+        self::METHOD_LANGUAGES => Model\LanguageData::class,
+        self::METHOD_LANGUAGE => Model\Language::class,
+        self::METHOD_SEARCH_SERIES => Model\SeriesData::class,
+        self::METHOD_UPDATES => Model\UpdateData::class,
+        self::METHOD_USER => Model\UserData::class,
+        self::METHOD_USER_FAVORITES => Model\UserFavoritesData::class,
+        self::METHOD_USER_RATINGS => Model\UserRatingsData::class,
+        self::METHOD_USER_RATINGS_ADD => Model\UserRatingsDataNoLinks::class,
+        self::METHOD_MOVIE => Model\Movie::class,
+        self::METHOD_UPDATED_MOVIES => Model\UpdatedMovies::class
     ];
 
     /**
@@ -128,7 +113,7 @@ class ResponseHandler implements ResponseHandlerInterface
      * {@inheritDoc}
      * @throws InvalidJsonInResponseException
      */
-    public function handle(): ValueObject
+    public function handle(): Model\ValueObject
     {
         $data = $this->getData();
         $class = self::$mapping[$this->method];
