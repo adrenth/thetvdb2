@@ -16,6 +16,11 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+        </whitelist>
+    </filter>
     <php>
         <const name="API_KEY" value="" />
         <const name="API_USERNAME" value="" />
