@@ -1,11 +1,11 @@
 <?php
 
-namespace Adrenth\Tests\Extension;
+namespace Adrenth\Thetvdb\Tests\Extension;
 
-use Adrenth\Tests\ClientTest;
 use Adrenth\Thetvdb\Extension\LanguagesExtension;
 use Adrenth\Thetvdb\Model\Language;
 use Adrenth\Thetvdb\Model\LanguageData;
+use Adrenth\Thetvdb\Tests\ClientTest;
 use Illuminate\Support\Collection;
 
 /**

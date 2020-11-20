@@ -1,10 +1,10 @@
 <?php
 
-namespace Adrenth\Tests\Extension;
+namespace Adrenth\Thetvdb\Tests\Extension;
 
-use Adrenth\Tests\ClientTest;
 use Adrenth\Thetvdb\Extension\EpisodesExtension;
 use Adrenth\Thetvdb\Model\Episode;
+use Adrenth\Thetvdb\Tests\ClientTest;
 
 /**
  * Class EpisodesExtensionTest

@@ -1,6 +1,6 @@
 <?php
 
-namespace Adrenth\Tests;
+namespace Adrenth\Thetvdb\Tests;
 
 use Adrenth\Thetvdb\Client;
 use Adrenth\Thetvdb\Extension\AuthenticationExtension;
@@ -27,8 +27,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         // Set up an authenticated client
         $this->client = new Client();
-        $this->client->setVersion('2.3.0')
-            ->setLanguage('en');
+        $this->client->setVersion('2.3.0');
+        $this->client->setLanguage('en');
 
         $token = $this->client->authentication()->login(API_KEY, API_USERNAME, API_USER_KEY);
 
