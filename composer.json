@@ -1,6 +1,6 @@
 {
-    "name": "adrenth/thetvdb2",
-    "description": "API v2 Client for thetvdb.com",
+    "name": "oskarstark/thetvdb2",
+    "description": "API v2 Client for thetvdb.com - forked from adrenth/thetvdb2",
     "type": "library",
     "keywords": ["thetvdb", "thetvdb.com", "api", "library"],
     "license": "MIT",
