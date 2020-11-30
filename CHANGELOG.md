@@ -1,5 +1,10 @@
 # Changelog
 
+# 5.0.0
+
+* Use PSR-4 for autoloading (thanks to Oskar Stark)
+* Add support for symfony/serializer:^5.1
+
 # 4.0.0
 
 * Add /movies/{id} and /movieupdates?since=... endpoint
