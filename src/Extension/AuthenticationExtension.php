@@ -31,8 +31,8 @@ class AuthenticationExtension extends ClientExtension
      * $client->setToken($token);
      *
      * @param string $apiKey
-     * @param string $username
-     * @param string $accountIdentifier
+     * @param string|null $username
+     * @param string|null $accountIdentifier
      * @return string
      * @throws CouldNotLoginException
      * @throws UnauthorizedException
