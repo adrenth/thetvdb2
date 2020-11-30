@@ -55,9 +55,9 @@ class LanguagesExtension extends ClientExtension
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
      */
-    public function get($identifier): Language
+    public function get(int $identifier): Language
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', sprintf('/languages/%d', (int) $identifier));
+        $json = $this->client->performApiCallWithJsonResponse('get', sprintf('/languages/%d', $identifier));
 
         /** @var Language $language */
         $language = ResponseHandler::create($json, ResponseHandler::METHOD_LANGUAGE)->handle();

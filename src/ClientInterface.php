@@ -23,7 +23,7 @@ interface ClientInterface
     /**
      * Set authentication token
      *
-     * @param string $token
+     * @param string|null $token
      * @return void
      */
     public function setToken(?string $token): void;

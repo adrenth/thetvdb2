@@ -9,16 +9,16 @@
          processIsolation="false"
          stopOnFailure="true"
          syntaxCheck="false"
-         bootstrap="./tests/Adrenth/Tests/TestInit.php"
+         bootstrap="vendor/autoload.php"
         >
     <testsuites>
-        <testsuite name="Adrenth Test Suite">
-            <directory>./tests/Adrenth/</directory>
+        <testsuite name="adrenth/thetvdb2 Test Suite">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory>./lib/Adrenth/</directory>
+            <directory>src</directory>
         </whitelist>
     </filter>
     <php>

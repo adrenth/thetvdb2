@@ -36,7 +36,7 @@ The official API documentation can be found here: [https://api.thetvdb.com/swagg
 
 ### Authentication
 
-```
+```php
 $client = new \Adrenth\Thetvdb\Client();
 $client->setLanguage('nl');
 
@@ -44,7 +44,7 @@ $client->setLanguage('nl');
 $token = $client->authentication()->login($apiKey, $username, $userKey);
 $client->setToken($token);
 
-// Or refresh token
+// Or refresh the token
 $client->refreshToken();
 ```
 
@@ -53,52 +53,49 @@ $client->refreshToken();
 The `Client` has a few extensions. A few usage examples are listed below:
 
 #### Authentication
-```
+```php
 $client->authentication()->login($apiKey, $username, $userKey);
 $client->authentication()->refreshToken();
 ```
 
 #### Languages
-```
+```php
 $client->languages()->all();
 $client->languages()->get($languageId);
 ```
 
 #### Episodes
-```
+```php
 $client->episodes()->get($episodeId);
-// ..
 ```
 
 #### Series
-```
+```php
 $client->series()->get($seriesId);
 $client->series()->getActors($seriesId);
 $client->series()->getEpisodes($seriesId);
 $client->series()->getImages($seriesId);
 $client->series()->getLastModified($seriesId);
-// ..
 ```
 
 #### Search
-```
+```php
 $client->search()->seriesByName('lost');
 $client->search()->seriesByImdbId('tt2243973');
 $client->search()->seriesByZap2itId('EP015679352');
-// ..
 ```
 
 #### Updates
 
 Fetch a list of Series that have been recently updated:
 
-```
+```php
 $client->updates()->query($fromTime, $toTime);
 ```
 
 #### Users
 
-```
+```php
 $client->users()->get();
 $client->users()->getFavorites();
 $client->users()->addFavorite($identifier);
@@ -107,13 +104,11 @@ $client->users()->getRatings();
 $client->users()->addRating($type, $itemId, $rating);
 $client->users()->updateRating($type, $itemId, $rating);
 $client->users()->removeRating($type, $itemId);
-
-//..
 ```
 
 #### Movies
 
-```
+```php
 $client->movies()->get(78398);
 $client->movies()->getUpdates();
 ```
@@ -124,7 +119,7 @@ Every response object has a `getData()` method which may contain a collection of
 
 For example:
 
-```
+```php
 // Get all available languages
 $languageData = $client->languages()->all(); // Returns a LanguageData instance
 $languages = $languageData->getData()->all();

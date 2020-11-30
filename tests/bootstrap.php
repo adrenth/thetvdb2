@@ -15,5 +15,5 @@ if (file_exists(__DIR__ . '/../../../vendor/autoload.php')) {
 }
 
 /* @var $classLoader \Composer\Autoload\ClassLoader */
-$classLoader->add('Adrenth\\Tests\\', __DIR__ . '/../../');
+$classLoader->add('Adrenth\\Tests\\', __DIR__.'/../tests/');
 unset($classLoader);
