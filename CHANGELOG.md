@@ -1,5 +1,9 @@
 # Changelog
 
+# 5.0.1
+
+* Add illuminate/support:^8.0 version constraint for Laravel 8 support
+
 # 5.0.0
 
 * Use PSR-4 for autoloading (thanks to Oskar Stark)
