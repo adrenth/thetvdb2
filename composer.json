@@ -23,8 +23,13 @@
         "symfony/var-dumper": "^3.0"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Adrenth\\Thetvdb\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Adrenth\\Thetvdb\\Tests\\": "tests/"
         }
     },
     "extra": {
