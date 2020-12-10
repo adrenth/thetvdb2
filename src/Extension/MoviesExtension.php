@@ -16,7 +16,6 @@ use DateTimeImmutable;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 final class MoviesExtension extends ClientExtension
 {

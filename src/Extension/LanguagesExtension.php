@@ -17,7 +17,6 @@ use Adrenth\Thetvdb\ResponseHandler;
  * Available languages and information.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class LanguagesExtension extends ClientExtension
 {

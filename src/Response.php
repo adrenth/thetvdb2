@@ -6,7 +6,6 @@ namespace Adrenth\Thetvdb;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 abstract class Response implements ResponseInterface
 {

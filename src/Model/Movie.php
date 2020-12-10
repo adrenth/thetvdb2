@@ -15,7 +15,6 @@ use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 final class Movie extends ValueObject
 {

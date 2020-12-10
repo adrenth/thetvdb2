@@ -9,7 +9,6 @@ use Adrenth\Thetvdb\Exception\InvalidJsonInResponseException;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class ResponseHandler implements ResponseHandlerInterface
 {

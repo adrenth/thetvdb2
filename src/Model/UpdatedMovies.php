@@ -8,7 +8,6 @@ use Illuminate\Support\Arr;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 final class UpdatedMovies extends ValueObject
 {
