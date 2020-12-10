@@ -44,8 +44,6 @@ class Client implements ClientInterface
     private $version = '3.0.0';
 
     /**
-     * RestClient constructor.
-     *
      * @throws InvalidArgumentException
      */
     public function __construct()
@@ -205,8 +203,6 @@ class Client implements ClientInterface
     }
 
     /**
-     * Initialize Client.
-     *
      * @throws InvalidArgumentException
      */
     protected function init(): void
