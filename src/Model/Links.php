@@ -6,7 +6,6 @@ namespace Adrenth\Thetvdb\Model;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  *
  * @method int getFirst()
  * @method int getLast()

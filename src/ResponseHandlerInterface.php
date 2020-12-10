@@ -8,7 +8,6 @@ use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 interface ResponseHandlerInterface
 {

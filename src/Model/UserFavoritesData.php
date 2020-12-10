@@ -8,7 +8,6 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  *
  * @method UserFavorites getData()
  */

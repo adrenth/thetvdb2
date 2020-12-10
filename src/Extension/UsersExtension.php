@@ -24,7 +24,6 @@ use Throwable;
  * For handling user data.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class UsersExtension extends ClientExtension
 {

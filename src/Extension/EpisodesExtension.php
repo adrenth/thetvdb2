@@ -14,7 +14,6 @@ use Adrenth\Thetvdb\ResponseHandler;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class EpisodesExtension extends ClientExtension
 {

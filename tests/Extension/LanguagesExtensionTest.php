@@ -12,7 +12,6 @@ use Illuminate\Support\Collection;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class LanguagesExtensionTest extends ClientTest
 {

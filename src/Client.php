@@ -10,7 +10,6 @@ use InvalidArgumentException;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class Client implements ClientInterface
 {

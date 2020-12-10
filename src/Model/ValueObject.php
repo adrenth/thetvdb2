@@ -9,7 +9,6 @@ use Illuminate\Support\Arr;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 abstract class ValueObject
 {

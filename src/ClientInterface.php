@@ -11,7 +11,6 @@ use GuzzleHttp\Psr7\Response;
 /** * Interface RestClientInterface.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 interface ClientInterface
 {

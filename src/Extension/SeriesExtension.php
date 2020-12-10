@@ -27,7 +27,6 @@ use DateTimeImmutable;
  * Information about a specific series.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class SeriesExtension extends ClientExtension
 {

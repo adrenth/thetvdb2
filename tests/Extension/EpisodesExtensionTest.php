@@ -10,7 +10,6 @@ use Adrenth\Thetvdb\Tests\ClientTest;
 
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class EpisodesExtensionTest extends ClientTest
 {

@@ -14,7 +14,6 @@ use Adrenth\Thetvdb\Exception\UnauthorizedException;
  * Obtaining and refreshing your JWT token.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  MIT
  */
 class AuthenticationExtension extends ClientExtension
 {
