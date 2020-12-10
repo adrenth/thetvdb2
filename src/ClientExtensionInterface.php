@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb;
 /**
  * Interface ClientExtensionInterface.
  *
- * @category Thetvdb
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  *

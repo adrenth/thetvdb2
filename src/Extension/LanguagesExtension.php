@@ -18,8 +18,6 @@ use Adrenth\Thetvdb\ResponseHandler;
  *
  * Available languages and information
  *
- * @category Thetvdb
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  *

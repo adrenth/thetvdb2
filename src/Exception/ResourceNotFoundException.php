@@ -9,8 +9,6 @@ use Throwable;
 /**
  * Class ResourceNotFoundException.
  *
- * @category Thetvdb
- *
  * @author   A. Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  *
