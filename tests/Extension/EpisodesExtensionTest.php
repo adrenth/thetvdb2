@@ -11,8 +11,6 @@ use Adrenth\Thetvdb\Tests\ClientTest;
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
- *
- * @see     https://github.com/adrenth/thetvdb2
  */
 class EpisodesExtensionTest extends ClientTest
 {

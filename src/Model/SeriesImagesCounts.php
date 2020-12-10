@@ -10,8 +10,6 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
- * @see     https://github.com/adrenth/thetvdb2
- *
  * @method SeriesImagesCount getData()
  */
 class SeriesImagesCounts extends ValueObject
