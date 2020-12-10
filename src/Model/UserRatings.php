@@ -5,17 +5,18 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * Class UserRatings
+ * Class UserRatings.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  *
  * @method string getRatingType()
- * @method int getRatingItemId()
- * @method int getRating()
+ * @method int    getRatingItemId()
+ * @method int    getRating()
  */
 class UserRatings extends ValueObject
 {

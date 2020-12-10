@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Tests;
 
 use Adrenth\Thetvdb\Client;
@@ -11,9 +13,7 @@ use Adrenth\Thetvdb\Extension\UpdatesExtension;
 use Adrenth\Thetvdb\Extension\UsersExtension;
 
 /**
- * Class ClientTest
- *
- * @package Adrenth\Tests
+ * Class ClientTest.
  */
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
         // Set up an authenticated client
         $this->client = new Client();
@@ -37,7 +37,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->client->setToken($token);
     }
 
-    public function testExtensions()
+    public function testExtensions(): void
     {
         self::assertInstanceOf(AuthenticationExtension::class, $this->client->authentication());
         self::assertInstanceOf(EpisodesExtension::class, $this->client->episodes());

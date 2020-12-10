@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Tests\Extension;
 
 use Adrenth\Thetvdb\Extension\EpisodesExtension;
@@ -7,13 +9,14 @@ use Adrenth\Thetvdb\Model\Episode;
 use Adrenth\Thetvdb\Tests\ClientTest;
 
 /**
- * Class EpisodesExtensionTest
+ * Class EpisodesExtensionTest.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 class EpisodesExtensionTest extends ClientTest
 {
@@ -23,13 +26,13 @@ class EpisodesExtensionTest extends ClientTest
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->extension = new EpisodesExtension($this->client);
     }
 
-    public function testEpisodes()
+    public function testEpisodes(): void
     {
         // First episode of Series 'Lost'
         $episode = $this->extension->get(127131);

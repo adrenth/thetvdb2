@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Exception;
 
 /**
- * Class UnauthorizedException
+ * Class UnauthorizedException.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Exception
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
- * @package Adrenth\Thetvdb\Exception
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 class UnauthorizedException extends \Exception
 {
