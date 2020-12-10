@@ -8,8 +8,6 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Adrenth\Thetvdb\Exception\InvalidJsonInResponseException;
 
 /**
- * Class JsonResponseHandler.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -40,18 +38,15 @@ class ResponseHandler implements ResponseHandlerInterface
     public const METHOD_MOVIE = 'movie';
     public const METHOD_UPDATED_MOVIES = 'updatedMovies';
 
-    /**
-     * @var string
+    /**     * @var string
      */
     protected $json;
 
-    /**
-     * @var string
+    /**     * @var string
      */
     protected $method;
 
-    /**
-     * @var array
+    /**     * @var array
      */
     private static $mapping = [
         self::METHOD_SERIES => Model\Series::class,
@@ -78,8 +73,7 @@ class ResponseHandler implements ResponseHandlerInterface
         self::METHOD_UPDATED_MOVIES => Model\UpdatedMovies::class,
     ];
 
-    /**
-     * Construct.
+    /**     * Construct.
      *
      * @param string $json   JSON data
      * @param string $method Method
@@ -97,8 +91,7 @@ class ResponseHandler implements ResponseHandlerInterface
         $this->method = $method;
     }
 
-    /**
-     * @param string $json   JSON data
+    /**     * @param string $json   JSON data
      * @param string $method Method
      *
      * @return static
@@ -110,8 +103,7 @@ class ResponseHandler implements ResponseHandlerInterface
         return new static($json, $method);
     }
 
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      *
      * @throws InvalidJsonInResponseException
      */
@@ -123,8 +115,7 @@ class ResponseHandler implements ResponseHandlerInterface
         return new $class($data);
     }
 
-    /**
-     * @throws InvalidJsonInResponseException
+    /**     * @throws InvalidJsonInResponseException
      */
     public function getData(): array
     {

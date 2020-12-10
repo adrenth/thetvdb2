@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Model;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 
 /**
- * Class SeriesImagesCounts.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -18,8 +16,7 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
  */
 class SeriesImagesCounts extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -32,8 +29,7 @@ class SeriesImagesCounts extends ValueObject
         ]);
     }
 
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

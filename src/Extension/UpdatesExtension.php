@@ -14,8 +14,6 @@ use Adrenth\Thetvdb\ResponseHandler;
 use DateTime;
 
 /**
- * Class UpdatesExtension.
- *
  * Series that have been recently updated
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
@@ -25,8 +23,7 @@ use DateTime;
  */
 class UpdatesExtension extends ClientExtension
 {
-    /**
-     * @param DateTime $toTime
+    /**     * @param DateTime $toTime
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException

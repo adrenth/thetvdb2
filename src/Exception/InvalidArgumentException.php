@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Exception;
 
 /**
- * Class InvalidArgumentException.
- *
  * @author   A. Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -14,8 +12,7 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class InvalidArgumentException extends \InvalidArgumentException
 {
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function expectedIndex(string $index): InvalidArgumentException
     {
@@ -25,8 +22,7 @@ class InvalidArgumentException extends \InvalidArgumentException
         ));
     }
 
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function undefinedAttribute(string $attribute, string $class): InvalidArgumentException
     {
@@ -37,8 +33,7 @@ class InvalidArgumentException extends \InvalidArgumentException
         ));
     }
 
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function noValueForAttribute(string $attribute, string $class): InvalidArgumentException
     {
@@ -49,8 +44,7 @@ class InvalidArgumentException extends \InvalidArgumentException
         ));
     }
 
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function invalidMethod(string $method, array $availableMethods): InvalidArgumentException
     {

@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Exception;
 use Throwable;
 
 /**
- * Class ResourceNotFoundException.
- *
  * @author   A. Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -16,8 +14,7 @@ use Throwable;
  */
 class ResourceNotFoundException extends InvalidArgumentException
 {
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function withPath(string $path, array $parameters = []): ResourceNotFoundException
     {

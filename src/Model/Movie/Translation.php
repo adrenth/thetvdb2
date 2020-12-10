@@ -8,8 +8,6 @@ use Adrenth\Thetvdb\Model\ValueObject;
 use Illuminate\Support\Arr;
 
 /**
- * Class Translation.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *

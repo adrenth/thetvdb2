@@ -9,8 +9,6 @@ use Adrenth\Thetvdb\Model\Episode;
 use Adrenth\Thetvdb\Tests\ClientTest;
 
 /**
- * Class EpisodesExtensionTest.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -21,8 +19,7 @@ class EpisodesExtensionTest extends ClientTest
     /** @var EpisodesExtension */
     protected $extension;
 
-    /**
-     * {@inheritdoc}
+    /**     * {@inheritdoc}
      */
     protected function setUp(): void
     {

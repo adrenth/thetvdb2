@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Model;
 use Illuminate\Support\Arr;
 
 /**
- * Class UpdatedMovies.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *

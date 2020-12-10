@@ -11,8 +11,6 @@ use Adrenth\Thetvdb\Tests\ClientTest;
 use Illuminate\Support\Collection;
 
 /**
- * Class LanguagesExtensionTest.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -23,8 +21,7 @@ class LanguagesExtensionTest extends ClientTest
     /** @var LanguagesExtension */
     protected $extension;
 
-    /**
-     * {@inheritdoc}
+    /**     * {@inheritdoc}
      */
     protected function setUp(): void
     {

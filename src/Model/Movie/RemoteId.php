@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Model\Movie;
 use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
- * Class RemoteId.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
