@@ -1,5 +1,9 @@
 # Changelog
 
+# 5.1.0
+
+* Add support for PHP 8.0
+
 # 5.0.1
 
 * Add illuminate/support:^8.0 version constraint for Laravel 8 support
