@@ -24,23 +24,15 @@ use Adrenth\Thetvdb\ResponseHandler;
 use DateTimeImmutable;
 
 /**
- * Class SeriesExtension
+ * Information about a specific series.
  *
- * Information about a specific series
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb\Extension
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 class SeriesExtension extends ClientExtension
 {
     /**
      * Returns a series record that contains all information known about a particular series ID.
      *
-     * @param int $seriesId
-     * @return Series
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -48,7 +40,7 @@ class SeriesExtension extends ClientExtension
      */
     public function get(int $seriesId): Series
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', '/series/' . $seriesId);
+        $json = $this->client->performApiCallWithJsonResponse('get', '/series/'.$seriesId);
 
         /** @var Series $series */
         $series = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES)->handle();
@@ -59,8 +51,6 @@ class SeriesExtension extends ClientExtension
     /**
      * Returns actors for the given series ID.
      *
-     * @param int $seriesId
-     * @return SeriesActors
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -79,9 +69,6 @@ class SeriesExtension extends ClientExtension
     /**
      * All episodes for a given series. Paginated with 100 results per page.
      *
-     * @param int $seriesId
-     * @param int|null $page
-     * @return SeriesEpisodes
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -91,7 +78,7 @@ class SeriesExtension extends ClientExtension
     {
         $options = [
             'query' => [
-                'page' => $page === null ? 1 : (int) $page,
+                'page' => null === $page ? 1 : (int) $page,
             ],
         ];
 
@@ -108,8 +95,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param int $seriesId
-     * @return SeriesEpisodesQueryParams
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -130,8 +115,7 @@ class SeriesExtension extends ClientExtension
 
     /**
      * @param $seriesId
-     * @param array $query
-     * @return SeriesEpisodesQuery
+     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -154,8 +138,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param int $seriesId
-     * @return SeriesEpisodesSummary
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -175,8 +157,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param int $seriesId
-     * @return FilterKeys
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -196,9 +176,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param int $seriesId
-     * @param array $keys
-     * @return Series
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -208,8 +185,8 @@ class SeriesExtension extends ClientExtension
     {
         $options = [
             'query' => [
-                'keys' => implode(',', $keys)
-            ]
+                'keys' => implode(',', $keys),
+            ],
         ];
 
         $json = $this->client->performApiCallWithJsonResponse(
@@ -225,8 +202,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param int $seriesId
-     * @return SeriesImagesCounts
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -246,8 +221,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param int $seriesId
-     * @return SeriesImagesQueryParams
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -271,11 +244,8 @@ class SeriesExtension extends ClientExtension
      *      'keyType' => 'fanart',
      *      'resolution' => '1920x1080',
      *      'subKey' => 'graphical'
-     * ]
+     * ].
      *
-     * @param int $seriesId
-     * @param array $query
-     * @return SeriesImageQueryResults
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -284,7 +254,7 @@ class SeriesExtension extends ClientExtension
     public function getImagesWithQuery(int $seriesId, array $query): SeriesImageQueryResults
     {
         $options = [
-            'query' => $query
+            'query' => $query,
         ];
 
         $json = $this->client->performApiCallWithJsonResponse(
@@ -300,8 +270,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param int $seriesId
-     * @return DateTimeImmutable
      * @throws LastModifiedHeaderException
      */
     public function getLastModified(int $seriesId): DateTimeImmutable
@@ -315,7 +283,7 @@ class SeriesExtension extends ClientExtension
                 $headers['Last-Modified'][0]
             );
 
-            if ($lastModified === false) {
+            if (false === $lastModified) {
                 throw LastModifiedHeaderException::invalidFormat($headers['Last-Modified'][0]);
             }
 

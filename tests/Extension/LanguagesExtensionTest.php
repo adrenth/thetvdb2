@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Tests\Extension;
 
 use Adrenth\Thetvdb\Extension\LanguagesExtension;
@@ -9,13 +11,7 @@ use Adrenth\Thetvdb\Tests\ClientTest;
 use Illuminate\Support\Collection;
 
 /**
- * Class LanguagesExtensionTest
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 class LanguagesExtensionTest extends ClientTest
 {
@@ -25,13 +21,13 @@ class LanguagesExtensionTest extends ClientTest
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->extension = new LanguagesExtension($this->client);
     }
 
-    public function testAllLanguages()
+    public function testAllLanguages(): void
     {
         $languages = $this->extension->all();
 

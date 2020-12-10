@@ -14,22 +14,15 @@ use Adrenth\Thetvdb\Model\LanguageData;
 use Adrenth\Thetvdb\ResponseHandler;
 
 /**
- * Class LanguagesExtension
+ * Available languages and information.
  *
- * Available languages and information
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb\Extension
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 class LanguagesExtension extends ClientExtension
 {
     /**
      * Get all available languages.
      *
-     * @return LanguageData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -48,8 +41,6 @@ class LanguagesExtension extends ClientExtension
     /**
      * Get information about a particular language, given the language ID.
      *
-     * @param int $identifier
-     * @return Language
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException

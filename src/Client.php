@@ -4,25 +4,17 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb;
 
-use Adrenth\Thetvdb\Exception;
-use Adrenth\Thetvdb\Extension;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Psr7\Response;
 use InvalidArgumentException;
 
 /**
- * Class Client
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 class Client implements ClientInterface
 {
     /**
-     * Base URI
+     * Base URI.
      *
      * @var string
      */
@@ -49,32 +41,11 @@ class Client implements ClientInterface
     private $version = '3.0.0';
 
     /**
-     * RestClient constructor.
      * @throws InvalidArgumentException
      */
     public function __construct()
     {
         $this->init();
-    }
-
-    /**
-     * Initialize Client
-     *
-     * @return void
-     * @throws InvalidArgumentException
-     */
-    protected function init(): void
-    {
-        $this->httpClient = new HttpClient(
-            [
-                'base_uri' => self::API_BASE_URI,
-                'verify' => false,
-                'http_errors' => false,
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                ],
-            ]
-        );
     }
 
     /**
@@ -84,7 +55,6 @@ class Client implements ClientInterface
     {
         $this->token = $token;
     }
-
 
     /**
      * {@inheritDoc}
@@ -186,7 +156,7 @@ class Client implements ClientInterface
     {
         $response = $this->performApiCall($method, $path, $options);
 
-        if ($response->getStatusCode() === 200) {
+        if (200 === $response->getStatusCode()) {
             try {
                 $contents = $response->getBody()->getContents();
             } catch (\RuntimeException $e) {
@@ -207,6 +177,7 @@ class Client implements ClientInterface
 
     /**
      * {@inheritDoc}
+     *
      * @throws Exception\ResourceNotFoundException
      */
     public function performApiCall(string $method, string $path, array $options = []): Response
@@ -216,11 +187,11 @@ class Client implements ClientInterface
         /** @var Response $response */
         $response = $this->httpClient->{$method}($path, $options);
 
-        if ($response->getStatusCode() === 401) {
+        if (401 === $response->getStatusCode()) {
             throw Exception\UnauthorizedException::invalidToken();
         }
 
-        if ($response->getStatusCode() === 404) {
+        if (404 === $response->getStatusCode()) {
             $parameters = array_key_exists('query', $options) ? $options['query'] : [];
             throw Exception\ResourceNotFoundException::withPath($path, $parameters);
         }
@@ -229,23 +200,36 @@ class Client implements ClientInterface
     }
 
     /**
-     * @param array $options
-     * @return array
+     * @throws InvalidArgumentException
      */
+    protected function init(): void
+    {
+        $this->httpClient = new HttpClient(
+            [
+                'base_uri' => self::API_BASE_URI,
+                'verify' => false,
+                'http_errors' => false,
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                ],
+            ]
+        );
+    }
+
     private function getDefaultHttpClientOptions(array $options = []): array
     {
         $headers = [];
 
-        if ($this->token !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->token;
+        if (null !== $this->token) {
+            $headers['Authorization'] = 'Bearer '.$this->token;
         }
 
-        if ($this->language !== null) {
+        if (null !== $this->language) {
             $headers['Accept-Language'] = $this->language;
         }
 
-        if ($this->version !== null) {
-            $headers['Accept'] = 'application/vnd.thetvdb.v' . $this->version;
+        if (null !== $this->version) {
+            $headers['Accept'] = 'application/vnd.thetvdb.v'.$this->version;
         }
 
         return array_merge_recursive(

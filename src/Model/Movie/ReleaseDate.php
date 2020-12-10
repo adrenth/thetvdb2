@@ -7,13 +7,7 @@ namespace Adrenth\Thetvdb\Model\Movie;
 use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
- * Class ReleaseDate
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model\Movie
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 final class ReleaseDate extends ValueObject
 {
@@ -35,25 +29,16 @@ final class ReleaseDate extends ValueObject
         $this->type = $this->stringOrNull('type');
     }
 
-    /**
-     * @return string|null
-     */
     public function getCountry(): ?string
     {
         return $this->country;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDate(): ?string
     {
         return $this->date;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;

@@ -5,18 +5,12 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Exception;
 
 /**
- * Class InvalidArgumentException
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb\Exception
  * @author   A. Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ * @license  MIT
  */
 class InvalidArgumentException extends \InvalidArgumentException
 {
     /**
-     * @param string $index
      * @return static
      */
     public static function expectedIndex(string $index): InvalidArgumentException
@@ -28,8 +22,6 @@ class InvalidArgumentException extends \InvalidArgumentException
     }
 
     /**
-     * @param string $attribute
-     * @param string $class
      * @return static
      */
     public static function undefinedAttribute(string $attribute, string $class): InvalidArgumentException
@@ -42,8 +34,6 @@ class InvalidArgumentException extends \InvalidArgumentException
     }
 
     /**
-     * @param string $attribute
-     * @param string $class
      * @return static
      */
     public static function noValueForAttribute(string $attribute, string $class): InvalidArgumentException
@@ -56,8 +46,6 @@ class InvalidArgumentException extends \InvalidArgumentException
     }
 
     /**
-     * @param string $method
-     * @param array $availableMethods
      * @return static
      */
     public static function invalidMethod(string $method, array $availableMethods): InvalidArgumentException

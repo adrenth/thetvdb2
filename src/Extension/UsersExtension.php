@@ -21,15 +21,9 @@ use Psr\Http\Message\ResponseInterface;
 use Throwable;
 
 /**
- * Class UsersExtension
+ * For handling user data.
  *
- * For handling user data
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb\Extension
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 class UsersExtension extends ClientExtension
 {
@@ -41,13 +35,12 @@ class UsersExtension extends ClientExtension
     private static $ratingTypes = [
         self::RATING_TYPE_SERIES,
         self::RATING_TYPE_EPISODE,
-        self::RATING_TYPE_BANNER
+        self::RATING_TYPE_BANNER,
     ];
 
     /**
      * Get basic information about the currently authenticated user.
      *
-     * @return UserData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -66,7 +59,6 @@ class UsersExtension extends ClientExtension
     /**
      * Get user favorites.
      *
-     * @return UserFavoritesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -85,8 +77,6 @@ class UsersExtension extends ClientExtension
     /**
      * Remove series with $identifier from favorites.
      *
-     * @param int $identifier
-     * @return bool
      * @throws UnauthorizedException
      */
     public function removeFavorite(int $identifier): bool
@@ -95,18 +85,16 @@ class UsersExtension extends ClientExtension
             'delete',
             sprintf('user/favorites/%d', (int) $identifier),
             [
-                'http_errors' => false
+                'http_errors' => false,
             ]
         );
 
-        return $response->getStatusCode() === 200 && $response->getReasonPhrase() === 'OK';
+        return 200 === $response->getStatusCode() && 'OK' === $response->getReasonPhrase();
     }
 
     /**
      * Add series with $identifier to favorites.
      *
-     * @param int $identifier
-     * @return UserFavoritesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -120,13 +108,13 @@ class UsersExtension extends ClientExtension
                 'put',
                 sprintf('user/favorites/%d', $identifier),
                 [
-                    'http_errors' => true
+                    'http_errors' => true,
                 ]
             );
         } catch (ClientException $e) {
             $message = $this->getApiErrorMessage($e->getResponse());
 
-            if ($message !== '') {
+            if ('' !== $message) {
                 throw CouldNotAddFavoriteException::reason($message);
             }
 
@@ -143,7 +131,7 @@ class UsersExtension extends ClientExtension
      * Get user ratings.
      *
      * @param string|null $type Use class constants UsersExtension::RATING_TYPE_*
-     * @return UserRatingsData
+     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -151,20 +139,20 @@ class UsersExtension extends ClientExtension
      */
     public function getRatings(string $type = null): UserRatingsData
     {
-        if ($type !== null && !in_array($type, self::$ratingTypes, true)) {
+        if (null !== $type && !in_array($type, self::$ratingTypes, true)) {
             throw new InvalidArgumentException(
-                'Invalid rating type, use one of these instead: ' . implode(',', self::$ratingTypes)
+                'Invalid rating type, use one of these instead: '.implode(',', self::$ratingTypes)
             );
         }
 
-        if ($type !== null) {
+        if (null !== $type) {
             $json = $this->client->performApiCallWithJsonResponse(
                 'get',
                 '/user/ratings/query',
                 [
                     'query' => [
-                        'itemType' => $type
-                    ]
+                        'itemType' => $type,
+                    ],
                 ]
             );
         } else {
@@ -180,10 +168,9 @@ class UsersExtension extends ClientExtension
     /**
      * Add user rating.
      *
-     * @param int $type Use class constants UsersExtension::RATING_TYPE_*
-     * @param int $itemId
+     * @param int $type   Use class constants UsersExtension::RATING_TYPE_*
      * @param int $rating Value between 1 and 10
-     * @return UserRatingsDataNoLinks
+     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -194,7 +181,7 @@ class UsersExtension extends ClientExtension
     {
         if (!in_array($type, self::$ratingTypes, true)) {
             throw new InvalidArgumentException(
-                'Invalid rating type, use one of these instead: ' . implode(',', self::$ratingTypes)
+                'Invalid rating type, use one of these instead: '.implode(',', self::$ratingTypes)
             );
         }
 
@@ -203,13 +190,13 @@ class UsersExtension extends ClientExtension
                 'put',
                 sprintf('user/ratings/%s/%d/%d', $type, $itemId, $rating),
                 [
-                    'http_errors' => true
+                    'http_errors' => true,
                 ]
             );
         } catch (ClientException $e) {
             $message = $this->getApiErrorMessage($e->getResponse());
 
-            if ($message !== '') {
+            if ('' !== $message) {
                 throw CouldNotAddOrUpdateUserRatingException::reason($message);
             }
 
@@ -225,10 +212,9 @@ class UsersExtension extends ClientExtension
     /**
      * Update user rating.
      *
-     * @param int $type Use class constants UsersExtension::RATING_TYPE_*
-     * @param int $itemId
+     * @param int $type   Use class constants UsersExtension::RATING_TYPE_*
      * @param int $rating Value between 1 and 10
-     * @return UserRatingsDataNoLinks
+     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -243,9 +229,6 @@ class UsersExtension extends ClientExtension
     /**
      * Remove user rating.
      *
-     * @param int $type
-     * @param int $itemId
-     * @return bool
      * @throws UnauthorizedException
      */
     public function removeRating(int $type, int $itemId): bool
@@ -254,18 +237,15 @@ class UsersExtension extends ClientExtension
             'delete',
             sprintf('user/ratings/%d/%d', (int) $type, (int) $itemId),
             [
-                'http_errors' => false
+                'http_errors' => false,
             ]
         );
 
-        return $response->getStatusCode() === 200 && $response->getReasonPhrase() === 'OK';
+        return 200 === $response->getStatusCode() && 'OK' === $response->getReasonPhrase();
     }
 
     /**
      * Extract error message from response body.
-     *
-     * @param ResponseInterface $response
-     * @return string
      */
     private function getApiErrorMessage(ResponseInterface $response): string
     {
@@ -275,7 +255,7 @@ class UsersExtension extends ClientExtension
             return '';
         }
 
-        if (strpos($body, '"Error"') !== false
+        if (false !== strpos($body, '"Error"')
             && ($body = json_decode($body, true))
             && array_key_exists('Error', $body)
         ) {

@@ -8,13 +8,7 @@ use Adrenth\Thetvdb\Model\ValueObject;
 use Illuminate\Support\Arr;
 
 /**
- * Class Artwork
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model\Movie
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 final class Artwork extends ValueObject
 {
@@ -56,65 +50,41 @@ final class Artwork extends ValueObject
         $this->isPrimary = (bool) Arr::get($this->values, 'is_primary', false);
     }
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @return int|null
-     */
     public function getWidth(): ?int
     {
         return $this->width;
     }
 
-    /**
-     * @return int|null
-     */
     public function getHeight(): ?int
     {
         return $this->height;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUrl(): ?string
     {
         return $this->url;
     }
 
-    /**
-     * @return string|null
-     */
     public function getThumbUrl(): ?string
     {
         return $this->thumbUrl;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTags(): ?string
     {
         return $this->tags;
     }
 
-    /**
-     * @return bool
-     */
     public function isPrimary(): bool
     {
         return $this->isPrimary;

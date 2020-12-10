@@ -6,16 +6,9 @@ namespace Adrenth\Thetvdb;
 
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Adrenth\Thetvdb\Exception\InvalidJsonInResponseException;
-use Adrenth\Thetvdb\Model;
 
 /**
- * Class JsonResponseHandler
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 class ResponseHandler implements ResponseHandlerInterface
 {
@@ -43,6 +36,16 @@ class ResponseHandler implements ResponseHandlerInterface
     public const METHOD_UPDATED_MOVIES = 'updatedMovies';
 
     /**
+     * @var string
+     */
+    protected $json;
+
+    /**
+     * @var string
+     */
+    protected $method;
+
+    /**
      * @var array
      */
     private static $mapping = [
@@ -67,24 +70,15 @@ class ResponseHandler implements ResponseHandlerInterface
         self::METHOD_USER_RATINGS => Model\UserRatingsData::class,
         self::METHOD_USER_RATINGS_ADD => Model\UserRatingsDataNoLinks::class,
         self::METHOD_MOVIE => Model\Movie::class,
-        self::METHOD_UPDATED_MOVIES => Model\UpdatedMovies::class
+        self::METHOD_UPDATED_MOVIES => Model\UpdatedMovies::class,
     ];
 
     /**
-     * @var string
-     */
-    protected $json;
-
-    /**
-     * @var string
-     */
-    protected $method;
-
-    /**
-     * Construct
+     * Construct.
      *
-     * @param string $json JSON data
+     * @param string $json   JSON data
      * @param string $method Method
+     *
      * @throws InvalidArgumentException
      */
     public function __construct(string $json, string $method)
@@ -99,9 +93,11 @@ class ResponseHandler implements ResponseHandlerInterface
     }
 
     /**
-     * @param string $json JSON data
+     * @param string $json   JSON data
      * @param string $method Method
+     *
      * @return static
+     *
      * @throws InvalidArgumentException
      */
     public static function create(string $json, string $method): ResponseHandler
@@ -111,34 +107,31 @@ class ResponseHandler implements ResponseHandlerInterface
 
     /**
      * {@inheritDoc}
+     *
      * @throws InvalidJsonInResponseException
      */
     public function handle(): Model\ValueObject
     {
         $data = $this->getData();
         $class = self::$mapping[$this->method];
+
         return new $class($data);
     }
 
     /**
-     * @return array
      * @throws InvalidJsonInResponseException
      */
     public function getData(): array
     {
         $data = json_decode($this->json, true);
 
-        if ($data === null || $data === false) {
+        if (null === $data || false === $data) {
             throw InvalidJsonInResponseException::couldNotDecodeJson();
         }
 
         return $data;
     }
 
-    /**
-     * @param string $method
-     * @return bool
-     */
     private function isValidMethod(string $method): bool
     {
         return array_key_exists($method, self::$mapping);

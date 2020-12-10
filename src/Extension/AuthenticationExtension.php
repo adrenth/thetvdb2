@@ -11,15 +11,9 @@ use Adrenth\Thetvdb\Exception\TokenNotFoundInResponseException;
 use Adrenth\Thetvdb\Exception\UnauthorizedException;
 
 /**
- * Class AuthenticationExtension
+ * Obtaining and refreshing your JWT token.
  *
- * Obtaining and refreshing your JWT token
- *
- * @category Thetvdb
- * @package  Adrenth\Thetvdb\Extension
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  */
 class AuthenticationExtension extends ClientExtension
 {
@@ -30,10 +24,6 @@ class AuthenticationExtension extends ClientExtension
      * $token = $client->authentication()->login('apikey', 'username', 'accountIdentifier');
      * $client->setToken($token);
      *
-     * @param string $apiKey
-     * @param string|null $username
-     * @param string|null $accountIdentifier
-     * @return string
      * @throws CouldNotLoginException
      * @throws UnauthorizedException
      */
@@ -42,23 +32,23 @@ class AuthenticationExtension extends ClientExtension
         $this->client->setToken(null);
 
         $data = [
-            'apikey' => $apiKey
+            'apikey' => $apiKey,
         ];
 
-        if ($username !== null) {
+        if (null !== $username) {
             $data['username'] = $username;
         }
 
-        if ($accountIdentifier !== null) {
+        if (null !== $accountIdentifier) {
             $data['userkey'] = $accountIdentifier;
         }
 
         $response = $this->client->performApiCall('post', '/login', [
             'body' => json_encode($data),
-            'http_errors' => true
+            'http_errors' => true,
         ]);
 
-        if ($response->getStatusCode() === 200) {
+        if (200 === $response->getStatusCode()) {
             try {
                 $contents = $response->getBody()->getContents();
             } catch (\RuntimeException $e) {
@@ -74,7 +64,7 @@ class AuthenticationExtension extends ClientExtension
             return $contents['token'];
         }
 
-        if ($response->getStatusCode() === 401) {
+        if (401 === $response->getStatusCode()) {
             throw CouldNotLoginException::unauthorized();
         }
 
@@ -84,7 +74,6 @@ class AuthenticationExtension extends ClientExtension
     /**
      * Refreshes your current, valid JWT token and returns a new token.
      *
-     * @return string
      * @throws TokenNotFoundInResponseException
      * @throws RequestFailedException
      * @throws UnauthorizedException
