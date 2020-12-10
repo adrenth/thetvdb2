@@ -8,13 +8,14 @@ use Adrenth\Thetvdb\Model\ValueObject;
 use Illuminate\Support\Arr;
 
 /**
- * Class Person
+ * Class Person.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model\Movie
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 final class Person extends ValueObject
 {
@@ -68,92 +69,58 @@ final class Person extends ValueObject
         $this->image = $this->stringOrNull('role_image');
     }
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @return string|null
-     */
     public function getImdbId(): ?string
     {
         return $this->imdbId;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPeopleId(): ?string
     {
         return $this->peopleId;
     }
 
-    /**
-     * @return string|null
-     */
     public function getIsFeatured(): ?string
     {
         return $this->isFeatured;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFacebook(): ?string
     {
         return $this->facebook;
     }
 
-    /**
-     * @return string|null
-     */
     public function getImage(): ?string
     {
         return $this->image;
     }
 
-    /**
-     * @return string|null
-     */
     public function getInstagram(): ?string
     {
         return $this->instagram;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTwitter(): ?string
     {
         return $this->twitter;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRole(): ?string
     {
         return $this->role;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRoleImage(): ?string
     {
         return $this->roleImage;
     }
 }
-

@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb;
 
 /**
- * Class ClientExtension
+ * Class ClientExtension.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 abstract class ClientExtension implements ClientExtensionInterface
 {

@@ -7,13 +7,14 @@ namespace Adrenth\Thetvdb\Model\Movie;
 use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
- * Class RemoteId
+ * Class RemoteId.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model\Movie
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 final class RemoteId extends ValueObject
 {
@@ -43,41 +44,26 @@ final class RemoteId extends ValueObject
         $this->url = $this->stringOrNull('url');
     }
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @return int|null
-     */
     public function getSourceId(): ?int
     {
         return $this->sourceId;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSourceName(): ?string
     {
         return $this->sourceName;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSourceUrl(): ?string
     {
         return $this->sourceUrl;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUrl(): ?string
     {
         return $this->url;

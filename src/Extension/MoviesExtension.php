@@ -15,19 +15,18 @@ use Adrenth\Thetvdb\ResponseHandler;
 use DateTimeImmutable;
 
 /**
- * Class MoviesExtension
+ * Class MoviesExtension.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Extension
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 final class MoviesExtension extends ClientExtension
 {
     /**
-     * @param int $movieId
-     * @return Movie
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      * @throws RequestFailedException
@@ -35,7 +34,7 @@ final class MoviesExtension extends ClientExtension
      */
     public function get(int $movieId): Movie
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', '/movies/' . $movieId);
+        $json = $this->client->performApiCallWithJsonResponse('get', '/movies/'.$movieId);
 
         /** @var Movie $movie */
         $movie = ResponseHandler::create($json, ResponseHandler::METHOD_MOVIE)->handle();
@@ -44,8 +43,6 @@ final class MoviesExtension extends ClientExtension
     }
 
     /**
-     * @param DateTimeImmutable $dateTime
-     * @return UpdatedMovies
      * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      * @throws RequestFailedException

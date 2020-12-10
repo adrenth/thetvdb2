@@ -7,13 +7,14 @@ namespace Adrenth\Thetvdb\Model;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 
 /**
- * Class SeriesImagesCounts
+ * Class SeriesImagesCounts.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  *
  * @method SeriesImagesCount getData()
  */
@@ -29,7 +30,7 @@ class SeriesImagesCounts extends ValueObject
         }
 
         parent::__construct([
-            'data' => new SeriesImagesCount($values['data'])
+            'data' => new SeriesImagesCount($values['data']),
         ]);
     }
 

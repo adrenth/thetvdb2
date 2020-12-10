@@ -7,44 +7,45 @@ namespace Adrenth\Thetvdb\Model;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 
 /**
- * Class Episode
+ * Class Episode.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
  *
- * @method int getId()
- * @method int getAiredSeason()
- * @method int getAiredEpisodeNumber()
+ * @see     https://github.com/adrenth/thetvdb2
+ *
+ * @method int    getId()
+ * @method int    getAiredSeason()
+ * @method int    getAiredEpisodeNumber()
  * @method string getEpisodeName()
  * @method string getFirstAired()
- * @method array getGuestStars()
+ * @method array  getGuestStars()
  * @method string getDirector()
- * @method array getWriters()
+ * @method array  getWriters()
  * @method string getOverview()
- * @method array getLanguage()
+ * @method array  getLanguage()
  * @method string getProductionCode()
  * @method string getShowUrl()
- * @method int getLastUpdated()
+ * @method int    getLastUpdated()
  * @method string getDvdDiscid()
- * @method int getDvdSeason()
- * @method int getDvdEpisodeNumber()
- * @method int getDvdChapter()
- * @method int getAbsoluteNumber()
+ * @method int    getDvdSeason()
+ * @method int    getDvdEpisodeNumber()
+ * @method int    getDvdChapter()
+ * @method int    getAbsoluteNumber()
  * @method string getFilename()
- * @method int getSeriesId()
- * @method int getLastUpdatedBy()
- * @method int getAirsAfterSeason()
- * @method int getAirsBeforeSeason()
- * @method int getAirsBeforeEpisode()
- * @method int getThumbAuthor()
+ * @method int    getSeriesId()
+ * @method int    getLastUpdatedBy()
+ * @method int    getAirsAfterSeason()
+ * @method int    getAirsBeforeSeason()
+ * @method int    getAirsBeforeEpisode()
+ * @method int    getThumbAuthor()
  * @method string getThumbAdded()
  * @method string getThumbWidth()
  * @method string getThumbHeight()
  * @method string getImdbId()
- * @method float getSiteRating()
+ * @method float  getSiteRating()
  */
 class Episode extends ValueObject
 {

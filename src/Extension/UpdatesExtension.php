@@ -14,22 +14,22 @@ use Adrenth\Thetvdb\ResponseHandler;
 use DateTime;
 
 /**
- * Class UpdatesExtension
+ * Class UpdatesExtension.
  *
  * Series that have been recently updated
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Extension
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 class UpdatesExtension extends ClientExtension
 {
     /**
-     * @param DateTime $fromTime
      * @param DateTime $toTime
-     * @return UpdateData
+     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -43,7 +43,7 @@ class UpdatesExtension extends ClientExtension
             ],
         ];
 
-        if ($toTime !== null) {
+        if (null !== $toTime) {
             $options['query']['toTime'] = $toTime->getTimestamp();
         }
 

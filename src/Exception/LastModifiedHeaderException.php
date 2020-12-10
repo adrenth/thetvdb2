@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Exception;
 
 /**
- * Class LastModifiedHeaderException
+ * Class LastModifiedHeaderException.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Exception
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 class LastModifiedHeaderException extends \InvalidArgumentException
 {
@@ -24,7 +25,6 @@ class LastModifiedHeaderException extends \InvalidArgumentException
     }
 
     /**
-     * @param string $format
      * @return static
      */
     public static function invalidFormat(string $format): LastModifiedHeaderException

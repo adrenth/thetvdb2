@@ -14,13 +14,14 @@ use Adrenth\Thetvdb\Model\Movie\Translation;
 use Symfony\Component\VarDumper\VarDumper;
 
 /**
- * Class Movie
+ * Class Movie.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Model
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 final class Movie extends ValueObject
 {
@@ -84,25 +85,16 @@ final class Movie extends ValueObject
         $this->writers = $this->getCollection('data.people.writers', Person::class);
     }
 
-    /**
-     * @return int|null
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return int|null
-     */
     public function getRuntime(): ?int
     {
         return $this->runtime;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUrl(): ?string
     {
         return $this->url;

@@ -6,128 +6,106 @@ namespace Adrenth\Thetvdb;
 
 use Adrenth\Thetvdb\Exception\RequestFailedException;
 use Adrenth\Thetvdb\Exception\UnauthorizedException;
-use Adrenth\Thetvdb\Extension;
 use GuzzleHttp\Psr7\Response;
 
 /**
- * Interface RestClientInterface
+ * Interface RestClientInterface.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 interface ClientInterface
 {
     /**
-     * Set authentication token
-     *
-     * @param string|null $token
-     * @return void
+     * Set authentication token.
      */
     public function setToken(?string $token): void;
 
     /**
-     * Set language for this Client
+     * Set language for this Client.
      *
      * @param string $language Language abbreviation. E.g. en, nl or de.
-     * @return void
      */
     public function setLanguage(string $language): void;
 
     /**
-     * Set version for this Client
+     * Set version for this Client.
      *
      * @param string $version Version in format x.y.z
-     * @return void
      */
     public function setVersion(string $version): void;
 
     /**
-     * Get authentication extension
-     *
-     * @return Extension\AuthenticationExtension
+     * Get authentication extension.
      */
     public function authentication(): Extension\AuthenticationExtension;
 
     /**
-     * Get language extension
-     *
-     * @return Extension\LanguagesExtension
+     * Get language extension.
      */
     public function languages(): Extension\LanguagesExtension;
 
     /**
-     * Get episodes extension
-     *
-     * @return Extension\EpisodesExtension
+     * Get episodes extension.
      */
     public function episodes(): Extension\EpisodesExtension;
 
     /**
-     * Get series extension
-     *
-     * @return Extension\SeriesExtension
+     * Get series extension.
      */
     public function series(): Extension\SeriesExtension;
 
     /**
-     * Get search extension
-     *
-     * @return Extension\SearchExtension
+     * Get search extension.
      */
     public function search(): Extension\SearchExtension;
 
     /**
-     * Get updates extension
-     *
-     * @return Extension\UpdatesExtension
+     * Get updates extension.
      */
     public function updates(): Extension\UpdatesExtension;
 
     /**
-     * Get users extension
-     *
-     * @return Extension\UsersExtension
+     * Get users extension.
      */
     public function users(): Extension\UsersExtension;
 
     /**
-     * Get movies extension
-     *
-     * @return Extension\MoviesExtension
+     * Get movies extension.
      */
     public function movies(): Extension\MoviesExtension;
 
     /**
-     * Request HTTP headers
+     * Request HTTP headers.
      *
-     * @param string $method HTTP Method (post, get, put, etc.)
-     * @param string $path Path
-     * @param array $options HTTP Client options
-     * @return array
+     * @param string $method  HTTP Method (post, get, put, etc.)
+     * @param string $path    Path
+     * @param array  $options HTTP Client options
      */
     public function requestHeaders(string $method, string $path, array $options = []): array;
 
     /**
-     * Perform an API call
+     * Perform an API call.
      *
-     * @param string $method HTTP Method (post, get, put, etc.)
-     * @param string $path Path
-     * @param array $options HTTP Client options
-     * @return Response
+     * @param string $method  HTTP Method (post, get, put, etc.)
+     * @param string $path    Path
+     * @param array  $options HTTP Client options
+     *
      * @throws UnauthorizedException
      */
     public function performApiCall(string $method, string $path, array $options = []): Response;
 
     /**
-     * Perform an API call with JSON response
+     * Perform an API call with JSON response.
      *
-     * @param string $method HTTP Method (post, get, put, etc.)
-     * @param string $path Path
-     * @param array $options HTTP Client options
-     * @return string
+     * @param string $method  HTTP Method (post, get, put, etc.)
+     * @param string $path    Path
+     * @param array  $options HTTP Client options
+     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      */

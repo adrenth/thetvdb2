@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Adrenth\Thetvdb\Extension;
 
 use Adrenth\Thetvdb\ClientExtension;
@@ -11,13 +13,14 @@ use Adrenth\Thetvdb\Model\SeriesData;
 use Adrenth\Thetvdb\ResponseHandler;
 
 /**
- * Class SearchExtension
+ * Class SearchExtension.
  *
  * @category Thetvdb
- * @package  Adrenth\Thetvdb\Extension
+ *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
- * @link     https://github.com/adrenth/thetvdb2
+ *
+ * @see     https://github.com/adrenth/thetvdb2
  */
 class SearchExtension extends ClientExtension
 {
@@ -29,8 +32,6 @@ class SearchExtension extends ClientExtension
     /**
      * Search for a series based on slug.
      *
-     * @param string $slug
-     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -44,8 +45,6 @@ class SearchExtension extends ClientExtension
     /**
      * Search for a series based on name.
      *
-     * @param string $name
-     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -59,8 +58,6 @@ class SearchExtension extends ClientExtension
     /**
      * Search for a series based on IMDb ID.
      *
-     * @param string $imdbId
-     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -74,8 +71,6 @@ class SearchExtension extends ClientExtension
     /**
      * Search for a series based on ZAP2IT ID.
      *
-     * @param string $zap2itId
-     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -89,9 +84,6 @@ class SearchExtension extends ClientExtension
     /**
      * Search for a series based on parameter and value.
      *
-     * @param string $parameter
-     * @param string $value
-     * @return SeriesData
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -103,7 +95,7 @@ class SearchExtension extends ClientExtension
             'query' => [
                 $parameter => $value,
             ],
-            'http_errors' => false
+            'http_errors' => false,
         ];
 
         $json = $this->client->performApiCallWithJsonResponse('get', '/search/series', $options);
