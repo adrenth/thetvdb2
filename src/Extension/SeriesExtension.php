@@ -24,7 +24,7 @@ use Adrenth\Thetvdb\ResponseHandler;
 use DateTimeImmutable;
 
 /**
- * Information about a specific series
+ * Information about a specific series.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
@@ -33,7 +33,8 @@ use DateTimeImmutable;
  */
 class SeriesExtension extends ClientExtension
 {
-    /**     * Returns a series record that contains all information known about a particular series ID.
+    /**
+     * Returns a series record that contains all information known about a particular series ID.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -50,7 +51,8 @@ class SeriesExtension extends ClientExtension
         return $series;
     }
 
-    /**     * Returns actors for the given series ID.
+    /**
+     * Returns actors for the given series ID.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -67,7 +69,8 @@ class SeriesExtension extends ClientExtension
         return $seriesActors;
     }
 
-    /**     * All episodes for a given series. Paginated with 100 results per page.
+    /**
+     * All episodes for a given series. Paginated with 100 results per page.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -94,7 +97,8 @@ class SeriesExtension extends ClientExtension
         return $seriesEpisodes;
     }
 
-    /**     * @throws RequestFailedException
+    /**
+     * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
@@ -112,7 +116,8 @@ class SeriesExtension extends ClientExtension
         return $queryParams;
     }
 
-    /**     * @param $seriesId
+    /**
+     * @param $seriesId
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -135,7 +140,8 @@ class SeriesExtension extends ClientExtension
         return $seriesEpisodesQuery;
     }
 
-    /**     * @throws RequestFailedException
+    /**
+     * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
@@ -153,7 +159,8 @@ class SeriesExtension extends ClientExtension
         return $summary;
     }
 
-    /**     * @throws RequestFailedException
+    /**
+     * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
@@ -171,7 +178,8 @@ class SeriesExtension extends ClientExtension
         return $filterKeys;
     }
 
-    /**     * @throws RequestFailedException
+    /**
+     * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
@@ -196,7 +204,8 @@ class SeriesExtension extends ClientExtension
         return $series;
     }
 
-    /**     * @throws RequestFailedException
+    /**
+     * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
@@ -214,7 +223,8 @@ class SeriesExtension extends ClientExtension
         return $seriesImagesCounts;
     }
 
-    /**     * @throws RequestFailedException
+    /**
+     * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
      * @throws InvalidArgumentException
@@ -232,7 +242,8 @@ class SeriesExtension extends ClientExtension
         return $queryParams;
     }
 
-    /**     * E.g.: $query = [
+    /**
+     * E.g.: $query = [
      *      'keyType' => 'fanart',
      *      'resolution' => '1920x1080',
      *      'subKey' => 'graphical'
@@ -261,7 +272,8 @@ class SeriesExtension extends ClientExtension
         return $queryResults;
     }
 
-    /**     * @throws LastModifiedHeaderException
+    /**
+     * @throws LastModifiedHeaderException
      */
     public function getLastModified(int $seriesId): DateTimeImmutable
     {

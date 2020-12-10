@@ -18,7 +18,8 @@ namespace Adrenth\Thetvdb\Model;
  */
 class SeriesImagesCount extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

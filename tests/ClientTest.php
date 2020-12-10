@@ -12,13 +12,13 @@ use Adrenth\Thetvdb\Extension\SearchExtension;
 use Adrenth\Thetvdb\Extension\UpdatesExtension;
 use Adrenth\Thetvdb\Extension\UsersExtension;
 
-/**/
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Client */
     protected $client;
 
-    /**     * {@inheritdoc}
+    /**
+     * {@inheritdoc}
      */
     protected function setUp(): void
     {

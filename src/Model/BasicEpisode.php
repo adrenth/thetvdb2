@@ -23,7 +23,8 @@ namespace Adrenth\Thetvdb\Model;
  */
 class BasicEpisode extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     protected function getAttributes(): array
     {

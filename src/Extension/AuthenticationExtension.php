@@ -11,7 +11,7 @@ use Adrenth\Thetvdb\Exception\TokenNotFoundInResponseException;
 use Adrenth\Thetvdb\Exception\UnauthorizedException;
 
 /**
- * Obtaining and refreshing your JWT token
+ * Obtaining and refreshing your JWT token.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
@@ -20,7 +20,8 @@ use Adrenth\Thetvdb\Exception\UnauthorizedException;
  */
 class AuthenticationExtension extends ClientExtension
 {
-    /**     * Returns a session token to be included in the rest of the requests.
+    /**
+     * Returns a session token to be included in the rest of the requests.
      *
      * Example of usage:
      * $token = $client->authentication()->login('apikey', 'username', 'accountIdentifier');
@@ -73,7 +74,8 @@ class AuthenticationExtension extends ClientExtension
         throw CouldNotLoginException::failedWithStatusCode($response->getStatusCode());
     }
 
-    /**     * Refreshes your current, valid JWT token and returns a new token.
+    /**
+     * Refreshes your current, valid JWT token and returns a new token.
      *
      * @throws TokenNotFoundInResponseException
      * @throws RequestFailedException

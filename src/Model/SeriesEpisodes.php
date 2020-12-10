@@ -18,7 +18,8 @@ use Illuminate\Support\Collection;
  */
 class SeriesEpisodes extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -42,7 +43,8 @@ class SeriesEpisodes extends ValueObject
         ]);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

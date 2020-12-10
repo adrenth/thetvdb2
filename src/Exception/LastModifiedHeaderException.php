@@ -12,14 +12,16 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class LastModifiedHeaderException extends \InvalidArgumentException
 {
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function notFound(): LastModifiedHeaderException
     {
         return new static('Last-Modified header not found');
     }
 
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function invalidFormat(string $format): LastModifiedHeaderException
     {

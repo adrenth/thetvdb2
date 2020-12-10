@@ -14,7 +14,7 @@ use Adrenth\Thetvdb\ResponseHandler;
 use DateTime;
 
 /**
- * Series that have been recently updated
+ * Series that have been recently updated.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
@@ -23,7 +23,8 @@ use DateTime;
  */
 class UpdatesExtension extends ClientExtension
 {
-    /**     * @param DateTime $toTime
+    /**
+     * @param DateTime $toTime
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException

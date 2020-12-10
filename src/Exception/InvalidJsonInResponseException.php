@@ -12,14 +12,16 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class InvalidJsonInResponseException extends \InvalidArgumentException
 {
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function couldNotDecodeJson(): InvalidJsonInResponseException
     {
         return new static('Could not decode JSON data');
     }
 
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function incorrectDataStructure(): InvalidJsonInResponseException
     {

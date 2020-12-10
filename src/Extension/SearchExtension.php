@@ -25,7 +25,8 @@ class SearchExtension extends ClientExtension
     private const PARAMETER_ZAP2IT_ID = 'zap2itId';
     private const PARAMETER_SLUG = 'slug';
 
-    /**     * Search for a series based on slug.
+    /**
+     * Search for a series based on slug.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -37,7 +38,8 @@ class SearchExtension extends ClientExtension
         return $this->search(static::PARAMETER_SLUG, $slug);
     }
 
-    /**     * Search for a series based on name.
+    /**
+     * Search for a series based on name.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -49,7 +51,8 @@ class SearchExtension extends ClientExtension
         return $this->search(static::PARAMETER_NAME, $name);
     }
 
-    /**     * Search for a series based on IMDb ID.
+    /**
+     * Search for a series based on IMDb ID.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -61,7 +64,8 @@ class SearchExtension extends ClientExtension
         return $this->search(static::PARAMETER_IMDB_ID, $imdbId);
     }
 
-    /**     * Search for a series based on ZAP2IT ID.
+    /**
+     * Search for a series based on ZAP2IT ID.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -73,7 +77,8 @@ class SearchExtension extends ClientExtension
         return $this->search(static::PARAMETER_ZAP2IT_ID, $zap2itId);
     }
 
-    /**     * Search for a series based on parameter and value.
+    /**
+     * Search for a series based on parameter and value.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException

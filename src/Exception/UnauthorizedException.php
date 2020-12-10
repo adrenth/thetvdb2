@@ -12,7 +12,8 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class UnauthorizedException extends \Exception
 {
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function invalidToken(): UnauthorizedException
     {

@@ -12,7 +12,8 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class CouldNotAddOrUpdateUserRatingException extends \InvalidArgumentException
 {
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function reason(string $message): CouldNotAddOrUpdateUserRatingException
     {

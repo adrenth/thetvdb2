@@ -21,7 +21,8 @@ namespace Adrenth\Thetvdb\Model;
  */
 class SeriesImageQueryResult extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

@@ -17,7 +17,8 @@ namespace Adrenth\Thetvdb\Model;
  */
 class Language extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -28,7 +29,8 @@ class Language extends ValueObject
         }
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

@@ -14,7 +14,8 @@ namespace Adrenth\Thetvdb\Model;
  */
 class UserFavorites extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

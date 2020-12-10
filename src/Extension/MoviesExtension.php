@@ -22,7 +22,8 @@ use DateTimeImmutable;
  */
 final class MoviesExtension extends ClientExtension
 {
-    /**     * @throws InvalidArgumentException
+    /**
+     * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -37,7 +38,8 @@ final class MoviesExtension extends ClientExtension
         return $movie;
     }
 
-    /**     * @throws InvalidArgumentException
+    /**
+     * @throws InvalidArgumentException
      * @throws InvalidJsonInResponseException
      * @throws RequestFailedException
      * @throws UnauthorizedException
