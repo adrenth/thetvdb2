@@ -15,8 +15,6 @@ use Adrenth\Thetvdb\ResponseHandler;
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
- *
- * @see     https://github.com/adrenth/thetvdb2
  */
 class SearchExtension extends ClientExtension
 {

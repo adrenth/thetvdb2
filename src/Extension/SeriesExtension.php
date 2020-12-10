@@ -28,8 +28,6 @@ use DateTimeImmutable;
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
- *
- * @see     https://github.com/adrenth/thetvdb2
  */
 class SeriesExtension extends ClientExtension
 {

@@ -9,8 +9,6 @@ use InvalidArgumentException;
 /**
  * @author   A. Drenth <adrenth@gmail.com>
  * @license  MIT
- *
- * @see     https://github.com/adrenth/thetvdb2
  */
 class CouldNotAddFavoriteException extends InvalidArgumentException
 {

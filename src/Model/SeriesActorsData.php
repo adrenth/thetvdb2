@@ -8,8 +8,6 @@ namespace Adrenth\Thetvdb\Model;
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
- * @see     https://github.com/adrenth/thetvdb2
- *
  * @method int    getId()
  * @method int    getSeriesId()
  * @method string getName()

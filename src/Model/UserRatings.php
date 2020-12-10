@@ -8,8 +8,6 @@ namespace Adrenth\Thetvdb\Model;
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
- * @see     https://github.com/adrenth/thetvdb2
- *
  * @method string getRatingType()
  * @method int    getRatingItemId()
  * @method int    getRating()

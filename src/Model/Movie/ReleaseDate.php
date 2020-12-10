@@ -9,8 +9,6 @@ use Adrenth\Thetvdb\Model\ValueObject;
 /**
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
- *
- * @see     https://github.com/adrenth/thetvdb2
  */
 final class ReleaseDate extends ValueObject
 {
