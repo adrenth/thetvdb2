@@ -10,8 +10,6 @@ use Illuminate\Support\Arr;
 /**
  * Class Artwork.
  *
- * @category Thetvdb
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  *

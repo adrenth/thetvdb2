@@ -15,8 +15,6 @@ use Adrenth\Thetvdb\ResponseHandler;
 /**
  * Class EpisodesExtension.
  *
- * @category Thetvdb
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  *

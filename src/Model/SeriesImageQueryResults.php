@@ -10,8 +10,6 @@ use Illuminate\Support\Collection;
 /**
  * Class SeriesImageQueryResults.
  *
- * @category Thetvdb
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  *
