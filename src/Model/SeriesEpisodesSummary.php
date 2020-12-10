@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * Class SeriesEpisodesSummary.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -19,8 +17,7 @@ namespace Adrenth\Thetvdb\Model;
  */
 class SeriesEpisodesSummary extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     protected function getAttributes(): array
     {

@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Model;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 
 /**
- * Class Episode.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -47,8 +45,7 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
  */
 class Episode extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -59,8 +56,7 @@ class Episode extends ValueObject
         parent::__construct($values['data']);
     }
 
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     protected function getAttributes(): array
     {

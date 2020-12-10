@@ -8,8 +8,6 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Illuminate\Support\Collection;
 
 /**
- * Class SeriesActors.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -19,8 +17,7 @@ use Illuminate\Support\Collection;
  */
 class SeriesEpisodesQueryParams extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -33,8 +30,7 @@ class SeriesEpisodesQueryParams extends ValueObject
         ]);
     }
 
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     protected function getAttributes(): array
     {

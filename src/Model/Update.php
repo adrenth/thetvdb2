@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * Class UpdateData.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -17,8 +15,7 @@ namespace Adrenth\Thetvdb\Model;
  */
 class Update extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

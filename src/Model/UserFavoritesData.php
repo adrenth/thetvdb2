@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Model;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 
 /**
- * Class UserFavoritesData.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -18,8 +16,7 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
  */
 class UserFavoritesData extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -32,8 +29,7 @@ class UserFavoritesData extends ValueObject
         ]);
     }
 
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

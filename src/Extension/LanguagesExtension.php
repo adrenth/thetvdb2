@@ -14,8 +14,6 @@ use Adrenth\Thetvdb\Model\LanguageData;
 use Adrenth\Thetvdb\ResponseHandler;
 
 /**
- * Class LanguagesExtension.
- *
  * Available languages and information
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
@@ -25,8 +23,7 @@ use Adrenth\Thetvdb\ResponseHandler;
  */
 class LanguagesExtension extends ClientExtension
 {
-    /**
-     * Get all available languages.
+    /**     * Get all available languages.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -43,8 +40,7 @@ class LanguagesExtension extends ClientExtension
         return $languageData;
     }
 
-    /**
-     * Get information about a particular language, given the language ID.
+    /**     * Get information about a particular language, given the language ID.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException

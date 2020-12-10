@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Model\Movie;
 use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
- * Class ReleaseDate.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *

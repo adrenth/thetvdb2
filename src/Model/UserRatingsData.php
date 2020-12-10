@@ -8,8 +8,6 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Illuminate\Support\Collection;
 
 /**
- * Class UserRatingsData.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -20,8 +18,7 @@ use Illuminate\Support\Collection;
  */
 class UserRatingsData extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -45,8 +42,7 @@ class UserRatingsData extends ValueObject
         ]);
     }
 
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * Class SeriesEpisodesQuery.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *

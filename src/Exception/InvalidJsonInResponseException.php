@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Exception;
 
 /**
- * Class InvalidJsonInResponseException.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -14,16 +12,14 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class InvalidJsonInResponseException extends \InvalidArgumentException
 {
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function couldNotDecodeJson(): InvalidJsonInResponseException
     {
         return new static('Could not decode JSON data');
     }
 
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function incorrectDataStructure(): InvalidJsonInResponseException
     {

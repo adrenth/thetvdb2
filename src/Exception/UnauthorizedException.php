@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Exception;
 
 /**
- * Class UnauthorizedException.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -14,8 +12,7 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class UnauthorizedException extends \Exception
 {
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function invalidToken(): UnauthorizedException
     {

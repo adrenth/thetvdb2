@@ -13,8 +13,6 @@ use Adrenth\Thetvdb\Model\Episode;
 use Adrenth\Thetvdb\ResponseHandler;
 
 /**
- * Class EpisodesExtension.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -22,8 +20,7 @@ use Adrenth\Thetvdb\ResponseHandler;
  */
 class EpisodesExtension extends ClientExtension
 {
-    /**
-     * Returns the full information for a given episode ID.
+    /**     * Returns the full information for a given episode ID.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException

@@ -21,8 +21,6 @@ use Psr\Http\Message\ResponseInterface;
 use Throwable;
 
 /**
- * Class UsersExtension.
- *
  * For handling user data
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
@@ -43,8 +41,7 @@ class UsersExtension extends ClientExtension
         self::RATING_TYPE_BANNER,
     ];
 
-    /**
-     * Get basic information about the currently authenticated user.
+    /**     * Get basic information about the currently authenticated user.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -61,8 +58,7 @@ class UsersExtension extends ClientExtension
         return $userData;
     }
 
-    /**
-     * Get user favorites.
+    /**     * Get user favorites.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -79,8 +75,7 @@ class UsersExtension extends ClientExtension
         return $userFavoritesData;
     }
 
-    /**
-     * Remove series with $identifier from favorites.
+    /**     * Remove series with $identifier from favorites.
      *
      * @throws UnauthorizedException
      */
@@ -97,8 +92,7 @@ class UsersExtension extends ClientExtension
         return 200 === $response->getStatusCode() && 'OK' === $response->getReasonPhrase();
     }
 
-    /**
-     * Add series with $identifier to favorites.
+    /**     * Add series with $identifier to favorites.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException
@@ -132,8 +126,7 @@ class UsersExtension extends ClientExtension
         return $userFavoritesData;
     }
 
-    /**
-     * Get user ratings.
+    /**     * Get user ratings.
      *
      * @param string|null $type Use class constants UsersExtension::RATING_TYPE_*
      *
@@ -170,8 +163,7 @@ class UsersExtension extends ClientExtension
         return $userRatingsData;
     }
 
-    /**
-     * Add user rating.
+    /**     * Add user rating.
      *
      * @param int $type   Use class constants UsersExtension::RATING_TYPE_*
      * @param int $rating Value between 1 and 10
@@ -214,8 +206,7 @@ class UsersExtension extends ClientExtension
         return $userRatingsDataNoLinks;
     }
 
-    /**
-     * Update user rating.
+    /**     * Update user rating.
      *
      * @param int $type   Use class constants UsersExtension::RATING_TYPE_*
      * @param int $rating Value between 1 and 10
@@ -231,8 +222,7 @@ class UsersExtension extends ClientExtension
         return $this->addRating($type, $itemId, $rating);
     }
 
-    /**
-     * Remove user rating.
+    /**     * Remove user rating.
      *
      * @throws UnauthorizedException
      */
@@ -249,8 +239,7 @@ class UsersExtension extends ClientExtension
         return 200 === $response->getStatusCode() && 'OK' === $response->getReasonPhrase();
     }
 
-    /**
-     * Extract error message from response body.
+    /**     * Extract error message from response body.
      */
     private function getApiErrorMessage(ResponseInterface $response): string
     {

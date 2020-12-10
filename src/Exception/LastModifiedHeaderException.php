@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Exception;
 
 /**
- * Class LastModifiedHeaderException.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -14,16 +12,14 @@ namespace Adrenth\Thetvdb\Exception;
  */
 class LastModifiedHeaderException extends \InvalidArgumentException
 {
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function notFound(): LastModifiedHeaderException
     {
         return new static('Last-Modified header not found');
     }
 
-    /**
-     * @return static
+    /**     * @return static
      */
     public static function invalidFormat(string $format): LastModifiedHeaderException
     {

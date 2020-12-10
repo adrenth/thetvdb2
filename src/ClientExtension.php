@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb;
 
 /**
- * Class ClientExtension.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -14,13 +12,11 @@ namespace Adrenth\Thetvdb;
  */
 abstract class ClientExtension implements ClientExtensionInterface
 {
-    /**
-     * @var ClientInterface
+    /**     * @var ClientInterface
      */
     protected $client;
 
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     final public function __construct(ClientInterface $client)
     {

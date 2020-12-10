@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * Class Links.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -19,8 +17,7 @@ namespace Adrenth\Thetvdb\Model;
  */
 class Links extends ValueObject
 {
-    /**
-     * {@inheritDoc}
+    /**     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb;
 use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
- * Class ResponseHandlerInterface.
- *
  * @author   Alwin Drenth <adrenth@gmail.com>
  * @license  MIT
  *
@@ -16,8 +14,7 @@ use Adrenth\Thetvdb\Model\ValueObject;
  */
 interface ResponseHandlerInterface
 {
-    /**
-     * Handle the response which produces the Response value object.
+    /**     * Handle the response which produces the Response value object.
      */
     public function handle(): ValueObject;
 }
