@@ -18,7 +18,7 @@ use DateTimeImmutable;
  * Class MoviesExtension.
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
+ * @license  MIT
  *
  * @see     https://github.com/adrenth/thetvdb2
  */

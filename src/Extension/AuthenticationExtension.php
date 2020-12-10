@@ -16,7 +16,7 @@ use Adrenth\Thetvdb\Exception\UnauthorizedException;
  * Obtaining and refreshing your JWT token
  *
  * @author   Alwin Drenth <adrenth@gmail.com>
- * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
+ * @license  MIT
  *
  * @see     https://github.com/adrenth/thetvdb2
  */
