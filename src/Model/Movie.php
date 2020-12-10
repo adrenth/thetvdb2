@@ -14,7 +14,7 @@ use Adrenth\Thetvdb\Model\Movie\Translation;
 use Symfony\Component\VarDumper\VarDumper;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 final class Movie extends ValueObject
 {

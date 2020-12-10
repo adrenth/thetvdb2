@@ -9,7 +9,7 @@ use Adrenth\Thetvdb\Model\Episode;
 use Adrenth\Thetvdb\Tests\ClientTest;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 class EpisodesExtensionTest extends ClientTest
 {

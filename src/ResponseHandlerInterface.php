@@ -7,7 +7,7 @@ namespace Adrenth\Thetvdb;
 use Adrenth\Thetvdb\Model\ValueObject;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 interface ResponseHandlerInterface
 {

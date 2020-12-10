@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  *
  * @method string getRatingType()
  * @method int    getRatingItemId()

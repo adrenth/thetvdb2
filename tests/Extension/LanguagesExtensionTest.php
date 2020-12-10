@@ -11,7 +11,7 @@ use Adrenth\Thetvdb\Tests\ClientTest;
 use Illuminate\Support\Collection;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 class LanguagesExtensionTest extends ClientTest
 {

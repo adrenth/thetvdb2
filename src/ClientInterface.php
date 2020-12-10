@@ -9,8 +9,7 @@ use Adrenth\Thetvdb\Exception\UnauthorizedException;
 use GuzzleHttp\Psr7\Response;
 
 /**
- *
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 interface ClientInterface
 {

@@ -13,7 +13,7 @@ use Adrenth\Thetvdb\Model\Episode;
 use Adrenth\Thetvdb\ResponseHandler;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 class EpisodesExtension extends ClientExtension
 {
