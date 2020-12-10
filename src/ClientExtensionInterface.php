@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb;
 
 /**
- *
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 interface ClientExtensionInterface
 {

@@ -9,7 +9,7 @@ use GuzzleHttp\Psr7\Response;
 use InvalidArgumentException;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 class Client implements ClientInterface
 {

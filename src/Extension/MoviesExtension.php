@@ -15,7 +15,7 @@ use Adrenth\Thetvdb\ResponseHandler;
 use DateTimeImmutable;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 final class MoviesExtension extends ClientExtension
 {

@@ -16,7 +16,7 @@ use DateTime;
 /**
  * Series that have been recently updated.
  *
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 class UpdatesExtension extends ClientExtension
 {
