@@ -16,29 +16,35 @@ use InvalidArgumentException;
  */
 class Client implements ClientInterface
 {
-    /**     * Base URI.
+    /**
+     * Base URI.
      *
      * @var string
      */
     public const API_BASE_URI = 'https://api.thetvdb.com';
 
-    /**     * @var HttpClient
+    /**
+     * @var HttpClient
      */
     private $httpClient;
 
-    /**     * @var string
+    /**
+     * @var string
      */
     private $token;
 
-    /**     * @var string
+    /**
+     * @var string
      */
     private $language = 'en';
 
-    /**     * @var string
+    /**
+     * @var string
      */
     private $version = '3.0.0';
 
-    /**     * RestClient constructor.
+    /**
+     * RestClient constructor.
      *
      * @throws InvalidArgumentException
      */
@@ -47,84 +53,96 @@ class Client implements ClientInterface
         $this->init();
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function setToken(?string $token): void
     {
         $this->token = $token;
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function setLanguage(string $language): void
     {
         $this->language = $language;
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function setVersion(string $version): void
     {
         $this->version = $version;
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function authentication(): Extension\AuthenticationExtension
     {
         return new Extension\AuthenticationExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function languages(): Extension\LanguagesExtension
     {
         return new Extension\LanguagesExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function episodes(): Extension\EpisodesExtension
     {
         return new Extension\EpisodesExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function series(): Extension\SeriesExtension
     {
         return new Extension\SeriesExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function search(): Extension\SearchExtension
     {
         return new Extension\SearchExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function updates(): Extension\UpdatesExtension
     {
         return new Extension\UpdatesExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function users(): Extension\UsersExtension
     {
         return new Extension\UsersExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function movies(): Extension\MoviesExtension
     {
         return new Extension\MoviesExtension($this);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function requestHeaders(string $method, string $path, array $options = []): array
     {
@@ -136,7 +154,8 @@ class Client implements ClientInterface
         return $response->getHeaders();
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function performApiCallWithJsonResponse(string $method, string $path, array $options = []): string
     {
@@ -161,7 +180,8 @@ class Client implements ClientInterface
         );
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      *
      * @throws Exception\ResourceNotFoundException
      */
@@ -184,7 +204,8 @@ class Client implements ClientInterface
         return $response;
     }
 
-    /**     * Initialize Client.
+    /**
+     * Initialize Client.
      *
      * @throws InvalidArgumentException
      */

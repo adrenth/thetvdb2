@@ -14,7 +14,8 @@ use Throwable;
  */
 class ResourceNotFoundException extends InvalidArgumentException
 {
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function withPath(string $path, array $parameters = []): ResourceNotFoundException
     {

@@ -17,7 +17,8 @@ namespace Adrenth\Thetvdb\Model;
  */
 class Links extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {

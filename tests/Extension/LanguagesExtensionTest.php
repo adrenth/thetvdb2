@@ -21,7 +21,8 @@ class LanguagesExtensionTest extends ClientTest
     /** @var LanguagesExtension */
     protected $extension;
 
-    /**     * {@inheritdoc}
+    /**
+     * {@inheritdoc}
      */
     protected function setUp(): void
     {

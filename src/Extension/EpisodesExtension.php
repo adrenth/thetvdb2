@@ -20,7 +20,8 @@ use Adrenth\Thetvdb\ResponseHandler;
  */
 class EpisodesExtension extends ClientExtension
 {
-    /**     * Returns the full information for a given episode ID.
+    /**
+     * Returns the full information for a given episode ID.
      *
      * @throws RequestFailedException
      * @throws UnauthorizedException

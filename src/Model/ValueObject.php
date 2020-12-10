@@ -23,7 +23,8 @@ abstract class ValueObject
         $this->values = $values;
     }
 
-    /**     * @deprecated Will be dropped in v5.0.0.
+    /**
+     * @deprecated Will be dropped in v5.0.0.
      *
      * @throws InvalidArgumentException
      */
@@ -78,7 +79,8 @@ abstract class ValueObject
         return $collection;
     }
 
-    /**     * @deprecated Will be dropped in v5.0.0.
+    /**
+     * @deprecated Will be dropped in v5.0.0.
      */
     protected function getAttributes(): array
     {

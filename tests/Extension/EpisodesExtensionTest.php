@@ -19,7 +19,8 @@ class EpisodesExtensionTest extends ClientTest
     /** @var EpisodesExtension */
     protected $extension;
 
-    /**     * {@inheritdoc}
+    /**
+     * {@inheritdoc}
      */
     protected function setUp(): void
     {

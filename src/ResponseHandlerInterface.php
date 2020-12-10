@@ -14,7 +14,8 @@ use Adrenth\Thetvdb\Model\ValueObject;
  */
 interface ResponseHandlerInterface
 {
-    /**     * Handle the response which produces the Response value object.
+    /**
+     * Handle the response which produces the Response value object.
      */
     public function handle(): ValueObject;
 }

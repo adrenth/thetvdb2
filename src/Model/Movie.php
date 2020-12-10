@@ -96,70 +96,80 @@ final class Movie extends ValueObject
         return $this->url;
     }
 
-    /**     * @return Genre[]|array
+    /**
+     * @return Genre[]|array
      */
     public function getGenres(): array
     {
         return $this->genres;
     }
 
-    /**     * @return Translation[]|array
+    /**
+     * @return Translation[]|array
      */
     public function getTranslations(): array
     {
         return $this->translations;
     }
 
-    /**     * @return ReleaseDate[]|array
+    /**
+     * @return ReleaseDate[]|array
      */
     public function getReleaseDates(): array
     {
         return $this->releaseDates;
     }
 
-    /**     * @return Artwork[]|array
+    /**
+     * @return Artwork[]|array
      */
     public function getArtworks(): array
     {
         return $this->artworks;
     }
 
-    /**     * @return Trailer[]|array
+    /**
+     * @return Trailer[]|array
      */
     public function getTrailers(): array
     {
         return $this->trailers;
     }
 
-    /**     * @return RemoteId[]|array
+    /**
+     * @return RemoteId[]|array
      */
     public function getRemoteIds(): array
     {
         return $this->remoteIds;
     }
 
-    /**     * @return Person[]|array
+    /**
+     * @return Person[]|array
      */
     public function getActors(): array
     {
         return $this->actors;
     }
 
-    /**     * @return Person[]|array
+    /**
+     * @return Person[]|array
      */
     public function getDirectors(): array
     {
         return $this->directors;
     }
 
-    /**     * @return Person[]|array
+    /**
+     * @return Person[]|array
      */
     public function getProducers(): array
     {
         return $this->producers;
     }
 
-    /**     * @return Person[]|array
+    /**
+     * @return Person[]|array
      */
     public function getWriters(): array
     {

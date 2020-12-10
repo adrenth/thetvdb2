@@ -14,7 +14,8 @@ use InvalidArgumentException;
  */
 class CouldNotAddFavoriteException extends InvalidArgumentException
 {
-    /**     * @return static
+    /**
+     * @return static
      */
     public static function reason(string $message): CouldNotAddFavoriteException
     {

@@ -17,7 +17,8 @@ use Illuminate\Support\Collection;
  */
 class FilterKeys extends ValueObject
 {
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -34,7 +35,8 @@ class FilterKeys extends ValueObject
         ]);
     }
 
-    /**     * {@inheritDoc}
+    /**
+     * {@inheritDoc}
      */
     public function getAttributes(): array
     {
