@@ -11,8 +11,9 @@ use Adrenth\Thetvdb\Extension\LanguagesExtension;
 use Adrenth\Thetvdb\Extension\SearchExtension;
 use Adrenth\Thetvdb\Extension\UpdatesExtension;
 use Adrenth\Thetvdb\Extension\UsersExtension;
+use PHPUnit\Framework\TestCase;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     /** @var Client */
     protected $client;
