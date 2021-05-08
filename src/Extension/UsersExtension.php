@@ -23,7 +23,7 @@ use Throwable;
 /**
  * For handling user data.
  *
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 class UsersExtension extends ClientExtension
 {

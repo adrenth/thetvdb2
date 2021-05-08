@@ -7,7 +7,7 @@ namespace Adrenth\Thetvdb\Model;
 use Illuminate\Support\Arr;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 final class UpdatedMovies extends ValueObject
 {

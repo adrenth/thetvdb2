@@ -8,7 +8,7 @@ use Adrenth\Thetvdb\Model\ValueObject;
 use Illuminate\Support\Arr;
 
 /**
- * @author   Alwin Drenth <adrenth@gmail.com>
+ * @author Alwin Drenth <adrenth@gmail.com>
  */
 final class Translation extends ValueObject
 {

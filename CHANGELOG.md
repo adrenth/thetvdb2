@@ -1,5 +1,9 @@
 # Changelog
 
+# 5.1.2
+
+* Remove develop dependencies (phpcs and phpunit)
+
 # 5.1.0
 
 * Add support for PHP 8.0
