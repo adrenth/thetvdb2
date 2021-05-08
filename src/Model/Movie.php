@@ -11,7 +11,6 @@ use Adrenth\Thetvdb\Model\Movie\ReleaseDate;
 use Adrenth\Thetvdb\Model\Movie\RemoteId;
 use Adrenth\Thetvdb\Model\Movie\Trailer;
 use Adrenth\Thetvdb\Model\Movie\Translation;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * @author Alwin Drenth <adrenth@gmail.com>
@@ -60,8 +59,6 @@ final class Movie extends ValueObject
     public function __construct(array $values)
     {
         parent::__construct($values);
-
-        VarDumper::dump($values);
 
         $this->id = $this->intOrNull('data.id');
         $this->runtime = $this->intOrNull('data.runtime');
