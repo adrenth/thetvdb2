@@ -1,5 +1,22 @@
 # Changelog
 
+# 5.1.2
+
+* Remove develop dependencies (phpcs and phpunit)
+
+# 5.1.0
+
+* Add support for PHP 8.0
+
+# 5.0.1
+
+* Add illuminate/support:^8.0 version constraint for Laravel 8 support
+
+# 5.0.0
+
+* Use PSR-4 for autoloading (thanks to Oskar Stark)
+* Add support for symfony/serializer:^5.1
+
 # 4.0.0
 
 * Add /movies/{id} and /movieupdates?since=... endpoint
