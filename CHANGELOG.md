@@ -1,5 +1,9 @@
 # Changelog
 
+# 5.1.3
+
+* Add support for Laravel 9
+
 # 5.1.2
 
 * Remove develop dependencies (phpcs and phpunit)
