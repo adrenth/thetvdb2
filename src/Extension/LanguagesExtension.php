@@ -15,10 +15,8 @@ use Adrenth\Thetvdb\ResponseHandler;
 
 /**
  * Available languages and information.
- *
- * @author Alwin Drenth <adrenth@gmail.com>
  */
-class LanguagesExtension extends ClientExtension
+final class LanguagesExtension extends ClientExtension
 {
     /**
      * Get all available languages.

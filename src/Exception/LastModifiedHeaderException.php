@@ -4,25 +4,18 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Exception;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
-class LastModifiedHeaderException extends \InvalidArgumentException
+use RuntimeException;
+
+final class LastModifiedHeaderException extends RuntimeException implements TheTvdbException
 {
-    /**
-     * @return static
-     */
-    public static function notFound(): LastModifiedHeaderException
+    public static function notFound(): self
     {
-        return new static('Last-Modified header not found');
+        return new self('Last-Modified header not found.');
     }
 
-    /**
-     * @return static
-     */
-    public static function invalidFormat(string $format): LastModifiedHeaderException
+    public static function invalidFormat(string $format): self
     {
-        return new static(sprintf(
+        return new self(sprintf(
             'Last-Modified header contains invalid format: %s',
             $format
         ));

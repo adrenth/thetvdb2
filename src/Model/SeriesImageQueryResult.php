@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * @author Alwin Drenth <adrenth@gmail.com>
- *
  * @method int    getId()
  * @method string getKeyType()
  * @method string getSubKey()
@@ -18,9 +16,6 @@ namespace Adrenth\Thetvdb\Model;
  */
 class SeriesImageQueryResult extends ValueObject
 {
-    /**
-     * {@inheritDoc}
-     */
     public function getAttributes(): array
     {
         return [

@@ -7,10 +7,8 @@ namespace Adrenth\Thetvdb;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Psr7\Response;
 use InvalidArgumentException;
+use RuntimeException;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 class Client implements ClientInterface
 {
     /**
@@ -20,25 +18,10 @@ class Client implements ClientInterface
      */
     public const API_BASE_URI = 'https://api.thetvdb.com';
 
-    /**
-     * @var HttpClient
-     */
-    private $httpClient;
-
-    /**
-     * @var string
-     */
-    private $token;
-
-    /**
-     * @var string
-     */
-    private $language = 'en';
-
-    /**
-     * @var string
-     */
-    private $version = '3.0.0';
+    private HttpClient $httpClient;
+    private ?string $token = null;
+    private string $language = 'en';
+    private string $version = '3.0.0';
 
     /**
      * @throws InvalidArgumentException
@@ -48,97 +31,61 @@ class Client implements ClientInterface
         $this->init();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function setToken(?string $token): void
     {
         $this->token = $token;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function setLanguage(string $language): void
     {
         $this->language = $language;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function setVersion(string $version): void
     {
         $this->version = $version;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function authentication(): Extension\AuthenticationExtension
     {
         return new Extension\AuthenticationExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function languages(): Extension\LanguagesExtension
     {
         return new Extension\LanguagesExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function episodes(): Extension\EpisodesExtension
     {
         return new Extension\EpisodesExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function series(): Extension\SeriesExtension
     {
         return new Extension\SeriesExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function search(): Extension\SearchExtension
     {
         return new Extension\SearchExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function updates(): Extension\UpdatesExtension
     {
         return new Extension\UpdatesExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function users(): Extension\UsersExtension
     {
         return new Extension\UsersExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function movies(): Extension\MoviesExtension
     {
         return new Extension\MoviesExtension($this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function requestHeaders(string $method, string $path, array $options = []): array
     {
         $options = $this->getDefaultHttpClientOptions($options);
@@ -149,17 +96,14 @@ class Client implements ClientInterface
         return $response->getHeaders();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function performApiCallWithJsonResponse(string $method, string $path, array $options = []): string
     {
         $response = $this->performApiCall($method, $path, $options);
 
-        if (200 === $response->getStatusCode()) {
+        if ($response->getStatusCode() === 200) {
             try {
                 $contents = $response->getBody()->getContents();
-            } catch (\RuntimeException $e) {
+            } catch (RuntimeException $exception) {
                 $contents = '';
             }
 
@@ -176,9 +120,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritDoc}
-     *
-     * @throws Exception\ResourceNotFoundException
+     * @throws Exception\ResourceNotFoundException|Exception\UnauthorizedException
      */
     public function performApiCall(string $method, string $path, array $options = []): Response
     {
@@ -187,11 +129,11 @@ class Client implements ClientInterface
         /** @var Response $response */
         $response = $this->httpClient->{$method}($path, $options);
 
-        if (401 === $response->getStatusCode()) {
+        if ($response->getStatusCode() === 401) {
             throw Exception\UnauthorizedException::invalidToken();
         }
 
-        if (404 === $response->getStatusCode()) {
+        if ($response->getStatusCode() === 404) {
             $parameters = array_key_exists('query', $options) ? $options['query'] : [];
             throw Exception\ResourceNotFoundException::withPath($path, $parameters);
         }
@@ -220,23 +162,15 @@ class Client implements ClientInterface
     {
         $headers = [];
 
-        if (null !== $this->token) {
-            $headers['Authorization'] = 'Bearer '.$this->token;
+        if ($this->token !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->token;
         }
 
-        if (null !== $this->language) {
-            $headers['Accept-Language'] = $this->language;
-        }
+        $headers['Accept-Language'] = $this->language;
+        $headers['Accept'] = 'application/vnd.thetvdb.v' . $this->version;
 
-        if (null !== $this->version) {
-            $headers['Accept'] = 'application/vnd.thetvdb.v'.$this->version;
-        }
-
-        return array_merge_recursive(
-            [
-                'headers' => $headers,
-            ],
-            $options
-        );
+        return array_merge_recursive([
+            'headers' => $headers,
+        ], $options);
     }
 }

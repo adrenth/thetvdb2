@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * @author Alwin Drenth <adrenth@gmail.com>
- *
  * @method int    getId()
  * @method int    getAbsoluteNumber()
  * @method int    getAiredEpisodeNumber()
@@ -20,9 +18,6 @@ namespace Adrenth\Thetvdb\Model;
  */
 class BasicEpisode extends ValueObject
 {
-    /**
-     * {@inheritDoc}
-     */
     protected function getAttributes(): array
     {
         return [

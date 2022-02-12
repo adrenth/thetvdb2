@@ -7,13 +7,9 @@ namespace Adrenth\Thetvdb\Model;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Illuminate\Support\Arr;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 abstract class ValueObject
 {
-    /** @var array */
-    protected $values;
+    protected array $values;
 
     public function __construct(array $values)
     {
@@ -21,14 +17,15 @@ abstract class ValueObject
     }
 
     /**
-     * @deprecated Will be dropped in v5.0.0.
+     * @return mixed
      *
      * @throws InvalidArgumentException
+     * @deprecated
      */
     final public function __call(string $name, array $arguments = [])
     {
         $attributes = array_flip($this->getAttributes());
-        $attribute = strtolower(substr($name, 3, 1)).substr($name, 4);
+        $attribute = strtolower($name[3] ?? '') . substr($name, 4);
 
         if (!array_key_exists($attribute, $attributes)) {
             throw InvalidArgumentException::undefinedAttribute($attribute, get_class($this));
@@ -57,7 +54,7 @@ abstract class ValueObject
         $value = Arr::get($this->values, $key);
 
         if (is_string($value)) {
-            return '' !== $value ? $value : null;
+            return $value !== '' ? $value : null;
         }
 
         return null;
@@ -67,7 +64,7 @@ abstract class ValueObject
     {
         $collection = [];
 
-        $items = Arr::get($this->values, $key, []);
+        $items = (array) Arr::get($this->values, $key, []);
 
         foreach ($items as $item) {
             $collection[] = new $class($item);
@@ -77,7 +74,7 @@ abstract class ValueObject
     }
 
     /**
-     * @deprecated Will be dropped in v5.0.0.
+     * @deprecated
      */
     protected function getAttributes(): array
     {

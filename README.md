@@ -28,7 +28,7 @@ $ composer require adrenth/thetvdb2
 
 ## Requirements
 
-At least PHP 7.1
+At least PHP 7.4
 
 ## Documentation
 

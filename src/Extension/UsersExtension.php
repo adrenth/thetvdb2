@@ -22,17 +22,14 @@ use Throwable;
 
 /**
  * For handling user data.
- *
- * @author Alwin Drenth <adrenth@gmail.com>
  */
-class UsersExtension extends ClientExtension
+final class UsersExtension extends ClientExtension
 {
     private const RATING_TYPE_SERIES = 'series';
     private const RATING_TYPE_EPISODE = 'episode';
     private const RATING_TYPE_BANNER = 'banner';
 
-    /** @var array */
-    private static $ratingTypes = [
+    private static array $ratingTypes = [
         self::RATING_TYPE_SERIES,
         self::RATING_TYPE_EPISODE,
         self::RATING_TYPE_BANNER,
@@ -89,7 +86,7 @@ class UsersExtension extends ClientExtension
             ]
         );
 
-        return 200 === $response->getStatusCode() && 'OK' === $response->getReasonPhrase();
+        return $response->getStatusCode() === 200 && $response->getReasonPhrase() === 'OK';
     }
 
     /**
@@ -114,7 +111,7 @@ class UsersExtension extends ClientExtension
         } catch (ClientException $e) {
             $message = $this->getApiErrorMessage($e->getResponse());
 
-            if ('' !== $message) {
+            if ($message !== '') {
                 throw CouldNotAddFavoriteException::reason($message);
             }
 
@@ -139,13 +136,13 @@ class UsersExtension extends ClientExtension
      */
     public function getRatings(string $type = null): UserRatingsData
     {
-        if (null !== $type && !in_array($type, self::$ratingTypes, true)) {
+        if ($type !== null && !in_array($type, self::$ratingTypes, true)) {
             throw new InvalidArgumentException(
                 'Invalid rating type, use one of these instead: '.implode(',', self::$ratingTypes)
             );
         }
 
-        if (null !== $type) {
+        if ($type !== null) {
             $json = $this->client->performApiCallWithJsonResponse(
                 'get',
                 '/user/ratings/query',
@@ -196,7 +193,7 @@ class UsersExtension extends ClientExtension
         } catch (ClientException $e) {
             $message = $this->getApiErrorMessage($e->getResponse());
 
-            if ('' !== $message) {
+            if ($message !== '') {
                 throw CouldNotAddOrUpdateUserRatingException::reason($message);
             }
 
@@ -241,7 +238,7 @@ class UsersExtension extends ClientExtension
             ]
         );
 
-        return 200 === $response->getStatusCode() && 'OK' === $response->getReasonPhrase();
+        return $response->getStatusCode() === 200 && $response->getReasonPhrase() === 'OK';
     }
 
     /**
@@ -250,18 +247,15 @@ class UsersExtension extends ClientExtension
     private function getApiErrorMessage(ResponseInterface $response): string
     {
         try {
-            $body = $response->getBody()->getContents();
-        } catch (Throwable $re) {
+            $body = json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
+        } catch (Throwable $throwable) {
             return '';
         }
 
-        if (false !== strpos($body, '"Error"')
-            && ($body = json_decode($body, true))
-            && array_key_exists('Error', $body)
-        ) {
-            return $body['Error'];
+        if (!is_array($body)) {
+            return '';
         }
 
-        return '';
+        return $body['Error'] ?? '';
     }
 }

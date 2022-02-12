@@ -6,25 +6,13 @@ namespace Adrenth\Thetvdb\Model\Movie;
 
 use Adrenth\Thetvdb\Model\ValueObject;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class RemoteId extends ValueObject
 {
-    /** @var string|null */
-    private $id;
-
-    /** @var int|null */
-    private $sourceId;
-
-    /** @var string|null */
-    private $sourceName;
-
-    /** @var string|null */
-    private $sourceUrl;
-
-    /** @var string|null */
-    private $url;
+    private ?string $id;
+    private ?int $sourceId;
+    private ?string $sourceName;
+    private ?string $sourceUrl;
+    private ?string $url;
 
     public function __construct(array $values)
     {

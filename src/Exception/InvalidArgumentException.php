@@ -4,53 +4,39 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Exception;
 
-/**
- * @author   A. Drenth <adrenth@gmail.com>
- * @license  MIT
- */
-class InvalidArgumentException extends \InvalidArgumentException
+use InvalidArgumentException as InvalidArgumentExceptionBase;
+
+final class InvalidArgumentException extends InvalidArgumentExceptionBase implements TheTvdbException
 {
-    /**
-     * @return static
-     */
-    public static function expectedIndex(string $index): InvalidArgumentException
+    public static function expectedIndex(string $index): self
     {
-        return new static(sprintf(
+        return new self(sprintf(
             'Expected index %s not found',
             $index
         ));
     }
 
-    /**
-     * @return static
-     */
-    public static function undefinedAttribute(string $attribute, string $class): InvalidArgumentException
+    public static function undefinedAttribute(string $attribute, string $class): self
     {
-        return new static(sprintf(
+        return new self(sprintf(
             'Undefined attribute %s in class %s',
             $attribute,
             $class
         ));
     }
 
-    /**
-     * @return static
-     */
-    public static function noValueForAttribute(string $attribute, string $class): InvalidArgumentException
+    public static function noValueForAttribute(string $attribute, string $class): self
     {
-        return new static(sprintf(
+        return new self(sprintf(
             'No value for attribute %s found in class %s',
             $attribute,
             $class
         ));
     }
 
-    /**
-     * @return static
-     */
-    public static function invalidMethod(string $method, array $availableMethods): InvalidArgumentException
+    public static function invalidMethod(string $method, array $availableMethods): self
     {
-        return new static(sprintf(
+        return new self(sprintf(
             'Invalid method %s, use one of these instead: %s',
             $method,
             implode(', ', $availableMethods)

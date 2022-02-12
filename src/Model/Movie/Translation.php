@@ -7,40 +7,28 @@ namespace Adrenth\Thetvdb\Model\Movie;
 use Adrenth\Thetvdb\Model\ValueObject;
 use Illuminate\Support\Arr;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class Translation extends ValueObject
 {
-    /** @var bool */
-    private $isPrimary;
-
-    /** @var string|null */
-    private $languageCode;
-
-    /** @var string|null */
-    private $name;
-
-    /** @var string|null */
-    private $overview;
-
-    /** @var string|null */
-    private $tagLine;
+    private bool $primary;
+    private ?string $languageCode;
+    private ?string $name;
+    private ?string $overview;
+    private ?string $tagLine;
 
     public function __construct(array $values)
     {
         parent::__construct($values);
 
-        $this->isPrimary = (bool) Arr::get($this->values, 'is_primary', false);
+        $this->primary = (bool) Arr::get($this->values, 'is_primary', false);
         $this->languageCode = $this->stringOrNull('language_code');
         $this->name = $this->stringOrNull('name');
         $this->overview = $this->stringOrNull('overview');
         $this->tagLine = $this->stringOrNull('tagline');
     }
 
-    public function isPrimary(): bool
+    public function primary(): bool
     {
-        return $this->isPrimary;
+        return $this->primary;
     }
 
     public function getLanguageCode(): ?string

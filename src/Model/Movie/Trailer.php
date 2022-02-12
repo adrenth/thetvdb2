@@ -6,16 +6,10 @@ namespace Adrenth\Thetvdb\Model\Movie;
 
 use Adrenth\Thetvdb\Model\ValueObject;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class Trailer extends ValueObject
 {
-    /** @var string|null */
-    private $name;
-
-    /** @var string|null */
-    private $url;
+    private ?string $name;
+    private ?string $url;
 
     public function __construct(array $values)
     {

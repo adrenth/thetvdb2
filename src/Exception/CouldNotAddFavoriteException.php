@@ -6,17 +6,10 @@ namespace Adrenth\Thetvdb\Exception;
 
 use InvalidArgumentException;
 
-/**
- * @author   A. Drenth <adrenth@gmail.com>
- * @license  MIT
- */
-class CouldNotAddFavoriteException extends InvalidArgumentException
+final class CouldNotAddFavoriteException extends InvalidArgumentException implements TheTvdbException
 {
-    /**
-     * @return static
-     */
     public static function reason(string $message): CouldNotAddFavoriteException
     {
-        return new static('Could not add favorite: '.$message);
+        return new self('Could not add favorite: '.$message);
     }
 }

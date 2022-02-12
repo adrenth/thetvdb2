@@ -7,34 +7,16 @@ namespace Adrenth\Thetvdb\Model\Movie;
 use Adrenth\Thetvdb\Model\ValueObject;
 use Illuminate\Support\Arr;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class Artwork extends ValueObject
 {
-    /** @var string|null */
-    private $id;
-
-    /** @var string|null */
-    private $type;
-
-    /** @var int|null */
-    private $width;
-
-    /** @var int|null */
-    private $height;
-
-    /** @var string|null */
-    private $url;
-
-    /** @var string|null */
-    private $thumbUrl;
-
-    /** @var string|null */
-    private $tags;
-
-    /** @var bool */
-    private $isPrimary;
+    private ?string $id;
+    private ?string $type;
+    private ?int $width;
+    private ?int $height;
+    private ?string $url;
+    private ?string $thumbUrl;
+    private ?string $tags;
+    private bool $primary;
 
     public function __construct(array $values)
     {
@@ -47,7 +29,7 @@ final class Artwork extends ValueObject
         $this->url = $this->stringOrNull('url');
         $this->thumbUrl = $this->stringOrNull('thumb_url');
         $this->tags = $this->stringOrNull('tags');
-        $this->isPrimary = (bool) Arr::get($this->values, 'is_primary', false);
+        $this->primary = (bool) Arr::get($this->values, 'is_primary', false);
     }
 
     public function getId(): ?string
@@ -87,6 +69,14 @@ final class Artwork extends ValueObject
 
     public function isPrimary(): bool
     {
-        return $this->isPrimary;
+        return $this->primary;
+    }
+
+    /**
+     * @deprecated Will be removed in v7.0.0
+     */
+    public function primary(): bool
+    {
+        return $this->primary;
     }
 }

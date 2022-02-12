@@ -12,10 +12,7 @@ use Adrenth\Thetvdb\Exception\UnauthorizedException;
 use Adrenth\Thetvdb\Model\Episode;
 use Adrenth\Thetvdb\ResponseHandler;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
-class EpisodesExtension extends ClientExtension
+final class EpisodesExtension extends ClientExtension
 {
     /**
      * Returns the full information for a given episode ID.

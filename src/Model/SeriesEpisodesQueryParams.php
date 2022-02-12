@@ -8,8 +8,6 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 use Illuminate\Support\Collection;
 
 /**
- * @author Alwin Drenth <adrenth@gmail.com>
- *
  * @method Collection getData()
  */
 class SeriesEpisodesQueryParams extends ValueObject

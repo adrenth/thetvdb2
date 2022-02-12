@@ -7,8 +7,6 @@ namespace Adrenth\Thetvdb\Model;
 use Adrenth\Thetvdb\Exception\InvalidArgumentException;
 
 /**
- * @author Alwin Drenth <adrenth@gmail.com>
- *
  * @method int    getId()
  * @method string getSeriesName()
  * @method string getSeason()
@@ -36,9 +34,6 @@ use Adrenth\Thetvdb\Exception\InvalidArgumentException;
  */
 class Series extends ValueObject
 {
-    /**
-     * {@inheritDoc}
-     */
     public function __construct(array $values)
     {
         if (!array_key_exists('data', $values)) {
@@ -48,9 +43,6 @@ class Series extends ValueObject
         parent::__construct($values['data']);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getAttributes(): array
     {
         return [

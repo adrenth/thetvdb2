@@ -6,19 +6,11 @@ namespace Adrenth\Thetvdb\Model\Movie;
 
 use Adrenth\Thetvdb\Model\ValueObject;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class Genre extends ValueObject
 {
-    /** @var int|null */
-    private $id;
-
-    /** @var string|null */
-    private $name;
-
-    /** @var string|null */
-    private $url;
+    private ?int $id;
+    private ?string $name;
+    private ?string $url;
 
     public function __construct(array $values)
     {

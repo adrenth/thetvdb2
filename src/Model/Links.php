@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Adrenth\Thetvdb\Model;
 
 /**
- * @author Alwin Drenth <adrenth@gmail.com>
- *
  * @method int getFirst()
  * @method int getLast()
  * @method int getNext()
@@ -14,9 +12,6 @@ namespace Adrenth\Thetvdb\Model;
  */
 class Links extends ValueObject
 {
-    /**
-     * {@inheritDoc}
-     */
     public function getAttributes(): array
     {
         return [

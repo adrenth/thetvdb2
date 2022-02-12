@@ -7,43 +7,19 @@ namespace Adrenth\Thetvdb\Model\Movie;
 use Adrenth\Thetvdb\Model\ValueObject;
 use Illuminate\Support\Arr;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class Person extends ValueObject
 {
-    /** @var string|null */
-    private $id;
-
-    /** @var string|null */
-    private $imdbId;
-
-    /** @var string|null */
-    private $peopleId;
-
-    /** @var string|null */
-    private $isFeatured;
-
-    /** @var string|null */
-    private $name;
-
-    /** @var string|null */
-    private $facebook;
-
-    /** @var string|null */
-    private $image;
-
-    /** @var string|null */
-    private $instagram;
-
-    /** @var string|null */
-    private $twitter;
-
-    /** @var string|null */
-    private $role;
-
-    /** @var string|null */
-    private $roleImage;
+    private ?string $id;
+    private ?string $imdbId;
+    private ?string $peopleId;
+    private bool $featured;
+    private ?string $name;
+    private ?string $facebook;
+    private ?string $image;
+    private ?string $instagram;
+    private ?string $twitter;
+    private ?string $role;
+    private ?string $roleImage;
 
     public function __construct(array $values)
     {
@@ -52,14 +28,14 @@ final class Person extends ValueObject
         $this->id = $this->stringOrNull('id');
         $this->imdbId = $this->stringOrNull('imdb_id');
         $this->peopleId = $this->stringOrNull('people_id');
-        $this->isFeatured = (bool) Arr::get($this->values, 'is_featured', false);
+        $this->featured = (bool) Arr::get($this->values, 'is_featured', false);
         $this->name = $this->stringOrNull('name');
         $this->facebook = $this->stringOrNull('people_facebook');
         $this->image = $this->stringOrNull('people_image');
         $this->instagram = $this->stringOrNull('people_instagram');
         $this->twitter = $this->stringOrNull('people_twitter');
         $this->role = $this->stringOrNull('role');
-        $this->image = $this->stringOrNull('role_image');
+        $this->roleImage = $this->stringOrNull('role_image');
     }
 
     public function getId(): ?string
@@ -77,9 +53,9 @@ final class Person extends ValueObject
         return $this->peopleId;
     }
 
-    public function getIsFeatured(): ?string
+    public function featured(): bool
     {
-        return $this->isFeatured;
+        return $this->featured;
     }
 
     public function getName(): ?string
@@ -115,5 +91,13 @@ final class Person extends ValueObject
     public function getRoleImage(): ?string
     {
         return $this->roleImage;
+    }
+
+    /**
+     * @deprecated Will be removed in v7.0.0
+     */
+    public function getFeatured(): bool
+    {
+        return $this->featured;
     }
 }
