@@ -4,26 +4,20 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Exception;
 
-use Throwable;
+use JsonException;
+use RuntimeException;
 
-/**
- * @author   A. Drenth <adrenth@gmail.com>
- * @license  MIT
- */
-class ResourceNotFoundException extends InvalidArgumentException
+final class ResourceNotFoundException extends RuntimeException implements TheTvdbException
 {
-    /**
-     * @return static
-     */
-    public static function withPath(string $path, array $parameters = []): ResourceNotFoundException
+    public static function withPath(string $path, array $parameters = []): self
     {
         try {
-            $queryString = \GuzzleHttp\json_encode($parameters);
-        } catch (Throwable $e) {
+            $queryString = json_encode($parameters, JSON_THROW_ON_ERROR);
+        } catch (JsonException $throwable) {
             $queryString = 'empty';
         }
 
-        return new static(sprintf(
+        return new self(sprintf(
             'Resource not found at path: %s [parameters: %s]',
             $path,
             $queryString

@@ -14,9 +14,6 @@ use Adrenth\Thetvdb\Model\UpdatedMovies;
 use Adrenth\Thetvdb\ResponseHandler;
 use DateTimeImmutable;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class MoviesExtension extends ClientExtension
 {
     /**
@@ -27,7 +24,7 @@ final class MoviesExtension extends ClientExtension
      */
     public function get(int $movieId): Movie
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', '/movies/'.$movieId);
+        $json = $this->client->performApiCallWithJsonResponse('get', '/movies/' . $movieId);
 
         /** @var Movie $movie */
         $movie = ResponseHandler::create($json, ResponseHandler::METHOD_MOVIE)->handle();

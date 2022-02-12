@@ -15,14 +15,10 @@ use DateTime;
 
 /**
  * Series that have been recently updated.
- *
- * @author Alwin Drenth <adrenth@gmail.com>
  */
-class UpdatesExtension extends ClientExtension
+final class UpdatesExtension extends ClientExtension
 {
     /**
-     * @param DateTime $toTime
-     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidArgumentException
@@ -36,7 +32,7 @@ class UpdatesExtension extends ClientExtension
             ],
         ];
 
-        if (null !== $toTime) {
+        if ($toTime !== null) {
             $options['query']['toTime'] = $toTime->getTimestamp();
         }
 

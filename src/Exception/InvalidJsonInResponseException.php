@@ -4,24 +4,17 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Exception;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
-class InvalidJsonInResponseException extends \InvalidArgumentException
+use RuntimeException;
+
+final class InvalidJsonInResponseException extends RuntimeException implements TheTvdbException
 {
-    /**
-     * @return static
-     */
-    public static function couldNotDecodeJson(): InvalidJsonInResponseException
+    public static function couldNotDecodeJson(): self
     {
-        return new static('Could not decode JSON data');
+        return new self('Could not decode JSON data');
     }
 
-    /**
-     * @return static
-     */
-    public static function incorrectDataStructure(): InvalidJsonInResponseException
+    public static function incorrectDataStructure(): self
     {
-        return new static('Incorrect data structure');
+        return new self('Incorrect data structure');
     }
 }

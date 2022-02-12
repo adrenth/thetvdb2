@@ -12,10 +12,7 @@ use Adrenth\Thetvdb\Exception\UnauthorizedException;
 use Adrenth\Thetvdb\Model\SeriesData;
 use Adrenth\Thetvdb\ResponseHandler;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
-class SearchExtension extends ClientExtension
+final class SearchExtension extends ClientExtension
 {
     private const PARAMETER_NAME = 'name';
     private const PARAMETER_IMDB_ID = 'imdbId';
@@ -32,7 +29,7 @@ class SearchExtension extends ClientExtension
      */
     public function seriesBySlug(string $slug): SeriesData
     {
-        return $this->search(static::PARAMETER_SLUG, $slug);
+        return $this->search(self::PARAMETER_SLUG, $slug);
     }
 
     /**
@@ -45,7 +42,7 @@ class SearchExtension extends ClientExtension
      */
     public function seriesByName(string $name): SeriesData
     {
-        return $this->search(static::PARAMETER_NAME, $name);
+        return $this->search(self::PARAMETER_NAME, $name);
     }
 
     /**
@@ -58,7 +55,7 @@ class SearchExtension extends ClientExtension
      */
     public function seriesByImdbId(string $imdbId): SeriesData
     {
-        return $this->search(static::PARAMETER_IMDB_ID, $imdbId);
+        return $this->search(self::PARAMETER_IMDB_ID, $imdbId);
     }
 
     /**
@@ -71,7 +68,7 @@ class SearchExtension extends ClientExtension
      */
     public function seriesByZap2itId(string $zap2itId): SeriesData
     {
-        return $this->search(static::PARAMETER_ZAP2IT_ID, $zap2itId);
+        return $this->search(self::PARAMETER_ZAP2IT_ID, $zap2itId);
     }
 
     /**

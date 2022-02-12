@@ -1,8 +1,14 @@
 # Changelog
 
+# 6.0.0
+
+* Update minimum PHP requirement to PHP 7.4
+* Extension classes are now final
+* All exceptions now implement one distinguishable interface (TheTvdbException)
+
 # 5.1.3
 
-* Add support for Laravel 9
+* Add illuminate/support:^9.0 version constraint for Laravel 9 support
 
 # 5.1.2
 

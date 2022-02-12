@@ -12,49 +12,41 @@ use Adrenth\Thetvdb\Model\Movie\RemoteId;
 use Adrenth\Thetvdb\Model\Movie\Trailer;
 use Adrenth\Thetvdb\Model\Movie\Translation;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class Movie extends ValueObject
 {
-    /** @var int|null */
-    private $id;
-
-    /** @var int|null */
-    private $runtime;
-
-    /** @var string|null */
-    private $url;
+    private ?int $id;
+    private ?int $runtime;
+    private ?string $url;
 
     /** @var Genre[] */
-    private $genres;
+    private array $genres;
 
     /** @var Translation[] */
-    private $translations;
+    private array $translations;
 
     /** @var ReleaseDate[] */
-    private $releaseDates;
+    private array $releaseDates;
 
     /** @var Artwork[] */
-    private $artworks;
+    private array $artworks;
 
     /** @var Trailer[] */
-    private $trailers;
+    private array $trailers;
 
     /** @var RemoteId[] */
-    private $remoteIds;
+    private array $remoteIds;
 
     /** @var Person[] */
-    private $actors;
+    private array $actors;
 
     /** @var Person[] */
-    private $directors;
+    private array $directors;
 
     /** @var Person[] */
-    private $producers;
+    private array $producers;
 
     /** @var Person[] */
-    private $writers;
+    private array $writers;
 
     public function __construct(array $values)
     {

@@ -8,9 +8,6 @@ use Adrenth\Thetvdb\Exception\RequestFailedException;
 use Adrenth\Thetvdb\Exception\UnauthorizedException;
 use GuzzleHttp\Psr7\Response;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 interface ClientInterface
 {
     /**

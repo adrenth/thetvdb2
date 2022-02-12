@@ -25,10 +25,8 @@ use DateTimeImmutable;
 
 /**
  * Information about a specific series.
- *
- * @author Alwin Drenth <adrenth@gmail.com>
  */
-class SeriesExtension extends ClientExtension
+final class SeriesExtension extends ClientExtension
 {
     /**
      * Returns a series record that contains all information known about a particular series ID.
@@ -40,7 +38,7 @@ class SeriesExtension extends ClientExtension
      */
     public function get(int $seriesId): Series
     {
-        $json = $this->client->performApiCallWithJsonResponse('get', '/series/'.$seriesId);
+        $json = $this->client->performApiCallWithJsonResponse('get', '/series/' . $seriesId);
 
         /** @var Series $series */
         $series = ResponseHandler::create($json, ResponseHandler::METHOD_SERIES)->handle();
@@ -78,7 +76,7 @@ class SeriesExtension extends ClientExtension
     {
         $options = [
             'query' => [
-                'page' => null === $page ? 1 : (int) $page,
+                'page' => $page ?? 1,
             ],
         ];
 
@@ -114,8 +112,6 @@ class SeriesExtension extends ClientExtension
     }
 
     /**
-     * @param $seriesId
-     *
      * @throws RequestFailedException
      * @throws UnauthorizedException
      * @throws InvalidJsonInResponseException
@@ -283,7 +279,7 @@ class SeriesExtension extends ClientExtension
                 $headers['Last-Modified'][0]
             );
 
-            if (false === $lastModified) {
+            if ($lastModified === false) {
                 throw LastModifiedHeaderException::invalidFormat($headers['Last-Modified'][0]);
             }
 

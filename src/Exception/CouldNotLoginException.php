@@ -4,41 +4,32 @@ declare(strict_types=1);
 
 namespace Adrenth\Thetvdb\Exception;
 
-/**
- * @author   A. Drenth <adrenth@gmail.com>
- * @license  MIT
- */
-class CouldNotLoginException extends \InvalidArgumentException
+use RuntimeException;
+
+final class CouldNotLoginException extends RuntimeException implements TheTvdbException
 {
-    /**
-     * @return static
-     */
-    public static function unauthorized(): CouldNotLoginException
+    public static function unauthorized(): self
     {
-        return new static('Not Authorized. Please check your API key and credentials.');
+        return new self('Not Authorized. Please check your API key and credentials.');
     }
 
-    /**
-     * @return static
-     */
-    public static function failedWithStatusCode(int $statusCode): CouldNotLoginException
+    public static function failedWithStatusCode(int $statusCode): self
     {
-        return new static(sprintf('Login failed: Got status code %d from API', $statusCode));
+        return new self(sprintf('Login failed: Got status code %d from API', $statusCode));
     }
 
-    /**
-     * @return static
-     */
-    public static function noTokenInResponse(): CouldNotLoginException
+    public static function noTokenInResponse(): self
     {
-        return new static('Login failed: Invalid response from server, no token found.');
+        return new self('Login failed: Invalid response from server, no token found.');
     }
 
-    /**
-     * @return static
-     */
-    public static function invalidContents(string $message): CouldNotLoginException
+    public static function invalidContents(string $message): self
     {
-        return new static('Login failed: Could not read response contents: '.$message);
+        return new self('Login failed: Could not read response contents: ' . $message);
+    }
+
+    public static function withReason(string $message): self
+    {
+        return new self('Login failed: ' . $message);
     }
 }

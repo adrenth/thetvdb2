@@ -6,19 +6,11 @@ namespace Adrenth\Thetvdb\Model\Movie;
 
 use Adrenth\Thetvdb\Model\ValueObject;
 
-/**
- * @author Alwin Drenth <adrenth@gmail.com>
- */
 final class ReleaseDate extends ValueObject
 {
-    /** @var string|null */
-    private $country;
-
-    /** @var string|null */
-    private $date;
-
-    /** @var string|null */
-    private $type;
+    private ?string $country;
+    private ?string $date;
+    private ?string $type;
 
     public function __construct(array $values)
     {
