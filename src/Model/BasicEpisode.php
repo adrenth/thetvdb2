@@ -9,6 +9,7 @@ namespace Adrenth\Thetvdb\Model;
  * @method int    getAbsoluteNumber()
  * @method int    getAiredEpisodeNumber()
  * @method int    getAiredSeason()
+ * @method int    getAiredSeasonID()
  * @method int    getDvdEpisodeNumber()
  * @method int    getDvdSeason()
  * @method string getEpisodeName()
@@ -25,6 +26,7 @@ class BasicEpisode extends ValueObject
             'absoluteNumber',
             'airedEpisodeNumber',
             'airedSeason',
+            'airedSeasonID',
             'dvdEpisodeNumber',
             'dvdSeason',
             'episodeName',
